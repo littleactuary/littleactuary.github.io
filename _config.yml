@@ -37,18 +37,18 @@ owner:
   avatar: bio-photo.jpg
   email: duc.hien.vu@ensae.fr
   disqus-shortname:
-  twitter: #duc_hien
-  facebook: #dvu
+  twitter: #duc_hien_vu
+  facebook: #dvuhien
   github: #littleactuary
-  stackexchange: #http://stackoverflow.com/users/123456/username
-  linkedin: #dvu
+  stackexchange:
+  linkedin: #duc-hien-vu-50b20627
   instagram: #vuduchien
-  flickr: #username
-  tumblr: #username
-  pinterest: #username
-  weibo: #userid
+  flickr:
+  tumblr:
+  pinterest:
+  weibo:
   google:
-    plus: #username
+    plus: duchienvu91
     analytics:
     verify:
     ad-client:
