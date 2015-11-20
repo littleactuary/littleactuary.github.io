@@ -32,7 +32,59 @@ One day, I heard about **Wordpress**, a CMS written in PHP and MySQL. I found ou
 
 For my personal blog, I've chosen **Jekyll**, a simple, blog-aware, static site generator written in Ruby. Don't panic. You don't need to know about Ruby to blog with Jekyll (I don't know Ruby yet). However, the way Jekyll works is quite different from Wordpress. If you are a fan of Wordpress and want to change to Jekyll, it is not trivial at the first time. Jekyll is easy, but you have to use your terminal console to work with Jekyll. It took me a while to get familiar with this. Instead of using databases, Jekyll takes the content (plain text format such as Markdown), combine with template to produce a static website ready to be served. There is no more databases. You write your posts with Markdown and Jekyll will take care of other things. Another cool thing about Jekyll is that it happens to be the engine behind GitHub pages. Thus, you can use GitHub to host your Jekyll site for free. Awesome isn't it?
 
-If you want to learn Jekyll, I recommend you to start with [**Jekyll site**](http://jekyllrb.com) with a complete documentation. Some intro to Jekyll video can be found on Youtube, like [**this one**](https://www.youtube.com/watch?v=O7NBEFmA7yA). You also need to know about [**GitHub pages**](https://pages.github.com). With Jekyll, you can build your site from scratch, or simply use a ready-to-use template (as I did). Here's some [**Jekyll themes**](http://jekyllthemes.org). Finally, you learn some [**Markdown**](https://daringfireball.net/projects/markdown/) syntax to write your blog. That's all for now.         
+If you want to learn Jekyll, I recommend you to start with [**Jekyll site**](http://jekyllrb.com) with a complete documentation. Some intro to Jekyll video can be found on Youtube, like [**this one**](https://www.youtube.com/watch?v=O7NBEFmA7yA). You also need to know about [**GitHub pages**](https://pages.github.com). With Jekyll, you can build your site from scratch, or simply use a ready-to-use template (as I did). Here's some [**Jekyll themes**](http://jekyllthemes.org). Finally, you learn some [**Markdown**](https://daringfireball.net/projects/markdown/) syntax to write your blog. That's all for now.  
+
+### Ordered Lists
+
+1. Item one
+1. sub item one
+2. sub item two
+3. sub item three
+2. Item two
+
+### Unordered Lists
+
+* Item one
+* Item two
+* Item three
+
+## Tables
+
+| Header1 | Header2 | Header3 |
+|:--------|:-------:|--------:|
+| cell1   | cell2   | cell3   |
+| cell4   | cell5   | cell6   |
+|----
+| cell1   | cell2   | cell3   |
+| cell4   | cell5   | cell6   |
+|=====
+| Foot1   | Foot2   | Foot3   |
+{: .table}
+
+## Code Snippets
+
+Syntax highlighting via Pygments and Rouge
+
+{% highlight css %}
+#container {
+float: left;
+margin: 0 -240px 0 0;
+width: 100%;
+}
+{% endhighlight %}
+
+Non Pygments/Rouge code example
+
+<div id="awesome">
+<p>This is great isn't it?</p>
+</div>
+
+## Buttons
+
+Make any link standout more when applying the `.btn` class.
+
+<div markdown="0"><a href="http://mademistakes.com" class="btn">This is a button</a></div>
+
 
 
 Enjoy reading this blog :)
