@@ -13,9 +13,7 @@ image:
 
 My name's Duc-Hien. I'm from Hanoi, Vietnam. I moved to Paris in 2009 to continue my study and I've been living here since then. I hold a MSc degree in Statistics (Actuarial Science Major) at [**ENSAE ParisTech**](http://www.ensae.fr). Felow Actuary of [**French Institue of Actuaries (IA)**](http://www.institutdesactuaires.com), I'm currently working as an Actuarial Consultant. Self-taught Data Scientist, I spend my free time learning Programming (R, Python, some web programming languages).
 
-
-<a markdown="0" href="{{ site.url }}/article” class="btn">Here’s my resume</a>
-
+<div><a markdown="0" href="{{ site.url }}/article” class="btn">Here’s my resume</a></div>
 
 ## About this blog
 
@@ -44,46 +42,13 @@ If you want to learn Jekyll, I recommend you to start with [**Jekyll site**](htt
 
 ### Unordered Lists
 
-* Item one
-* Item two
+* wordpress.com hosted by Wordpress (which means you don't own you site, Worpress does, just like Google owns alll Bloggers),
+* worpress.org which is a CMS that you can host on your own server and freely add plugins to your Wordpress site. Here's an example of site I've created for **D.I.A.F. (International Diffusion of French Actuarial Science)** by using Wordpress.org: [**assodiaf.org**](http://assodiaf.org/). Worpress is wonderful. I didn't touch a line of code to build such a powerful site. But it also has limits. One of those is that you have to pay for server and domain. Another one is that it works with databases so it is somehow risky and slow. 
 * Item three
 
-## Tables
 
-| Header1 | Header2 | Header3 |
-|:--------|:-------:|--------:|
-| cell1   | cell2   | cell3   |
-| cell4   | cell5   | cell6   |
-|----
-| cell1   | cell2   | cell3   |
-| cell4   | cell5   | cell6   |
-|=====
-| Foot1   | Foot2   | Foot3   |
-{: .table}
 
-## Code Snippets
 
-Syntax highlighting via Pygments and Rouge
-
-{% highlight css %}
-#container {
-float: left;
-margin: 0 -240px 0 0;
-width: 100%;
-}
-{% endhighlight %}
-
-Non Pygments/Rouge code example
-
-<div id="awesome">
-<p>This is great isn't it?</p>
-</div>
-
-## Buttons
-
-Make any link standout more when applying the `.btn` class.
-
-<div markdown="0"><a href="http://mademistakes.com" class="btn">This is a button</a></div>
 
 
 
