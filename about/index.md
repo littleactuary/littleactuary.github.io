@@ -11,28 +11,18 @@ image:
 
 ### About Me
 
-My name's Duc-Hien. I'm from Hanoi, Vietnam. I moved in Paris in 2009 to study and I've been living here since. I hold a MSc degree in Statistics (Actuarial Science Major) at [**ENSAE ParisTech**](http://www.ensae.fr). Felow Actuary, I'm currently working as a Actuarial Consultant. I spend my free time to learn Data Science and Programming (R, Python, web technologies).
+My name's Duc-Hien. I'm from Hanoi, Vietnam. I moved to Paris in 2009 to continue my study and I've been living here since then. I hold a MSc degree in Statistics (Actuarial Science Major) at [**ENSAE ParisTech**](http://www.ensae.fr). Felow Actuary of [**French Institue of Actuaries (IA)**](http://www.institutdesactuaires.com), I'm currently working as an Actuarial Consultant. Self-taught Data Scientist, I spend my free time to learn Programming (R, Python, some web programming languages).
 
 ### About this blog
 
-I've created this blog as my personal portfolio, to store some of my projects and to share my experience in Actuarial and Data Science fields. I'm not a professional in these fields and this blog is thus not a technical ressource. Most of my posts aim to give a simple, comprenhensive overview about some particular subjects.  
+## Purpose
 
-### About Jekyll
+I've created this blog as my personal portfolio, to store some of my projects and to share my experience in Actuarial and Data Science fields. I'm not a professional in these fields and this blog is not a technical ressource. Most of my posts aim to give a simple, comprenhensive overview about some particular subjects.  
 
-This blog is created by Jekyll and hosted on GitHub. 
+## About Jekyll
 
-Looking for a simple, responsive, theme for your Jekyll powered blog? Well look no further. Here be **So Simple Theme**, the follow up to [**Minimal Mistakes**](http://mmistakes.github.io/minimal-mistakes) --- by designer slash illustrator [Michael Rose](http://mademistakes.com).
+This blog is created with [**Jekyll**](http://jekyllrb.com) and hosted on [**GitHub**](https://github.com). 
+I use **So Simple Theme** created by designer slash illustrator [Michael Rose](http://mademistakes.com). For those who are interrested in blogging (like me), here's some facts about Jekyll and the reasons for what I've chosen Jekyll.
 
-## So Simple Theme is all about:
 
-* Responsive templates. Looking good on mobile, tablet, and desktop.
-* Gracefully degrading in older browsers. Compatible with Internet Explorer 9+ and all modern browsers.
-* Minimal embellishments and subtle animations.
-* Optional large feature images for posts and pages.
-* [Custom 404 page]({{ site.url }}/404.html) to get you started.
-* [Simple site search](https://github.com/christian-fei/Simple-Jekyll-Search)
-* Support for Disqus Comments
 
-<a markdown="0" href="{{ site.url }}/theme-setup" class="btn">Install So Simple Theme</a>
-
-[^1]: Example: *domain.com/category-name/post-title*
