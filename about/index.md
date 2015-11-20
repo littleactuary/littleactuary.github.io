@@ -13,6 +13,10 @@ image:
 
 My name's Duc-Hien. I'm from Hanoi, Vietnam. I moved to Paris in 2009 to continue my study and I've been living here since then. I hold a MSc degree in Statistics (Actuarial Science Major) at [**ENSAE ParisTech**](http://www.ensae.fr). Felow Actuary of [**French Institue of Actuaries (IA)**](http://www.institutdesactuaires.com), I'm currently working as an Actuarial Consultant. Self-taught Data Scientist, I spend my free time learning Programming (R, Python, some web programming languages).
 
+
+<a markdown="0" href="{{ site.url }}/article” class="btn">Here’s my resume</a>
+
+
 ## About this blog
 
 I've created this blog as my personal portfolio, to store some of my academic/professional projects and to share my experience in Actuarial and Data Science fields. I'm not an expert in these fields and this blog is not a technical ressource. Most of my posts aim to give a simple, comprenhensive overview about some particular subjects.  
