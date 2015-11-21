@@ -10,13 +10,7 @@
   url: /blog/
 
     - title: EN
-    url: /blog/
-
-    - title: VI
-    url: /blog/
-
-    - title: FR
-    url: /blog/
+    url: /theme-setup/
 
 - title: Search
   url: /search/
