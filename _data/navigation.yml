@@ -3,20 +3,11 @@
 - title: About
   url: /about/
 
-- title: CV
-  url: /articles/
+- title: Vitae
+  url: /vitae/
 
 - title: Blog
   url: /blog/
-
-  subcategories:
-  - subtitle: "EN"
-    subhref: "/EN/"
-  - subtitle: "VI"
-    subhref: "/VI/"
-  - subtitle: "FR"
-    subhref: "/FR/"
-
 
 - title: Search
   url: /search/
