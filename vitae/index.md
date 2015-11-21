@@ -32,3 +32,5 @@ You can download a PDF version of my CV (in french) [**here**](https://drive.goo
 3. UPEC
 
 ## Hobbies
+
+Guitar, Web, Coding, Jogging
