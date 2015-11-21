@@ -9,14 +9,14 @@
 - title: Blog
   url: /blog/
 
--- title: EN
-  url: /blog/
+    - title: EN
+    url: /blog/
 
--- title: VI
-  url: /blog/
+    - title: VI
+    url: /blog/
 
--- title: FR
-  url: /blog/FR/
+    - title: FR
+    url: /blog/FR/
 
 - title: Search
   url: /search/
