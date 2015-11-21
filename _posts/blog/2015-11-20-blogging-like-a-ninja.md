@@ -3,10 +3,14 @@ layout: post
 title: "Blogging like a ninja with Jekyll"
 modified:
 categories: blog
-excerpt:
-tags: []
+excerpt: "An introduction to Jekyll"
+tags: [Jekyll, GitHub, Markdown]
 image:
-  feature:
+  feature: jekyll+github.png
+  credit: GitHub Pages
+  creditlink: http://bitbyteyum.com/articles/2013/05/28/serving-from-github/
+comments: true
+share: true
 date: 2014-08-08T15:39:55-04:00
 ---
 
