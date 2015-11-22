@@ -17,7 +17,7 @@ I've created this blog as my personal portfolio, to store some of my academic/pr
 
 You may wonder why this blog was named Little Actuary. It's because I'm an Actuary and I'm little. Just kidding (though it's true)! In fact, Big Data is now such a big deal and like many others who are intereted in this phenomenon, I'm trying to understand a part of it and to figure out a way to apply Big Data in my work. So, I consider myself as a Little Actuary in the Big Data world.   
 
-This blog is powered by [**Jekyll**](http://jekyllrb.com), using **So Simple Theme**, and hosted on [**GitHub**](https://github.com). For those who are interrested in blogging (like me), [here's some facts about Jekyll and the reasons for what I've chosen Jekyll]({{ site.url }}/blog/blogging-like-a-ninja)
+This blog is powered by [**Jekyll**](http://jekyllrb.com), using [**So Simple Theme**](https://mademistakes.com/work/so-simple-jekyll-theme/), and hosted by [**GitHub**](https://github.com). For those who are interrested in blogging (like me), [here's some facts about Jekyll and the reasons for what I've chosen Jekyll]({{ site.url }}/blog/blogging-like-a-ninja)
 
 
 Enjoy reading my blog :)
