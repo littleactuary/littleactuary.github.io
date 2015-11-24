@@ -14,7 +14,7 @@ share: true
 date: 2015-11-20T15:39:55-04:00
 ---
 
-So, I'm not talking about Data Science or Actuarial Science here. This post is in fact about Jekyll! Its title was inspired by some [Udemy] course. Well, I don't know why there's a ninja here, maybe because of the Octocat character of GitHub. Anyway, that sounds funny! :)
+So, I'm not talking about Data Science or Actuarial Science here. This post is in fact about Jekyll! Its title was inspired by some [Udemy]{:target="_blank"} course. Well, I don't know why there's a ninja here, maybe because of the Octocat character of GitHub. Anyway, that sounds funny! :)
 
 Back in 2006 when I was in high school, I found out [**Blogger**](https://www.blogger.com){:target="_blank"} (with subdomain .blogspot.com), a blog-publishing service, written in Python and developed by [**Pyra Labs**](https://en.wikipedia.org/wiki/Pyra_Labs){:target="_blank"}, which was bought by Google in 2003. It was quite interesting back then for a kid with no IT knowledge to blog with Blogger. I enjoyed customizing my blog by copying and modifying HTML/CSS code written by other people, without knowing exactly what all of that mean. 
 

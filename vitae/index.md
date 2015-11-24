@@ -6,30 +6,26 @@ modified: 2014-08-08T19:44:38.564948-04:00
 
 ---
 
-You can download a PDF version of my CV (in french) [**here**](https://drive.google.com/open?id=0B9sO-FiCPQljTWNWbWVTcmt0bm8)!
+You can download a short version of my CV in PDF format ([**french**](https://drive.google.com/file/d/0B9sO-FiCPQljWWpwandERzVSLUk/view?usp=sharing){:target="_blank"})!
 
 * Table of Contents
 {:toc}
 
 ## Current status
-
-1. Actuarial Consultant at EY
-2. Fellow Actuary of IA
-3. Member and webmaster of DIAF
-4. Author of Little Actuary’s blog
+Actuarial Consultant at [**EY**](http://www.ey.com){:target="_blank"}, Fellow Actuary of [Institute of French Actuaries (I.A.)](http://www.institutdesactuaires.com/){:target="_blank"}, Engineer/Statistician Economist from [**ENSAE**](http://www.ensae.fr/ensae_engl/index.php?option=com_content&view=article&id=18&Itemid=48){:target="_blank"},  Member and webmaster of the [**International Diffusion of French Actuarial Science (D.I.A.F.)**](){:target="_blank"}
 
 ## Professional Experience
 
-1. From December 2015: Actuarial Consultant at EY
-2. May 2015 - October 2015: Intern at AXA Corporate Solutions
-3. November 2014 - April 2015: Part-time intern at AXA Global P&C
-4. June 2014 - September 2014: Intern at AXA Solutions Collectives 
+### From December 2015: Actuarial Consultant at EY
+### May 2015 - October 2015: Intern at AXA Corporate Solutions
+### November 2014 - April 2015: Part-time intern at AXA Global P&C
+### June 2014 - September 2014: Intern at AXA Solutions Collectives 
 
 ## Academic background
 
-1. ENSAE ParisTech
-2. Dauphine University
-3. UPEC
+### ENSAE ParisTech
+### Dauphine University
+### UPEC
 
 ## Hobbies
 
