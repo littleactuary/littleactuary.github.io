@@ -1,61 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://littleactuary.github.io/blog/mathjax-example/</loc>
+    <loc>/blog/blogging-like-a-ninja/</loc>
+    <lastmod>2015-11-20T20:39:55+01:00</lastmod>
+  </url>
+  <url>
+    <loc>/blog/mathjax-example/</loc>
     <lastmod>2015-08-10T14:08:50+02:00</lastmod>
   </url>
   <url>
-    <loc>http://littleactuary.github.io/blog/hello-world/</loc>
-    <lastmod>2014-08-08T21:39:55+02:00</lastmod>
+    <loc>/</loc>
   </url>
   <url>
-    <loc>http://littleactuary.github.io/articles/author-override/</loc>
-    <lastmod>2014-06-19T00:00:00+02:00</lastmod>
+    <loc>/articles/</loc>
   </url>
   <url>
-    <loc>http://littleactuary.github.io/articles/code-highlighting-post/</loc>
-    <lastmod>2013-08-16T00:00:00+02:00</lastmod>
+    <loc>/blog/</loc>
   </url>
   <url>
-    <loc>http://littleactuary.github.io/articles/sample-link-post/</loc>
-    <lastmod>2013-08-12T00:00:00+02:00</lastmod>
+    <loc>/tags/</loc>
   </url>
   <url>
-    <loc>http://littleactuary.github.io/articles/video-post/</loc>
-    <lastmod>2013-06-25T00:00:00+02:00</lastmod>
+    <loc>/about/</loc>
   </url>
   <url>
-    <loc>http://littleactuary.github.io/articles/readability-feature-post/</loc>
-    <lastmod>2013-05-23T00:00:00+02:00</lastmod>
-  </url>
-  <url>
-    <loc>http://littleactuary.github.io/articles/sample-post-images/</loc>
-    <lastmod>2013-05-22T00:00:00+02:00</lastmod>
-  </url>
-  <url>
-    <loc>http://littleactuary.github.io/articles/readability-post/</loc>
-    <lastmod>2012-05-22T00:00:00+02:00</lastmod>
-  </url>
-  <url>
-    <loc>http://littleactuary.github.io/articles/sample-post/</loc>
-    <lastmod>2011-03-10T00:00:00+01:00</lastmod>
-  </url>
-  <url>
-    <loc>http://littleactuary.github.io/</loc>
-  </url>
-  <url>
-    <loc>http://littleactuary.github.io/articles/</loc>
-  </url>
-  <url>
-    <loc>http://littleactuary.github.io/blog/</loc>
-  </url>
-  <url>
-    <loc>http://littleactuary.github.io/tags/</loc>
-  </url>
-  <url>
-    <loc>http://littleactuary.github.io/about/</loc>
-  </url>
-  <url>
-    <loc>http://littleactuary.github.io/theme-setup/</loc>
+    <loc>/vitae/</loc>
   </url>
 </urlset>
