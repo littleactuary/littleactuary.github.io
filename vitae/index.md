@@ -26,26 +26,26 @@ You can download a short version of my CV in PDF format ([**french**](https://dr
 
 * Research of a new method for Major Losses Reserving at AXA CS 
 * Deployment of a corresponding desktop application (with R and [Shiny](http://shiny.rstudio.com package){:target="_blank"})
-    Here's' a post of mine about deploying a user-friendly desktop app with R, Shiny, and a web browser
+        Here's' a post of mine about deploying a user-friendly desktop app with R, Shiny, and a web browser
 * Economic allocation of Major Losses Reserves between the different AXA CS branches
 
 **November 2014 - April 2015: Part-time intern at AXA Global P&C (Reinsurance team)**
 
 * Improvement of the CAT/Atypical modeling & reinsurance pricing tool (with R/C++ thanks to Rcpp package)
-    Here's a post of mine about Speeding-up R programs with Rcpp package in R 
+        Here's a post of mine about Speeding-up R programs with Rcpp package in R 
 * Development of new functionnalities
 * Measurement of the impact of changes in the reinsurance structure 
 
 June 2014 - September 2014: Intern at AXA Solutions Collectives
 
-* Study and cleaning of the dental claim distributions (with SAS)
+* Construction of the dental claim distributions (with SAS)
 * Deployment of a tool for measuring the pricing impact of a dental cap (with Excel/VBA)
-    here's a post of mine about some tricks I've learnt about VBA through this internship 
+        Here's a post of mine about some tricks I've learnt about VBA through this internship 
 * Study of the senior policyholders' behaviours on health insurance consumption before their retirement
 
 ## Academic background
 
-**ENSAE ParisTech**
+*ENSAE ParisTech*
 
 
 **Dauphine University**
