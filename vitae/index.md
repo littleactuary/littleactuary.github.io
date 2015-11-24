@@ -55,62 +55,62 @@ You can download a short version of my CV in PDF format ([**french**](https://dr
 
 *2013-2015* **ENSAE ParisTech**
 
-* Final year: Actuarial Science
+Final year: Actuarial Science
 
 *Some academic projects*
 
-* CHAID model (https://drive.google.com/file/d/0B9sO-FiCPQlja244b25OY3R2aU0/view?usp=sharing)
-* Duration model (https://drive.google.com/file/d/0B9sO-FiCPQlja2p3Y1JNM3RuNTA/view?usp=sharing)
+* *[Scoring]* Score calibration with a CHAID model and Robustness test *[2015, using R, with Franck-Arnaud TCHUENTE DJOUM, Zhengyu YANG]* ([Note in french](https://drive.google.com/file/d/0B9sO-FiCPQlja244b25OY3R2aU0/view?usp=sharing){:target="_blank"})
+* *[Advanced Econometrics of Qualitative Data]* Competing Risk Model for modeling the duration of unemployment (Weibull distribution, Cox model, Weibull parametric model with Gamma heterogeneity, Bayesian semi-parametric model with unobserved heterogeneity) *[2015, using R, with Thibault PLUQUET]* ([Note in french](https://drive.google.com/file/d/0B9sO-FiCPQlja2p3Y1JNM3RuNTA/view?usp=sharing){:target="_blank"})
 
 ------------
 
-* 2nd year: Applied Mathematics major
+2nd year: Applied Mathematics major
 
 *Some academic projects*
 
-* Stat'app Thesis(https://drive.google.com/file/d/0B9sO-FiCPQljeEZhZVVESDlWekE/view?usp=sharing), Sumary (https://drive.google.com/file/d/0B9sO-FiCPQljdmx0bnEzR0VTTEU/view?usp=sharing)
-* Aftermarket (https://drive.google.com/file/d/0B9sO-FiCPQljV01UN2N4SjY5ak0/view?usp=sharing)
-* Casino-Monoprix Merge & Acquisition (https://drive.google.com/file/d/0B9sO-FiCPQljWW9RcGd6NGpNTVU/view?usp=sharing)
-* MCMC logistic regression (https://drive.google.com/file/d/0B9sO-FiCPQljTllQdWp1WFlveXM/view?usp=sharing)
-* Time series (https://drive.google.com/file/d/0B9sO-FiCPQljVzVWVnBPX2RHTWM/view?usp=sharing)
-* Student Ranking and its improvement (https://drive.google.com/file/d/0B9sO-FiCPQljdXZCRzFLQW1hV0U/view?usp=sharing)  
-* Beta distribution (https://drive.google.com/file/d/0B9sO-FiCPQljMzZyLUlXbUxsX1E/view?usp=sharing)
+* *[Stat'app project]* Higher education choice (discrete choice models: I.I.A. asumption, multinomial logit, conditional logit) *[2013-2014, using Stata, with Thibault PLUQUET, Hengrui WAN, Yasin ZORLU]* ([Thesis](https://drive.google.com/file/d/0B9sO-FiCPQljeEZhZVVESDlWekE/view?usp=sharing){:target="_blank"}, [Summary](https://drive.google.com/file/d/0B9sO-FiCPQljdmx0bnEzR0VTTEU/view?usp=sharing){:target="_blank"})
+* *[Relevant market and Market power]* Aftermarket *[2014]* ([Note in french](https://drive.google.com/file/d/0B9sO-FiCPQljV01UN2N4SjY5ak0/view?usp=sharing){:target="_blank"})
+* *[Relevant market and Market power]* Casino-Monoprix Merge & Acquisition *[2014, with Thibault PLUQUET]* ([Slides in french](https://drive.google.com/file/d/0B9sO-FiCPQljWW9RcGd6NGpNTVU/view?usp=sharing){:target="_blank"})
+* *[Monte Carlo]* Bayesian auxiliary variable models for Logistic regression (the aim is to replicate the algorithm of [this paper](http://projecteuclid.org/download/pdf_1/euclid.ba/1340371078){:target="_blank"}) *[2014, using R, with Clothilde DAVESNE, Pierre VUILLEMIN]* ([Note in french](https://drive.google.com/file/d/0B9sO-FiCPQljTllQdWp1WFlveXM/view?usp=sharing){:target="_blank"})
+* *[Time series]* Consumption and Income relation (unit root test, ARIMA model, residual tests, cointegration and error correction model) *[2014, using Stata, with Yasin ZORLU]* ([Note in french](https://drive.google.com/file/d/0B9sO-FiCPQljVzVWVnBPX2RHTWM/view?usp=sharing){:target="_blank"})
+* *[Econometrics]* High school students' ranking and their desire to improve it (Polytomous and dichotomous models) *[2014, using Stata, with Yasin ZORLU]* ([Note in french](https://drive.google.com/file/d/0B9sO-FiCPQljdXZCRzFLQW1hV0U/view?usp=sharing){:target="_blank"})  
+* *[Statistics] * Numerical estimation of Beta distribution parameters *[2013, using R, with Ly DO]* ([Note in french](https://drive.google.com/file/d/0B9sO-FiCPQljMzZyLUlXbUxsX1E/view?usp=sharing){:target="_blank"})
 
 --------
 
 *2010-2013* **Dauphine University**
 
-* Master 1: Applied Mathematics (Statistics major)
+Master 1: Applied Mathematics (Statistics major)
 
 *Some academic projects*
 
-* Evaluation of Basket Option (https://drive.google.com/file/d/0B9sO-FiCPQljS1ViU0c2MURzQXc/view?usp=sharing)
+* *[Monte Carlo]* Evaluation of Basket Option (Basket option pricing with different Monte Carlo methods for variance reducing) *[2012, using Matlab, with Chothilde DAVESNE, Rémi ING]* ([Note in french](https://drive.google.com/file/d/0B9sO-FiCPQljS1ViU0c2MURzQXc/view?usp=sharing){:target="_blank"})
 
 ------
 
-* Double-degree Bachelor: Applied Mathematics & Applied Economic
+Double-degree Bachelor: Applied Mathematics & Applied Economic
 
 *Some academic projects*
 
-* Reseau linkedIn (https://drive.google.com/file/d/0B9sO-FiCPQljQVR4Uk1reGwyTk0/view?usp=sharing)
-* Econometrics (https://drive.google.com/file/d/0B9sO-FiCPQljWU5zWndUQzVYQ1U/view?usp=sharing) (https://drive.google.com/file/d/0B9sO-FiCPQljLTNrZkVfMkhTTDA/view?usp=sharing)
-* Financial Analysis
+* *[Database]* Professional social network type LinkedIn (UML model, relational database model, SQL requests, trigger and other functions),  *[2012, using PostgreSQL, with Dan LASRY]* ([Note in french](https://drive.google.com/file/d/0B9sO-FiCPQljQVR4Uk1reGwyTk0/view?usp=sharing){:target="_blank"})
+* *[Econometrics]* Unemployment rate in France. OSL models with some basic tests (significativity and stability tests on coefficients, multicolinearity tests, autocorrelation tests and heteroscedacity tests on errors) *[2011-2012, using Eviews, with Cyril BENEZET]* ([1st note](https://drive.google.com/file/d/0B9sO-FiCPQljWU5zWndUQzVYQ1U/view?usp=sharing){:target="_blank"}, [2nd note in french](https://drive.google.com/file/d/0B9sO-FiCPQljLTNrZkVfMkhTTDA/view?usp=sharing){:target="_blank"})
+* *[Financial Analysis]* JCDecaux financial analysis *[2012, with Cyril BENEZET, Hicham FASSOUANE, Dan LASRY]*
 
 ------
 
-* 2nd year Bachelor: Mathematics & Computer Science
+2nd year Bachelor: Mathematics & Computer Science
 
 *Some academic projects*
 
-*  (https://drive.google.com/file/d/0B9sO-FiCPQljRTRzcndkNUhXTjA/view?usp=sharing)
-* Machine à pile
-* Méthode de tir (https://drive.google.com/file/d/0B9sO-FiCPQljZ1pzZ0F2azllR2M/view?usp=sharing)
+* *[Operating system]* comparison of two scheduling algorithms (Circular and Dynamic) *[2011, using Java, with Vincent de DARUVAR (the smartest guy I've ever met. He did all of this project)]* ([Note in French](https://drive.google.com/file/d/0B9sO-FiCPQljRTRzcndkNUhXTjA/view?usp=sharing){:target="_blank"})
+* *[Computer architecture]* stack machine, assembly language, machine code language *[2011, using C++, with Dimitri LEGRAND]*
+* *[Numerical analysis & Scientific computing]* Shooting method for solving a boundary value problem by reducing it to the solution of an initial value problem. *[2011, using Matlab, with Yasin ZORLU]* ([Note in French](https://drive.google.com/file/d/0B9sO-FiCPQljZ1pzZ0F2azllR2M/view?usp=sharing){:target="_blank"})
 
 -------
 
 *2009-2010* **UPEC**
 
-* 1st year of Bachelor: Economic - Management
+1st year of Bachelor: Economic - Management
 
 --------
 
