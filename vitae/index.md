@@ -6,7 +6,7 @@ modified: 2014-08-08T19:44:38.564948-04:00
 
 ---
 
-You can download my CV in PDF format here ([**french**]({{ site.url }}/vitae/CV_Duc_Hien_VU_fr.pdf){:target="_blank"}, [**english**]({{ site.url }}/vitae/CV_Duc_Hien_VU_en.pdf){:target="_blank"}, [**vietnamese**]({{ site.url }}/vitae/CV_Duc_Hien_VU_vi.pdf){:target="_blank"}). 
+You can download my CV (in PDF format) here ([**English**]({{ site.url }}/vitae/CV_Duc_Hien_VU_en.pdf){:target="_blank"}, [**French**]({{ site.url }}/vitae/CV_Duc_Hien_VU_fr.pdf){:target="_blank"}, [**Vietnamese**]({{ site.url }}/vitae/CV_Duc_Hien_VU_vi.pdf){:target="_blank"}). 
 
 * Table of Contents
 {:toc}
@@ -42,7 +42,7 @@ You can download my CV in PDF format here ([**french**]({{ site.url }}/vitae/CV_
 
 -----------
 
-*Jun 2014 - Sep 2014* **Intern at AXA Solutions Collectives (Health insurance team)**
+*Jun 2014 - Sep 2014* **Actuarial Intern at AXA Solutions Collectives (Health insurance team)**
 
 * Construction of the dental claim distributions (with SAS)
 * Deployment of a tool for measuring the pricing impact of a dental cap (with Excel/VBA).
@@ -74,7 +74,7 @@ You can download my CV in PDF format here ([**french**]({{ site.url }}/vitae/CV_
 --------
 
 ## Academic projects
-Below some mini-projects that I've done with my friends at school. All of the papers were written in (bad) french. :( 
+Below some mini-projects that I have done with my friends at school. All of the notes were written in (bad) french. :( 
 
 Final year at ENSAE
 

@@ -7,7 +7,7 @@ modified: 2015-08-08T19:44:38.564948-04:00
 
 ## About Me
 
-Hi, my name's Duc-Hien. I'm from Hanoi, Vietnam. I moved to Paris in 2009 for my higer studies and I've been living here since then. I hold a MSc degree in Statistics (Actuarial Science Major) at [**ENSAE ParisTech**](http://www.ensae.fr){:target="_blank"}. Felow Actuary of [**French Institue of Actuaries (IA)**](http://www.institutdesactuaires.com){:target="_blank"}, I'm currently working as an Actuarial Consultant. Self-taught Data Scientist, I spend my free time learning to code (R, Python and some web programming languages).
+Hi, my name's Duc-Hien. I'm from Hanoi, Vietnam. I moved to Paris in 2009 for my higher studies and I've been living here since then. I hold a MSc degree in Statistics (Actuarial Science Major) at [**ENSAE ParisTech**](http://www.ensae.fr){:target="_blank"}. Felow Actuary of [**French Institue of Actuaries (IA)**](http://www.institutdesactuaires.com){:target="_blank"}, I'm currently working as an Actuarial Consultant. Self-taught Data Scientist, I spend my free time learning to code (R, Python and some web programming languages).
 
 <a markdown="0" href="{{ site.url }}/vitae" class="btn">My Curriculum Vitae</a>
 
