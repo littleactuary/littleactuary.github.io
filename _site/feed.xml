@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-11-25T18:25:44+01:00</updated>
+<updated>2015-11-29T17:39:03+01:00</updated>
 <id>/</id>
 <author>
   <name>Duc-Hien VU</name>
@@ -27,7 +27,7 @@
     <email>duchienvu91@gmail.com</email>
   </author>
   <content type="html">
-    &lt;p&gt;So, I’m not talking about Data Science or Actuarial Science here. This post is in fact about Jekyll! Its title was inspired by some &lt;a href=&quot;https://www.udemy.com&quot; target=&quot;_blank&quot;&gt;Udemy&lt;/a&gt; course. Well, I don’t know why there’s a ninja here, maybe because of the Octocat character of GitHub. Anyway, that sounds funny! :)&lt;/p&gt;
+    &lt;p&gt;This post, whose title was inspired by some &lt;a href=&quot;https://www.udemy.com&quot; target=&quot;_blank&quot;&gt;Udemy&lt;/a&gt; course, is about Jekyll!&lt;/p&gt;
 
 &lt;p&gt;Back in 2006 when I was in high school, I found out &lt;a href=&quot;https://www.blogger.com&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Blogger&lt;/strong&gt;&lt;/a&gt; (with subdomain .blogspot.com), a blog-publishing service, written in Python and developed by &lt;a href=&quot;https://en.wikipedia.org/wiki/Pyra_Labs&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Pyra Labs&lt;/strong&gt;&lt;/a&gt;, which was bought by Google in 2003. It was quite interesting back then for a kid with no IT knowledge to blog with Blogger. I enjoyed customizing my blog by copying and modifying HTML/CSS code written by other people, without knowing exactly what all of that mean.&lt;/p&gt;
 
