@@ -7,7 +7,7 @@ excerpt: "How to well structure an R program"
 tags: [R]
 image:
   feature: Rprogramming.jpg
-  credit: bitbyteym.com
+  credit: coursera.org
   creditlink: https://www.coursera.org/course/rprog
 comments: true
 share: true
