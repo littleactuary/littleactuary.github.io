@@ -6,9 +6,9 @@ categories: blog
 excerpt: "How to well structure an R program"
 tags: [R]
 image:
-  feature: jekyll+github.png
+  feature: Rprogramming.jpg
   credit: bitbyteym.com
-  creditlink: http://bitbyteyum.com/articles/2013/05/28/serving-from-github/
+  creditlink: https://www.coursera.org/course/rprog
 comments: true
 share: true
 date: 2015-11-30T15:39:55-04:00
