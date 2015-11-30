@@ -59,7 +59,7 @@ You can download my CV (in PDF format) here ([**English**]({{ site.url }}/vitae/
 
 --------
 
-*2010-2013* **Dauphine University**
+*2010-2013* **Paris-Dauphine University**
 
 * Master 1: Applied Mathematics (Statistics major)
 * Double-degree Bachelor: Applied Mathematics & Applied Economics
