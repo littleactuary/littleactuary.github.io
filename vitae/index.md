@@ -14,7 +14,7 @@ You can download my CV (in PDF format) here ([**English**]({{ site.url }}/vitae/
 ##Current situation
 
 * Actuarial Consultant at [**EY**](http://www.ey.com){:target="_blank"} 
-* Fellow Actuary of [Institute of French Actuaries (I.A.)](http://www.institutdesactuaires.com/){:target="_blank"}
+* Fellow Actuary of the [Institute of French Actuaries (I.A.)](http://www.institutdesactuaires.com/){:target="_blank"}
 * Engineer/Statistician Economist from [**ENSAE**](http://www.ensae.fr/ensae_engl/index.php?option=com_content&view=article&id=18&Itemid=48){:target="_blank"}  
 * Member and webmaster of the [**International Diffusion of French Actuarial Science (D.I.A.F.)**](http://assodiaf.org){:target="_blank"}
 

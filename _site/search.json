@@ -2,6 +2,14 @@
 
   
     {
+      "title"			: "Good habits of writing R programs",
+      "link"			: "/blog/Readable%20and%20understandble%20R%20programs/",
+      "excerpt"		: "How to well structure an R program"
+    }
+  
+
+  
+    ,{
       "title"			: "Blogging like a ninja with Jekyll",
       "link"			: "/blog/blogging-like-a-ninja/",
       "excerpt"		: "An introduction to Jekyll"
