@@ -31,7 +31,7 @@ else
 
 Your R program will be called through a `main.R` script 
 
-{% highlight css %}
+{% highlight r %}
 # functions loading       
 source("F-simple_functions.R")
 source("F-claims_modeling.R")
