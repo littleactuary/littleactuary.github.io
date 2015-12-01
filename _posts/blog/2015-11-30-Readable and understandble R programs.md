@@ -50,10 +50,9 @@ else
 {% endhighlight %}
 
 This script is the main workflow where your program tells R what to do. to run your program, just execute the `main.R` script! Firstly, R will load 4 different scripts that only contains functions (that's why their names begin with `F-`).  While `F-simple_functions.R` stores some simple functions that will be used almost everywhere in your program, `F-claims_modeling.R"` is reserved to specific functions that will be called in `E-claims_modeling.R` and so one. Once all functions are loaded, R will call executive scripts whose names begin with `E-`, in a scenario that you have pre-determined in the main script. 
-
 The below scheme summarize the structure of your program.
 
-While structuring the program seems useless in this simplified example, it happened to be very helpful when I worked with more than hundred lines of code per modules
+You can also replace each executive script by creating and calling a big function with parameters in order to make your R modules really independent (however, in my experience, it is sometimes complicate to do so). While structuring the program seems useless in this simplified example, it happened to be very helpful when I worked with more than hundred lines of code per modules
 
 
 ### Rule number 2: Adding comments 
