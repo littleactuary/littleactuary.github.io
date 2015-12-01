@@ -84,7 +84,7 @@ Whenever I have a doubt with the purpose of this function, I only need to write 
 
 ### Rule number 3: Naming your variables wisely
 
-A good variable name is a meaningful name, not too short, not too long. A friend of mine has taught me an interesting way of naming an index variable (what we use to name `i` or `j` or `k`). Instead of:  
+A good variable name is a meaningful name, not too short, not too long. However, when naming an index variable, most people use "i" or "j" or "k". A friend of mine has taught me that in this case, "ii" is better than "i". Instead of:  
 
 {% highlight r %}
 beautifulAmount = function(x){
