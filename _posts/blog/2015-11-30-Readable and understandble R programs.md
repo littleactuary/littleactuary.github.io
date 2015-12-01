@@ -6,15 +6,13 @@ categories: blog
 excerpt: "How to well structure an R program"
 tags: [R]
 image:
-  feature: Rprogramming.jpg
-  credit: coursera.org
-  creditlink: https://www.coursera.org/course/rprog
+
 comments: true
 share: true
 date: 2015-11-30T15:39:55-04:00
 ---
 
-When I was at school, I did some simple projects with R. Most of them were written in a dirty way (all in a same R script). Then I had a chance to work with R more seriously during two internships. I have learnt R from reading R programs developed by experienced actuaries. Of course they are not programmers, but their programs are well-structured and much more readable and understanbdle than mine. A well-structured program (especially when dealing with a complex problem) helps you easily verify and debug your code and help others (who have to audit or modify your code) understand it quickly and effortlessly. Here are some rules that I have learnt for deploying a program with R. I believe they are also true for almost other languages.
+When I was at school, I did some simple projects with R. Most of them were written in a dirty way (all in a same R script). Then I had a chance to work with R more seriously during two internships. I have learnt R from reading R programs developed by experienced actuaries. Of course they are not programmers, but their programs are well-structured and much more readable and understandable than mine. A well-structured program (especially when dealing with a complex problem) helps you easily verify and debug your code and help others (who have to audit or modify your code) understand it quickly and effortlessly. Here are some rules that I have learnt for deploying a program with R. I believe they are also true for almost other languages.
 
 ### Rule number 1: Moduling your program
 
@@ -44,7 +42,7 @@ source("E-input_reading.R")
 # claim modeling
 source("E-claims_modeling.R")
 # pricing 
-if (method ==1)
+if (method == 1)
     source("E-pricing_method1.R")
 else
     source("E-pricing_method2.R")
@@ -63,7 +61,7 @@ Comment a complex line of code, a function or a variable is a good habit and it 
 
 I recently found out that it is better to comment a function inside of it. Let's take an example where I declare the function `beautifulAmount()` in `F-simple_functions.R` and I called it in the main script `main.R`. I used to comment this function right above of where it is declared: 
 
-{% highlight css %}
+{% highlight r %}
 # function to dislay claim amount in a beautiful way
 beautifulAmount = function(x){format(round(x/1000),scientific=FALSE, big.mark=" ")}
 {% endhighlight %}
@@ -75,7 +73,7 @@ y <- beautifulAmount(x)
 
 and I forget what it was supposed to do, I'm obligated to re-open `F-simple_functions.R`. Now, I put the comment inside the function:
 
-{% highlight css %}
+{% highlight r %}
 beautifulAmount = function(x){
 # function to dislay claim amount in a beautiful way
 format(round(x/1000),scientific=FALSE, big.mark=" ")
@@ -89,14 +87,14 @@ Whenever I have a doubt with the purpose of this function, I only need to write 
 
 A good variable name is a meaningful name, not too short, not too long. A friend of mine has taught me an interesting way of naming an index variable (what we use to name `i` or `j` or `k`). Instead of:  
 
-{% highlight css %}
+{% highlight r %}
 beautifulAmount = function(x){
 for (i in 1:n){
 ...
 }
 {% endhighlight %}
 you should write:
-{% highlight css %}
+{% highlight r %}
 beautifulAmount = function(x){
 for (ii in 1:n){
 ...
@@ -108,22 +106,22 @@ Using the second option, when you need to find and modify your loop, you just ne
 ### Rule number 4: Using list()
 If you have many variables to work with in your program, you should group them into lists. The two basic lists are `input()`and `output()`. In the above example of pricing, you can create one list for variables of each method:
 
-{% highlight css %}
+{% highlight r %}
 output.method1 <- list()
 output.method2 <- list()
 {% endhighlight %}
 
 To declare a variable that will be used in the method 1:
-{% highlight css %}
+{% highlight r %}
 output.method1$premium <- ...
 {% endhighlight %}
 
 For listing all elements of this list
-{% highlight css %}
+{% highlight r %}
 print(output.method1) # or without print() if you write directly into your R console
 {% endhighlight %}
 For listing the names of all elements of this list, write:
-{% highlight css %}
+{% highlight r %}
 names(output.method1)
 {% endhighlight %}
 
