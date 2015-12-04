@@ -65,7 +65,7 @@ beautifulAmount = function(x){format(round(x/1000),scientific=FALSE, big.mark=" 
 {% endhighlight %}
 
 When I look at this function in `F-simple_functions.R`, I can understand it immediately thanks to the comment. However, if I identify this function in `main.R`:
-{% highlight css %}
+{% highlight r %}
 y <- beautifulAmount(x)
 {% endhighlight %}
 
