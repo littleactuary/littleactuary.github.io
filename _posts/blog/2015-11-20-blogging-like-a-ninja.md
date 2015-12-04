@@ -16,7 +16,7 @@ date: 2015-11-20T15:39:55-04:00
 
 This post, whose title was inspired by some [Udemy]{:target="_blank"} course, is about Jekyll! 
 
-Back in 2006 when I was in high school, I found out [**Blogger**](https://www.blogger.com){:target="_blank"} (with subdomain .blogspot.com), a blog-publishing service, written in Python and developed by [**Pyra Labs**](https://en.wikipedia.org/wiki/Pyra_Labs){:target="_blank"}, which was bought by Google in 2003. It was quite interesting back then for a kid with no IT knowledge to blog with Blogger. I enjoyed customizing my blog by copying and modifying HTML/CSS code written by other people, without knowing exactly what all of that mean. 
+Back in 2006 when I was in high school, I found out [**Blogger**](https://www.blogger.com){:target="_blank"} (with subdomain .blogspot.com), a blog-publishing service, written in Python and developed by [**Pyra Labs**](https://en.wikipedia.org/wiki/Pyra_Labs){:target="_blank"}, which was bought by Google in 2003. It was quite interesting back then for a kid with no IT knowledge to play with Blogger. I enjoyed customizing my blog by copying and modifying HTML/CSS code written by other people, without knowing exactly what all of that mean. 
 
 One day, I heard about [**Wordpress**](https://en.wikipedia.org/wiki/WordPress){:target="_blank"}, a CMS based on PHP and MySQL, and found out that most of the famous Blogger templates were converted from Wordpress templates. Wordpress is so far the most famous and succesful CMS in the world. It was used by more than 23.3% of the top 10 million websites as of January 2015. It has a huge number of active contributors and users compared to Blogger. Contrarily to Blogger, Wordpress offers 2 options: 
 
