@@ -2,8 +2,8 @@
 
   
     {
-      "title"			: "Good habits of writing R programs",
-      "link"			: "/blog/Readable%20and%20understandble%20R%20programs/",
+      "title"			: "Some tricks I have learned about writing R programs",
+      "link"			: "/blog/some_tricks_about_writing_R_programs/",
       "excerpt"		: "How to well structure an R program"
     }
   
