@@ -2,9 +2,17 @@
 
   
     {
-      "title"			: "Some tricks I have learned about writing R programs",
-      "link"			: "/blog/some_tricks_about_writing_R_programs/",
-      "excerpt"		: "How to well structure an R program"
+      "title"			: "Some things about writing R programs",
+      "link"			: "/blog/some-things-about-writing-R-programs/",
+      "excerpt"		: "How to write a well-structured and understandable R program"
+    }
+  
+
+  
+    ,{
+      "title"			: "Connecting R and C++ with Rcpp",
+      "link"			: "/blog/connecting-R-and-Cpp-with-Rcpp/",
+      "excerpt"		: "Speed-up your R program with Rcpp package"
     }
   
 

@@ -5,15 +5,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Some tricks I have learned about writing R programs &#8211; Little Actuary</title>
-<meta name="description" content="How to well structure an R program">
+<title>Some things about writing R programs &#8211; Little Actuary</title>
+<meta name="description" content="How to write a well-structured and understandable R program">
 <meta name="keywords" content="R">
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Some tricks I have learned about writing R programs">
-<meta name="twitter:description" content="How to well structure an R program">
+<meta name="twitter:title" content="Some things about writing R programs">
+<meta name="twitter:description" content="How to write a well-structured and understandable R program">
 <meta name="twitter:site" content="@duc_hien_vu">
 <meta name="twitter:creator" content="@duc_hien_vu">
 
@@ -23,16 +23,16 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Some tricks I have learned about writing R programs">
-<meta property="og:description" content="How to well structure an R program">
-<meta property="og:url" content="/blog/some_tricks_about_writing_R_programs/">
+<meta property="og:title" content="Some things about writing R programs">
+<meta property="og:description" content="How to write a well-structured and understandable R program">
+<meta property="og:url" content="/blog/some-things-about-writing-R-programs/">
 <meta property="og:site_name" content="Little Actuary">
 
 
 
 
 
-<link rel="canonical" href="/blog/some_tricks_about_writing_R_programs/">
+<link rel="canonical" href="/blog/some-things-about-writing-R-programs/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Little Actuary Feed">
 
 <!-- https://t.co/dKP3o1e -->
@@ -131,7 +131,7 @@
           <li><a href="/tags/#R" title="Pages tagged R">R</a></li>
         </ul>
         
-          <h1 class="entry-title">Some tricks I have learned about writing R programs</h1>
+          <h1 class="entry-title">Some things about writing R programs</h1>
         
       </header>
       <footer class="entry-meta">
@@ -145,19 +145,19 @@
         
         <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
         <span class="social-share-twitter">
-  <a href="https://twitter.com/intent/tweet?hashtags=R&amp;text=Some%20tricks%20I%20have%20learned%20about%20writing%20R%20programs&amp;url=/blog/some_tricks_about_writing_R_programs/&amp;via=duc_hien_vu" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
+  <a href="https://twitter.com/intent/tweet?hashtags=R&amp;text=Some%20things%20about%20writing%20R%20programs&amp;url=/blog/some-things-about-writing-R-programs/&amp;via=duc_hien_vu" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
 </span>
 <span class="social-share-facebook">
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/blog/some_tricks_about_writing_R_programs/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/blog/some-things-about-writing-R-programs/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
 </span>
 <span class="social-share-googleplus">
-  <a href="https://plus.google.com/share?url=/blog/some_tricks_about_writing_R_programs/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
+  <a href="https://plus.google.com/share?url=/blog/some-things-about-writing-R-programs/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
 </span>
 <!-- /.social-share -->
         
       </footer>
       <div class="entry-content">
-        <p>When I was at school, I did some simple projects with R. Most of them were written in a dirty way (all in a same R script). Then I had a chance to work with R more seriously during my two last internships. I have learned R from reading R programs developed by experienced actuaries. Of course they are not programmers, but their programs are well-structured and much more readable and understandable than mine. A well-structured program (especially when dealing with a complex problem) helps you easily verify and debug your code and help others (who have to audit or modify your code) understand it quickly and effortlessly. Here are some rules that I find very useful for deploying a program with R. I believe they are also true for almost other languages.</p>
+        <p>When I was at school, I did some simple projects with R. Most of them were written in a dirty way (all in a same R script). Then I had a chance to work with R more seriously during my two last internships. I have learned R by reading R programs developed by experienced actuaries. Of course they are not programmers, but their programs are well-structured and much more readable and understandable than mine. A well-structured program (especially when dealing with a complex problem) helps you easily verify and debug your code and help others (who have to audit or modify your code) understand it quickly and effortlessly. Here are some rules that I find very useful for deploying a program with R. I believe they are also true for almost other languages.</p>
 
 <h3 id="moduling-your-program">#1: Moduling your program</h3>
 
@@ -189,9 +189,9 @@
 <span class="kp">else</span>
     <span class="kn">source</span><span class="p">(</span><span class="s">&quot;E-pricing_method2.R&quot;</span><span class="p">)</span></code></pre></div>
 
-<p>This script is the main workflow where your program tells R what to do. To run your program, just execute the <code>main.R</code> script! Firstly, R will load 4 different scripts that only contains functions (that’s why their names begin with <code>F-</code>).  While <code>F-simple_functions.R</code> stores some simple functions that will be used almost everywhere in your program, <code>F-claims_modeling.R"</code> is reserved to specific functions that will be called in <code>E-claims_modeling.R</code> and so one. Once all functions are loaded, R will call executive scripts whose name begins with <code>E-</code>, in a scenario that you have pre-determined in the main script.</p>
+<p>This script is the main workflow where your program tells R what to do. To run your program, just execute the <code>main.R</code> script! Firstly, R will load 4 different scripts that only contain functions (that’s why their names begin with <code>F-</code>).  While <code>F-simple_functions.R</code> stores some simple functions that will be used almost everywhere in your program, <code>F-claims_modeling.R"</code> is reserved to specific functions that will be called in <code>E-claims_modeling.R</code> and so one. Once all functions are loaded, R will call executive scripts whose name begins with <code>E-</code>, in a scenario that you have pre-determined in the main script.</p>
 
-<p>You can also replace each executive script by creating and calling a big function with parameters in order to make your R modules really independent (however, in my experience, it is sometimes complicate to do so). While structuring the program seems useless in this simplified example, it happened to be very helpful when I worked with more than hundred lines of code per modules</p>
+<p>You can also replace each executive script by creating and calling a big function with parameters in order to make your R modules really independent (however, in my experience, it is sometimes complicate to do so). While structuring the program seems useless in this simplified example, it turns out to be very helpful when working with more than hundred lines of code per module.</p>
 
 <h3 id="commenting-code">#2: Commenting code</h3>
 <p>Comment a complex line of code, a function or a variable is a good habit and should be done whenever it is possible. I remember how hard it was for me to understand a bloc of code written by others (or even by myself long ago) without any comments.</p>
@@ -216,7 +216,7 @@ beautifulAmount <span class="o">=</span> <span class="kr">function</span><span c
 
 <h3 id="naming-your-variables-wisely">#3: Naming your variables wisely</h3>
 
-<p>A good variable name is a meaningful name, not too short, not too long. However, when naming an index variable, most people use “i” or “j” or “k”. A friend of mine has taught me that in this case, “ii” is better than “i”. Instead of:</p>
+<p>A good variable name is a meaningful name, not too short, not too long. However, when naming an index variable, we usually choose a meaningless letter such as “i”, “j” or “k”. In this case, a friend of mine has taught me that “ii” is better than “i”. Instead of:</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r">beautifulAmount <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">){</span>
 <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>n<span class="p">){</span>
@@ -230,17 +230,18 @@ beautifulAmount <span class="o">=</span> <span class="kr">function</span><span c
 <span class="kc">...</span>
 <span class="p">}</span></code></pre></div>
 
-<p>Using the second option, when you need to find and modify your loop, you just need to jump into your R script and search (<code>Ctrl + F</code>) “ii”. With the first option, a search of “i” letter in your whole script seems desperate.</p>
+<p>Using the second option, when you need to find and modify your loop, you just need to jump into your R script and search (<code>Ctrl + F</code>) “ii”. With the first option, doing a search of “i” letter in your whole script seems desperate.</p>
 
 <h3 id="using-list">#4: Using list()</h3>
-<p>If you have many variables to work with in your program, you should group them into lists. The two basic lists are <code>input()</code>and <code>output()</code>. In the above example of pricing, you can create one list for variables of each method:</p>
+<p>If you have many variables to work with in your program, you should group them into lists. The two basic lists are <code>input()</code>and <code>output()</code> but you are not obligated to stay with these two. In the above example of pricing, you can create one list for variables of each method. By doing so, each method is somehow similar to an object.</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r">output.method1 <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">()</span>
 output.method2 <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">()</span></code></pre></div>
 
-<p>To declare a variable that will be used in the method 1:</p>
+<p>To declare variables that will be used in the method 1:</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r">output.method1<span class="o">$</span>premium <span class="o">&lt;-</span> <span class="kc">...</span></code></pre></div>
+<div class="highlight"><pre><code class="language-r" data-lang="r">output.method1<span class="o">$</span>name <span class="o">&lt;-</span> <span class="s">&quot;historical method&quot;</span>
+output.method1<span class="o">$</span>premium <span class="o">&lt;-</span> <span class="kp">mean</span><span class="p">(</span>frequency<span class="p">)</span><span class="o">*</span><span class="kp">mean</span><span class="p">(</span>severity<span class="p">)</span></code></pre></div>
 
 <p>For listing all elements of this list</p>
 
@@ -248,7 +249,7 @@ output.method2 <span class="o">&lt;-</span> <span class="kt">list</span><span cl
 
 <p>For listing the names of all elements of this list, write:</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r">name<span class="p">(</span>output.method1<span class="p">)</span></code></pre></div>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kp">names</span><span class="p">(</span>output.method1<span class="p">)</span></code></pre></div>
 
 <p>These simple habits of programming are surprisingly useful in practice, for both code writers and code readers.</p>
 
@@ -283,7 +284,7 @@ output.method2 <span class="o">&lt;-</span> <span class="kt">list</span><span cl
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="/blog/blogging-like-a-ninja/" class="btn" title="Blogging like a ninja with Jekyll">Previous</a>
+        <a href="/blog/connecting-R-and-Cpp-with-Rcpp/" class="btn" title="Connecting R and C++ with Rcpp">Previous</a>
       
       
     </nav><!-- /.pagination -->

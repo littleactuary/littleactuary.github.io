@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-12-10T23:30:53+01:00</updated>
+<updated>2015-12-12T14:17:17+01:00</updated>
 <id>/</id>
 <author>
   <name>Duc-Hien VU</name>
@@ -16,9 +16,9 @@
   
 
 <entry>
-  <title type="html"><![CDATA[Some tricks I have learned about writing R programs]]></title>
-  <link rel="alternate" type="text/html" href="/blog/some_tricks_about_writing_R_programs/" />
-  <id>/blog/some_tricks_about_writing_R_programs</id>
+  <title type="html"><![CDATA[Some things about writing R programs]]></title>
+  <link rel="alternate" type="text/html" href="/blog/some-things-about-writing-R-programs/" />
+  <id>/blog/some-things-about-writing-R-programs</id>
   <published>2015-11-30T20:39:55+01:00</published>
   <updated>2015-11-30T20:39:55+01:00</updated>
   <author>
@@ -27,7 +27,7 @@
     <email>duchienvu91@gmail.com</email>
   </author>
   <content type="html">
-    &lt;p&gt;When I was at school, I did some simple projects with R. Most of them were written in a dirty way (all in a same R script). Then I had a chance to work with R more seriously during my two last internships. I have learned R from reading R programs developed by experienced actuaries. Of course they are not programmers, but their programs are well-structured and much more readable and understandable than mine. A well-structured program (especially when dealing with a complex problem) helps you easily verify and debug your code and help others (who have to audit or modify your code) understand it quickly and effortlessly. Here are some rules that I find very useful for deploying a program with R. I believe they are also true for almost other languages.&lt;/p&gt;
+    &lt;p&gt;When I was at school, I did some simple projects with R. Most of them were written in a dirty way (all in a same R script). Then I had a chance to work with R more seriously during my two last internships. I have learned R by reading R programs developed by experienced actuaries. Of course they are not programmers, but their programs are well-structured and much more readable and understandable than mine. A well-structured program (especially when dealing with a complex problem) helps you easily verify and debug your code and help others (who have to audit or modify your code) understand it quickly and effortlessly. Here are some rules that I find very useful for deploying a program with R. I believe they are also true for almost other languages.&lt;/p&gt;
 
 &lt;h3 id=&quot;moduling-your-program&quot;&gt;#1: Moduling your program&lt;/h3&gt;
 
@@ -59,9 +59,9 @@
 &lt;span class=&quot;kp&quot;&gt;else&lt;/span&gt;
     &lt;span class=&quot;kn&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;E-pricing_method2.R&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;This script is the main workflow where your program tells R what to do. To run your program, just execute the &lt;code&gt;main.R&lt;/code&gt; script! Firstly, R will load 4 different scripts that only contains functions (that’s why their names begin with &lt;code&gt;F-&lt;/code&gt;).  While &lt;code&gt;F-simple_functions.R&lt;/code&gt; stores some simple functions that will be used almost everywhere in your program, &lt;code&gt;F-claims_modeling.R&quot;&lt;/code&gt; is reserved to specific functions that will be called in &lt;code&gt;E-claims_modeling.R&lt;/code&gt; and so one. Once all functions are loaded, R will call executive scripts whose name begins with &lt;code&gt;E-&lt;/code&gt;, in a scenario that you have pre-determined in the main script.&lt;/p&gt;
+&lt;p&gt;This script is the main workflow where your program tells R what to do. To run your program, just execute the &lt;code&gt;main.R&lt;/code&gt; script! Firstly, R will load 4 different scripts that only contain functions (that’s why their names begin with &lt;code&gt;F-&lt;/code&gt;).  While &lt;code&gt;F-simple_functions.R&lt;/code&gt; stores some simple functions that will be used almost everywhere in your program, &lt;code&gt;F-claims_modeling.R&quot;&lt;/code&gt; is reserved to specific functions that will be called in &lt;code&gt;E-claims_modeling.R&lt;/code&gt; and so one. Once all functions are loaded, R will call executive scripts whose name begins with &lt;code&gt;E-&lt;/code&gt;, in a scenario that you have pre-determined in the main script.&lt;/p&gt;
 
-&lt;p&gt;You can also replace each executive script by creating and calling a big function with parameters in order to make your R modules really independent (however, in my experience, it is sometimes complicate to do so). While structuring the program seems useless in this simplified example, it happened to be very helpful when I worked with more than hundred lines of code per modules&lt;/p&gt;
+&lt;p&gt;You can also replace each executive script by creating and calling a big function with parameters in order to make your R modules really independent (however, in my experience, it is sometimes complicate to do so). While structuring the program seems useless in this simplified example, it turns out to be very helpful when working with more than hundred lines of code per module.&lt;/p&gt;
 
 &lt;h3 id=&quot;commenting-code&quot;&gt;#2: Commenting code&lt;/h3&gt;
 &lt;p&gt;Comment a complex line of code, a function or a variable is a good habit and should be done whenever it is possible. I remember how hard it was for me to understand a bloc of code written by others (or even by myself long ago) without any comments.&lt;/p&gt;
@@ -86,7 +86,7 @@ beautifulAmount &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&q
 
 &lt;h3 id=&quot;naming-your-variables-wisely&quot;&gt;#3: Naming your variables wisely&lt;/h3&gt;
 
-&lt;p&gt;A good variable name is a meaningful name, not too short, not too long. However, when naming an index variable, most people use “i” or “j” or “k”. A friend of mine has taught me that in this case, “ii” is better than “i”. Instead of:&lt;/p&gt;
+&lt;p&gt;A good variable name is a meaningful name, not too short, not too long. However, when naming an index variable, we usually choose a meaningless letter such as “i”, “j” or “k”. In this case, a friend of mine has taught me that “ii” is better than “i”. Instead of:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;beautifulAmount &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
 &lt;span class=&quot;kr&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;i &lt;span class=&quot;kr&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;n&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
@@ -100,17 +100,18 @@ beautifulAmount &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&q
 &lt;span class=&quot;kc&quot;&gt;...&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Using the second option, when you need to find and modify your loop, you just need to jump into your R script and search (&lt;code&gt;Ctrl + F&lt;/code&gt;) “ii”. With the first option, a search of “i” letter in your whole script seems desperate.&lt;/p&gt;
+&lt;p&gt;Using the second option, when you need to find and modify your loop, you just need to jump into your R script and search (&lt;code&gt;Ctrl + F&lt;/code&gt;) “ii”. With the first option, doing a search of “i” letter in your whole script seems desperate.&lt;/p&gt;
 
 &lt;h3 id=&quot;using-list&quot;&gt;#4: Using list()&lt;/h3&gt;
-&lt;p&gt;If you have many variables to work with in your program, you should group them into lists. The two basic lists are &lt;code&gt;input()&lt;/code&gt;and &lt;code&gt;output()&lt;/code&gt;. In the above example of pricing, you can create one list for variables of each method:&lt;/p&gt;
+&lt;p&gt;If you have many variables to work with in your program, you should group them into lists. The two basic lists are &lt;code&gt;input()&lt;/code&gt;and &lt;code&gt;output()&lt;/code&gt; but you are not obligated to stay with these two. In the above example of pricing, you can create one list for variables of each method. By doing so, each method is somehow similar to an object.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;output.method1 &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 output.method2 &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;To declare a variable that will be used in the method 1:&lt;/p&gt;
+&lt;p&gt;To declare variables that will be used in the method 1:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;output.method1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;premium &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;output.method1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;name &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;historical method&amp;quot;&lt;/span&gt;
+output.method1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;premium &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;frequency&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;severity&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;For listing all elements of this list&lt;/p&gt;
 
@@ -118,12 +119,61 @@ output.method2 &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span c
 
 &lt;p&gt;For listing the names of all elements of this list, write:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;name&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;output.method1&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kp&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;output.method1&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;These simple habits of programming are surprisingly useful in practice, for both code writers and code readers.&lt;/p&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;/blog/some_tricks_about_writing_R_programs/&quot;&gt;Some tricks I have learned about writing R programs&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 30, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/some-things-about-writing-R-programs/&quot;&gt;Some things about writing R programs&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 30, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[Connecting R and C++ with Rcpp]]></title>
+  <link rel="alternate" type="text/html" href="/blog/connecting-R-and-Cpp-with-Rcpp/" />
+  <id>/blog/connecting-R-and-Cpp-with-Rcpp</id>
+  <published>2015-11-25T20:39:55+01:00</published>
+  <updated>2015-11-25T20:39:55+01:00</updated>
+  <author>
+    <name>Duc-Hien VU</name>
+    <uri></uri>
+    <email>duchienvu91@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;If you are an R user, you may know that R is potentially slow compared to other languages such as Matlab, Java or C/C++. It’s highly recommended to avoid using loops in R. A common alternative way is to vectorize your program, i.e. to use vectors and matrices. There is a family of &lt;code&gt;apply()&lt;/code&gt;functions developed in R to help you work with vectors, matrices, dataframes. These functions are better than a naive loop in R, but still struggle when the dimension of your vectors or matrices is too big. A better solution I want to talk about in this post is the Rcpp package that helps you connect R and C++ seemlessly.&lt;/p&gt;
+
+&lt;p&gt;I really like &lt;code&gt;Rcpp&lt;/code&gt; because it allows me to call C++ functions in R and vice versa. If you are strong enough to code your whole program in C++, well, I have nothing more to say. Nothing can beat C++ in term of speed. But if you choose to stay with R (because you are familiar with many useful R packages that can save you a lot of time compared to C++), and if you are an occasionnal C++ user, you may try out &lt;code&gt;Rcpp&lt;/code&gt;. Keep your R core and you only need to code some parts in C++ and call them in your R program through Rcpp. I will show you how well Rcpp performs.&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#installing-rtools&quot; id=&quot;markdown-toc-installing-rtools&quot;&gt;Installing Rtools&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#installing-rcpp-package&quot; id=&quot;markdown-toc-installing-rcpp-package&quot;&gt;Installing Rcpp package&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;installing-rtools&quot;&gt;Installing Rtools&lt;/h2&gt;
+&lt;p&gt;We need to install Rtools in order to have a C++ compilator. Please &lt;a href=&quot;https://cran.r-project.org/bin/windows/Rtools/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;download Rtools here&lt;/strong&gt;&lt;/a&gt;. Make sure that you are downloading an Rtools version compatible with your R version.&lt;/p&gt;
+
+&lt;p&gt;After installing Rtools, the system variable PATH needs to be re-defined to tell R where to find the C++ compilator.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If your computer does not require an admin mode, it will be done automatically.&lt;/li&gt;
+  &lt;li&gt;Othersiwe, go to Control Panel, pull down the admin password and then add the below line in your PATH:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;\Rtools\bin &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;\Rtools\gcc&lt;span class=&quot;m&quot;&gt;-4.6.3&lt;/span&gt;\bin &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To check whether or not Rtools was sucessfully installed, enter the first line below into your R console. If everything is fine, you will see the second line:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kp&quot;&gt;Sys.getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;PATH&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;c:\\\\Rtools\\\\bin;c:\\\\Rtools\\\\gcc-4.6.3\\\\bin;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;installing-rcpp-package&quot;&gt;Installing Rcpp package&lt;/h2&gt;
+
+&lt;p&gt;During my part-time internship, I had to speed-up an R program. What I found out is that the core R was already very well written. There is no loop and there are &lt;code&gt;apply()&lt;/code&gt;, &lt;code&gt;sapply()&lt;/code&gt;, &lt;code&gt;lapply()&lt;/code&gt; everywhere. After checking the running time of each bloc of code, I identified where&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/blog/connecting-R-and-Cpp-with-Rcpp/&quot;&gt;Connecting R and C++ with Rcpp&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 25, 2015.&lt;/p&gt;
   </content>
 </entry>
 
@@ -142,7 +192,7 @@ output.method2 &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span c
     <email>duchienvu91@gmail.com</email>
   </author>
   <content type="html">
-    &lt;p&gt;This post, whose title was inspired by some &lt;a href=&quot;https://www.udemy.com&quot; target=&quot;_blank&quot;&gt;Udemy&lt;/a&gt; course, is about Jekyll!&lt;/p&gt;
+    &lt;p&gt;This post is about Jekyll, the site generator behind this blog. I have tried some blog services such as Blogger and Wordpress before ending up with Jekyll. Here’s a quick review of these tools based on my experiences!&lt;/p&gt;
 
 &lt;p&gt;Back in 2006 when I was in high school, I found out &lt;a href=&quot;https://www.blogger.com&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Blogger&lt;/strong&gt;&lt;/a&gt; (with subdomain .blogspot.com), a blog-publishing service, written in Python and developed by &lt;a href=&quot;https://en.wikipedia.org/wiki/Pyra_Labs&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Pyra Labs&lt;/strong&gt;&lt;/a&gt;, which was bought by Google in 2003. It was quite interesting back then for a kid with no IT knowledge to play with Blogger. I enjoyed customizing my blog by copying and modifying HTML/CSS code written by other people, without knowing exactly what all of that mean.&lt;/p&gt;
 
@@ -153,9 +203,9 @@ output.method2 &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span c
   &lt;li&gt;&lt;a href=&quot;https://wordpress.org&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Worpress.org&lt;/strong&gt;&lt;/a&gt;: a CMS that you can host on your own server and freely add plugins to your Wordpress site.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Here’s an example of site I’ve created for &lt;strong&gt;D.I.A.F. (International Diffusion of French Actuarial Science)&lt;/strong&gt; by using Wordpress.org: &lt;a href=&quot;http://assodiaf.org/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;assodiaf.org&lt;/strong&gt;&lt;/a&gt;. Wordpress (I mean Wordpress.org) is wonderful. I didn’t have to touch a line of code to build such a powerful site. But it also has limits. One of those is that you have to pay for server and domain. Another one is that it works with databases so it is slow and somehow risky (it’s a growing target for hackers).&lt;/p&gt;
+&lt;p&gt;Here’s an example of website I’ve created for the &lt;strong&gt;D.I.A.F. (International Diffusion of French Actuarial Science)&lt;/strong&gt; by using Wordpress.org: &lt;a href=&quot;http://assodiaf.org/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;assodiaf.org&lt;/strong&gt;&lt;/a&gt;. Wordpress (I mean Wordpress.org) is wonderful. I didn’t have to touch a line of code to build such a powerful site. But it also has limits. One of those is that you have to pay for server and domain. Another one is that it works with databases so it is slow and somehow risky (it’s a growing target for hackers).&lt;/p&gt;
 
-&lt;p&gt;I was searching for a new solution, more adapted to my blogging purpose (something free, faster than Wordpress and cool). After visiting some blogs, I found out that many bloggers have moved from Wordpress to &lt;strong&gt;Jekyll&lt;/strong&gt;, a simple, blog-aware, static site generator written in Ruby. Don’t panic! You don’t need to know about Ruby to blog with Jekyll (I don’t know Ruby). However, the way Jekyll works is quite different from Wordpress. If you are a fan of Wordpress and want to change to Jekyll, it is not trivial at the first time. Jekyll is easy, but you have to work with Jekyll via your terminal window. It took me a while to get familiar with this. Instead of using databases, Jekyll takes the content (plain text format such as Markdown), combine it with the template to produce a static website ready to be served. There is no more databases. Just write your posts with Markdown and Jekyll will take care of other things. Another cool feature about Jekyll is that it happens to be the engine behind GitHub pages. Thus, you can use GitHub to host your Jekyll site for free. Awesome right?&lt;/p&gt;
+&lt;p&gt;Thus, I was searching for a new solution, more adapted to my blogging purpose (something free, faster than Wordpress and cool). After visiting some blogs, I found out that many bloggers have moved from Wordpress to &lt;strong&gt;Jekyll&lt;/strong&gt;, a simple, blog-aware, static site generator written in Ruby. Don’t panic! You don’t need to know about Ruby to blog with Jekyll (I don’t know Ruby). However, the way Jekyll works is quite different from Wordpress. If you are a fan of Wordpress and want to change to Jekyll, it is not trivial at the first time. Jekyll is easy, but you have to work with Jekyll via your terminal window. It took me a while to get familiar with this. Instead of using databases, Jekyll takes the content (plain text format such as Markdown), combine it with the template to produce a static website ready to be served. There is no more databases. Just write your posts with Markdown and Jekyll will take care of other things. Another cool feature of Jekyll is that it happens to be the engine behind GitHub pages. Thus, you can use GitHub to host your Jekyll site for free. Awesome right?&lt;/p&gt;
 
 &lt;p&gt;If you want to learn Jekyll, I recommend you to start with some intro to Jekyll videos that can be found on Youtube, like &lt;a href=&quot;https://www.youtube.com/watch?v=O7NBEFmA7yA&quot; target=&quot;_blank&quot;&gt;this one&lt;/a&gt;. Check out the &lt;a href=&quot;http://jekyllrb.com&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Jekyll docs&lt;/strong&gt;&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Jekyll’s GitHub repo&lt;/strong&gt;&lt;/a&gt;. With Jekyll, you can build your site from scratch, or simply use a ready-to-use theme (as I did). Here’s some &lt;a href=&quot;http://jekyllthemes.org&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Jekyll themes&lt;/strong&gt;&lt;/a&gt;. Finally, you should learn some &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Markdown&lt;/strong&gt;&lt;/a&gt; syntax before starting your Jekyll blog. That’s all for now!&lt;/p&gt;
 

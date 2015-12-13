@@ -2,8 +2,7 @@
 layout: page
 title: Curriculum Vitae
 excerpt: "My online resume."
-modified: 2014-08-08T19:44:38.564948-04:00
-
+modified:
 ---
 
 You can download my CV (in PDF format) here ([**English**]({{ site.url }}/vitae/CV_Duc_Hien_VU_en.pdf){:target="_blank"}, [**French**]({{ site.url }}/vitae/CV_Duc_Hien_VU_fr.pdf){:target="_blank"}, [**Vietnamese**]({{ site.url }}/vitae/CV_Duc_Hien_VU_vi.pdf){:target="_blank"}). 
