@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-12-12T14:17:17+01:00</updated>
+<updated>2015-12-19T11:13:10+01:00</updated>
 <id>/</id>
 <author>
   <name>Duc-Hien VU</name>
@@ -16,11 +16,260 @@
   
 
 <entry>
-  <title type="html"><![CDATA[Some things about writing R programs]]></title>
-  <link rel="alternate" type="text/html" href="/blog/some-things-about-writing-R-programs/" />
-  <id>/blog/some-things-about-writing-R-programs</id>
-  <published>2015-11-30T20:39:55+01:00</published>
-  <updated>2015-11-30T20:39:55+01:00</updated>
+  <title type="html"><![CDATA[Connecting R and C++ with Rcpp]]></title>
+  <link rel="alternate" type="text/html" href="/blog/connecting-R-and-Cpp-with-Rcpp/" />
+  <id>/blog/connecting-R-and-Cpp-with-Rcpp</id>
+  <published>2015-11-25T20:39:55+01:00</published>
+  <updated>2015-11-25T20:39:55+01:00</updated>
+  <author>
+    <name>Duc-Hien VU</name>
+    <uri></uri>
+    <email>duchienvu91@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;If you are an R user, you may know that R is potentially slow compared to other languages such as Matlab, Java or C/C++. It’s highly recommended to avoid using loops in R. A common alternative way is to vectorize your program, i.e. to use vectors and matrices. There is a family of &lt;code&gt;apply()&lt;/code&gt;functions developed in R to help you work with vectors, matrices, dataframes. These functions are better than a naive loop in R, but still struggle when the dimension of your vectors or matrices is too big. A better solution I want to talk about in this post is the Rcpp package which provides a C++ API as an extension to the R system.&lt;/p&gt;
+
+&lt;p&gt;I really like &lt;code&gt;Rcpp&lt;/code&gt; because it allows me to call C++ functions in R and vice versa. If you are strong enough to code your whole program in C++, well, I have nothing more to say. Nothing can beat C++ in term of speed. But if you choose to stay with R (because you are familiar with many useful R packages and pre-built functions that can save you a lot of time compared to C++), and if you are an occasionnal C++ user, you may try &lt;code&gt;Rcpp&lt;/code&gt;. Keep building your tool with R and you only need to code some parts in C++ and then call them in your R program through Rcpp. I will show you how well Rcpp performs.&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#installing-rtools&quot; id=&quot;markdown-toc-installing-rtools&quot;&gt;Installing Rtools&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#installing-rcpp-package&quot; id=&quot;markdown-toc-installing-rcpp-package&quot;&gt;Installing Rcpp package&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#using-rcpp&quot; id=&quot;markdown-toc-using-rcpp&quot;&gt;Using Rcpp&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#performance-comparison&quot; id=&quot;markdown-toc-performance-comparison&quot;&gt;Performance comparison&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#to-go-further&quot; id=&quot;markdown-toc-to-go-further&quot;&gt;To go further&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;installing-rtools&quot;&gt;Installing Rtools&lt;/h2&gt;
+
+&lt;p&gt;This is for Windows users only!&lt;/p&gt;
+
+&lt;p&gt;We need to install Rtools in order to have a C++ compilator. Please &lt;a href=&quot;https://cran.r-project.org/bin/windows/Rtools/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;download Rtools here&lt;/strong&gt;&lt;/a&gt;. Make sure that you are downloading an Rtools version compatible with your R version.&lt;/p&gt;
+
+&lt;p&gt;After installing Rtools, the environment variable PATH needs to be re-defined to tell R where to find the C++ compilator.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If your computer does not require an admin mode, it will be done automatically.&lt;/li&gt;
+  &lt;li&gt;Othersiwe, you have to do it manually. First go to Control Panel, pull down the admin password and then add the below line in your PATH:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;\Rtools\bin &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;\Rtools\gcc&lt;span class=&quot;m&quot;&gt;-4.6.3&lt;/span&gt;\bin &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To check whether or not Rtools was sucessfully installed, enter the first line below into your R console. If everything is fine, you will see the second line:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kp&quot;&gt;Sys.getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;PATH&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;c:\\\\Rtools\\\\bin;c:\\\\Rtools\\\\gcc-4.6.3\\\\bin;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;installing-rcpp-package&quot;&gt;Installing Rcpp package&lt;/h2&gt;
+
+&lt;p&gt;The Rcpp package only works with R3.0.x or later. Download the latest version of Rcpp &lt;a href=&quot;Rcpp&quot;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt; and install it manually, or from within R:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;install.packages&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Rcpp&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;using-rcpp&quot;&gt;Using Rcpp&lt;/h2&gt;
+&lt;p&gt;C++ functions need to be writeen in &lt;code&gt;.cpp&lt;/code&gt;file(s), apart from R script. Below an example of C++ function &lt;code&gt;just_try()&lt;/code&gt; declared in &lt;code&gt;test.cpp&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cp&quot;&gt;# include &amp;lt;Rcpp.h&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Rcpp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// [[Rcpp::export]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;NumericMatrix&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;just_try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NumericMatrix&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NumericVector&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// your code C++&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The two headers are indispensable:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cp&quot;&gt;# include &amp;lt;Rcpp.h&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Rcpp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In &lt;code&gt;test.cpp&lt;/code&gt;, we can define different C++ function. Each of them has to begin with:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// [[Rcpp::export]]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Attention: it’s not like other comment so you cannot omit it.&lt;/p&gt;
+
+&lt;p&gt;Please note that NumericMatrix and NumericVector are specific types of Rcpp to define matrices and vectors.&lt;/p&gt;
+
+&lt;p&gt;Now, to call &lt;code&gt;just_try()&lt;/code&gt; in of R script:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Rcpp&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+SourceCpp&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;test.cpp&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; declare inputs of just_try&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; M &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; v &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; x &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; call just_try&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+result &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; just_try&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;M&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; v&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;performance-comparison&quot;&gt;Performance comparison&lt;/h2&gt;
+&lt;p&gt;Ok, so now that we’ve got some basics out of Rccp, let’s do a test to see how well Rcpp performs.&lt;/p&gt;
+
+&lt;p&gt;During my part-time internship at AXA Global P&amp;amp;C, I had to speed-up an Actuarial pricing tool built with R. What I found out is that the core R was already very well written. There is no loop and there are &lt;code&gt;apply()&lt;/code&gt;, &lt;code&gt;sapply()&lt;/code&gt;, &lt;code&gt;lapply()&lt;/code&gt; everywhere. After checking the running time of each bloc of code, I suprisingly indentified that those &lt;code&gt;apply()&lt;/code&gt; functions are the main reason of the time cost.&lt;/p&gt;
+
+&lt;p&gt;Thus I decided to recode those functions in C++. What I obtained by the end is a running time reducing of 95%. For example, with 10000 simulations, the running time has reduced from 74.16s to 3.88s. Not bad at all, right?&lt;/p&gt;
+
+&lt;p&gt;If you are interested in what I have done exactly in my part-time internship, here’s my two reports (in french only): &lt;a href=&quot;https://drive.google.com/file/d/0B9sO-FiCPQljQ3M0b1hnTUdmaDg/view?usp=sharing&quot; target=&quot;_blank&quot;&gt;report 1&lt;/a&gt;, &lt;a href=&quot;https://drive.google.com/file/d/0B9sO-FiCPQljY28xYnBVQndqck0/view?usp=sharing&quot; target=&quot;_blank&quot;&gt;report 2&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;to-go-further&quot;&gt;To go further&lt;/h2&gt;
+&lt;p&gt;https://cran.r-project.org/web/packages/Rcpp/Rcpp.pdf
+https://support.rstudio.com/hc/en-us/articles/200486088-Using-Rcpp-with-RStudio
+http://www.rcpp.org
+https://github.com/RcppCore/Rcpp&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/blog/connecting-R-and-Cpp-with-Rcpp/&quot;&gt;Connecting R and C++ with Rcpp&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 25, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[Connecting R and C++ with Rcpp]]></title>
+  <link rel="alternate" type="text/html" href="/blog/Web-application-framework-with-Shiny/" />
+  <id>/blog/Web-application-framework-with-Shiny</id>
+  <published>2015-11-25T20:39:55+01:00</published>
+  <updated>2015-11-25T20:39:55+01:00</updated>
+  <author>
+    <name>Duc-Hien VU</name>
+    <uri></uri>
+    <email>duchienvu91@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;If you are an R user, you may know that R is potentially slow compared to other languages such as Matlab, Java or C/C++. It’s highly recommended to avoid using loops in R. A common alternative way is to vectorize your program, i.e. to use vectors and matrices. There is a family of &lt;code&gt;apply()&lt;/code&gt;functions developed in R to help you work with vectors, matrices, dataframes. These functions are better than a naive loop in R, but still struggle when the dimension of your vectors or matrices is too big. A better solution I want to talk about in this post is the Rcpp package which provides a C++ API as an extension to the R system.&lt;/p&gt;
+
+&lt;p&gt;I really like &lt;code&gt;Rcpp&lt;/code&gt; because it allows me to call C++ functions in R and vice versa. If you are strong enough to code your whole program in C++, well, I have nothing more to say. Nothing can beat C++ in term of speed. But if you choose to stay with R (because you are familiar with many useful R packages and pre-built functions that can save you a lot of time compared to C++), and if you are an occasionnal C++ user, you may try &lt;code&gt;Rcpp&lt;/code&gt;. Keep building your tool with R and you only need to code some parts in C++ and then call them in your R program through Rcpp. I will show you how well Rcpp performs.&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#installing-rtools&quot; id=&quot;markdown-toc-installing-rtools&quot;&gt;Installing Rtools&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#installing-rcpp-package&quot; id=&quot;markdown-toc-installing-rcpp-package&quot;&gt;Installing Rcpp package&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#using-rcpp&quot; id=&quot;markdown-toc-using-rcpp&quot;&gt;Using Rcpp&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#performance-comparison&quot; id=&quot;markdown-toc-performance-comparison&quot;&gt;Performance comparison&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#to-go-further&quot; id=&quot;markdown-toc-to-go-further&quot;&gt;To go further&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;installing-rtools&quot;&gt;Installing Rtools&lt;/h2&gt;
+
+&lt;p&gt;This is for Windows users only!&lt;/p&gt;
+
+&lt;p&gt;We need to install Rtools in order to have a C++ compilator. Please &lt;a href=&quot;https://cran.r-project.org/bin/windows/Rtools/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;download Rtools here&lt;/strong&gt;&lt;/a&gt;. Make sure that you are downloading an Rtools version compatible with your R version.&lt;/p&gt;
+
+&lt;p&gt;After installing Rtools, the environment variable PATH needs to be re-defined to tell R where to find the C++ compilator.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If your computer does not require an admin mode, it will be done automatically.&lt;/li&gt;
+  &lt;li&gt;Othersiwe, you have to do it manually. First go to Control Panel, pull down the admin password and then add the below line in your PATH:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;\Rtools\bin &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;\Rtools\gcc&lt;span class=&quot;m&quot;&gt;-4.6.3&lt;/span&gt;\bin &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To check whether or not Rtools was sucessfully installed, enter the first line below into your R console. If everything is fine, you will see the second line:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kp&quot;&gt;Sys.getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;PATH&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;c:\\\\Rtools\\\\bin;c:\\\\Rtools\\\\gcc-4.6.3\\\\bin;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;installing-rcpp-package&quot;&gt;Installing Rcpp package&lt;/h2&gt;
+
+&lt;p&gt;The Rcpp package only works with R3.0.x or later. Download the latest version of Rcpp &lt;a href=&quot;Rcpp&quot;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt; and install it manually, or from within R:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;install.packages&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Rcpp&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;using-rcpp&quot;&gt;Using Rcpp&lt;/h2&gt;
+&lt;p&gt;C++ functions need to be writeen in &lt;code&gt;.cpp&lt;/code&gt;file(s), apart from R script. Below an example of C++ function &lt;code&gt;just_try()&lt;/code&gt; declared in &lt;code&gt;test.cpp&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cp&quot;&gt;# include &amp;lt;Rcpp.h&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Rcpp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// [[Rcpp::export]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;NumericMatrix&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;just_try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NumericMatrix&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NumericVector&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// your code C++&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The two headers are indispensable:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cp&quot;&gt;# include &amp;lt;Rcpp.h&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Rcpp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In &lt;code&gt;test.cpp&lt;/code&gt;, we can define different C++ function. Each of them has to begin with:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// [[Rcpp::export]]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Attention: it’s not like other comment so you cannot omit it.&lt;/p&gt;
+
+&lt;p&gt;Please note that NumericMatrix and NumericVector are specific types of Rcpp to define matrices and vectors.&lt;/p&gt;
+
+&lt;p&gt;Now, to call &lt;code&gt;just_try()&lt;/code&gt; in of R script:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Rcpp&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+SourceCpp&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;test.cpp&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; declare inputs of just_try&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; M &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; v &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; x &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; call just_try&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+result &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; just_try&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;M&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; v&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;performance-comparison&quot;&gt;Performance comparison&lt;/h2&gt;
+&lt;p&gt;Ok, so now that we’ve got some basics out of Rccp, let’s do a test to see how well Rcpp performs.&lt;/p&gt;
+
+&lt;p&gt;During my part-time internship at AXA Global P&amp;amp;C, I had to speed-up an Actuarial pricing tool built with R. What I found out is that the core R was already very well written. There is no loop and there are &lt;code&gt;apply()&lt;/code&gt;, &lt;code&gt;sapply()&lt;/code&gt;, &lt;code&gt;lapply()&lt;/code&gt; everywhere. After checking the running time of each bloc of code, I suprisingly indentified that those &lt;code&gt;apply()&lt;/code&gt; functions are the main reason of the time cost.&lt;/p&gt;
+
+&lt;p&gt;Thus I decided to recode those functions in C++. What I obtained by the end is a running time reducing of 95%. For example, with 10000 simulations, the running time has reduced from 74.16s to 3.88s. Not bad at all, right?&lt;/p&gt;
+
+&lt;p&gt;If you are interested in what I have done exactly in my part-time internship, here’s my two reports (in french only): &lt;a href=&quot;https://drive.google.com/file/d/0B9sO-FiCPQljQ3M0b1hnTUdmaDg/view?usp=sharing&quot; target=&quot;_blank&quot;&gt;report 1&lt;/a&gt;, &lt;a href=&quot;https://drive.google.com/file/d/0B9sO-FiCPQljY28xYnBVQndqck0/view?usp=sharing&quot; target=&quot;_blank&quot;&gt;report 2&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;to-go-further&quot;&gt;To go further&lt;/h2&gt;
+&lt;p&gt;https://cran.r-project.org/web/packages/Rcpp/Rcpp.pdf
+https://support.rstudio.com/hc/en-us/articles/200486088-Using-Rcpp-with-RStudio
+http://www.rcpp.org
+https://github.com/RcppCore/Rcpp&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/blog/Web-application-framework-with-Shiny/&quot;&gt;Connecting R and C++ with Rcpp&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 25, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[Blogging like a ninja with Jekyll]]></title>
+  <link rel="alternate" type="text/html" href="/blog/blogging-like-a-ninja/" />
+  <id>/blog/blogging-like-a-ninja</id>
+  <published>2015-11-20T20:39:55+01:00</published>
+  <updated>2015-11-20T20:39:55+01:00</updated>
+  <author>
+    <name>Duc-Hien VU</name>
+    <uri></uri>
+    <email>duchienvu91@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;This post is about Jekyll, the site generator behind this blog. I have tried some blog services such as Blogger and Wordpress before ending up with Jekyll. So here’s a quick review of these tools based on my experiments!&lt;/p&gt;
+
+&lt;p&gt;Back in 2006 when I was in high school, I found out &lt;a href=&quot;https://www.blogger.com&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Blogger&lt;/strong&gt;&lt;/a&gt; (with subdomain .blogspot.com), a blog-publishing service, written in Python and developed by &lt;a href=&quot;https://en.wikipedia.org/wiki/Pyra_Labs&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Pyra Labs&lt;/strong&gt;&lt;/a&gt;, which was bought by Google in 2003. It was quite interesting back then for a kid with no IT knowledge to play with Blogger. I enjoyed customizing my blog by copying and modifying HTML/CSS code written by other people, without knowing exactly what all of that mean.&lt;/p&gt;
+
+&lt;p&gt;One day, I heard about &lt;a href=&quot;https://en.wikipedia.org/wiki/WordPress&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Wordpress&lt;/strong&gt;&lt;/a&gt;, a CMS based on PHP and MySQL, and found out that most of the famous Blogger templates were converted from Wordpress templates. Wordpress is so far the most famous and succesful CMS in the world. It was used by more than 23.3% of the top 10 million websites as of January 2015. It has a huge number of active contributors and users compared to Blogger. Contrarily to Blogger, Wordpress offers 2 options:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://wordpress.com&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Wordpress.com&lt;/strong&gt;&lt;/a&gt;: hosted by Wordpress (which means you don’t own your site, Worpress does, just like Google owns all Bloggers),&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://wordpress.org&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Worpress.org&lt;/strong&gt;&lt;/a&gt;: a CMS that you can host on your own server and freely add plugins to your Wordpress site.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here’s an example of website I’ve created for the &lt;strong&gt;D.I.A.F. (International Diffusion of French Actuarial Science)&lt;/strong&gt; by using Wordpress.org: &lt;a href=&quot;http://assodiaf.org/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;assodiaf.org&lt;/strong&gt;&lt;/a&gt;. Wordpress (I mean Wordpress.org) is wonderful. I didn’t have to touch a line of code to build such a powerful site. But it also has limits. One of those is that you have to pay for server and domain. Another one is that it works with databases so it is slow and somehow risky (it’s a growing target for hackers).&lt;/p&gt;
+
+&lt;p&gt;Thus, I was searching for a new solution, more adapted to my blogging purpose (something free, faster than Wordpress and cool). After visiting some blogs, I realized that many bloggers have moved from Wordpress to &lt;strong&gt;Jekyll&lt;/strong&gt;, a simple, blog-aware, static site generator written in Ruby. Don’t panic! You don’t need to know about Ruby to blog with Jekyll (I don’t know Ruby). However, the way Jekyll works is quite different from Wordpress. If you are a fan of Wordpress and want to change to Jekyll, it is not trivial in the beginning. Jekyll is easy, but you have to install and work with Jekyll via your terminal console. It took me a while to get familiar with this. Instead of using databases, Jekyll takes the content (plain text format such as Markdown), combine it with the template to produce a static website ready to be served. There is no more databases. Just write your posts with Markdown and Jekyll will take care of other things. Another cool feature of Jekyll is that it happens to be the engine behind GitHub pages. Thus, you can use GitHub to host your Jekyll site for free, as I do with this blog. Awesome right?&lt;/p&gt;
+
+&lt;p&gt;If you want to learn Jekyll, I recommend you to start with some intro to Jekyll videos that can be found on Youtube, like &lt;a href=&quot;https://www.youtube.com/watch?v=O7NBEFmA7yA&quot; target=&quot;_blank&quot;&gt;this one&lt;/a&gt;. Check out the &lt;a href=&quot;http://jekyllrb.com&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Jekyll docs&lt;/strong&gt;&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Jekyll’s GitHub repo&lt;/strong&gt;&lt;/a&gt;. With Jekyll, you can build your site from scratch, or simply use a ready-to-use theme (as I do). Here’s some &lt;a href=&quot;http://jekyllthemes.org&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Jekyll themes&lt;/strong&gt;&lt;/a&gt;. Finally, you should learn some &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Markdown&lt;/strong&gt;&lt;/a&gt; syntax before starting your Jekyll blog. That’s all for now!&lt;/p&gt;
+
+
+    &lt;p&gt;&lt;a href=&quot;/blog/blogging-like-a-ninja/&quot;&gt;Blogging like a ninja with Jekyll&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 20, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[(Actuarial) tools with R]]></title>
+  <link rel="alternate" type="text/html" href="/blog/Actuarial-applications-with-r/" />
+  <id>/blog/Actuarial-applications-with-r</id>
+  <published>2015-10-30T20:39:55+01:00</published>
+  <updated>2015-10-30T20:39:55+01:00</updated>
   <author>
     <name>Duc-Hien VU</name>
     <uri></uri>
@@ -115,7 +364,7 @@ output.method1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;premium &lt;span cla
 
 &lt;p&gt;For listing all elements of this list&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kp&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;output.method1&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# or without print() if you write directly into your R console&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kp&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;output.method1&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# or without print()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;For listing the names of all elements of this list, write:&lt;/p&gt;
 
@@ -124,93 +373,7 @@ output.method1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;premium &lt;span cla
 &lt;p&gt;These simple habits of programming are surprisingly useful in practice, for both code writers and code readers.&lt;/p&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;/blog/some-things-about-writing-R-programs/&quot;&gt;Some things about writing R programs&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 30, 2015.&lt;/p&gt;
-  </content>
-</entry>
-
-
-  
-
-<entry>
-  <title type="html"><![CDATA[Connecting R and C++ with Rcpp]]></title>
-  <link rel="alternate" type="text/html" href="/blog/connecting-R-and-Cpp-with-Rcpp/" />
-  <id>/blog/connecting-R-and-Cpp-with-Rcpp</id>
-  <published>2015-11-25T20:39:55+01:00</published>
-  <updated>2015-11-25T20:39:55+01:00</updated>
-  <author>
-    <name>Duc-Hien VU</name>
-    <uri></uri>
-    <email>duchienvu91@gmail.com</email>
-  </author>
-  <content type="html">
-    &lt;p&gt;If you are an R user, you may know that R is potentially slow compared to other languages such as Matlab, Java or C/C++. It’s highly recommended to avoid using loops in R. A common alternative way is to vectorize your program, i.e. to use vectors and matrices. There is a family of &lt;code&gt;apply()&lt;/code&gt;functions developed in R to help you work with vectors, matrices, dataframes. These functions are better than a naive loop in R, but still struggle when the dimension of your vectors or matrices is too big. A better solution I want to talk about in this post is the Rcpp package that helps you connect R and C++ seemlessly.&lt;/p&gt;
-
-&lt;p&gt;I really like &lt;code&gt;Rcpp&lt;/code&gt; because it allows me to call C++ functions in R and vice versa. If you are strong enough to code your whole program in C++, well, I have nothing more to say. Nothing can beat C++ in term of speed. But if you choose to stay with R (because you are familiar with many useful R packages that can save you a lot of time compared to C++), and if you are an occasionnal C++ user, you may try out &lt;code&gt;Rcpp&lt;/code&gt;. Keep your R core and you only need to code some parts in C++ and call them in your R program through Rcpp. I will show you how well Rcpp performs.&lt;/p&gt;
-
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#installing-rtools&quot; id=&quot;markdown-toc-installing-rtools&quot;&gt;Installing Rtools&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#installing-rcpp-package&quot; id=&quot;markdown-toc-installing-rcpp-package&quot;&gt;Installing Rcpp package&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;installing-rtools&quot;&gt;Installing Rtools&lt;/h2&gt;
-&lt;p&gt;We need to install Rtools in order to have a C++ compilator. Please &lt;a href=&quot;https://cran.r-project.org/bin/windows/Rtools/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;download Rtools here&lt;/strong&gt;&lt;/a&gt;. Make sure that you are downloading an Rtools version compatible with your R version.&lt;/p&gt;
-
-&lt;p&gt;After installing Rtools, the system variable PATH needs to be re-defined to tell R where to find the C++ compilator.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;If your computer does not require an admin mode, it will be done automatically.&lt;/li&gt;
-  &lt;li&gt;Othersiwe, go to Control Panel, pull down the admin password and then add the below line in your PATH:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;\Rtools\bin &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;\Rtools\gcc&lt;span class=&quot;m&quot;&gt;-4.6.3&lt;/span&gt;\bin &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;To check whether or not Rtools was sucessfully installed, enter the first line below into your R console. If everything is fine, you will see the second line:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kp&quot;&gt;Sys.getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;PATH&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;c:\\\\Rtools\\\\bin;c:\\\\Rtools\\\\gcc-4.6.3\\\\bin;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;installing-rcpp-package&quot;&gt;Installing Rcpp package&lt;/h2&gt;
-
-&lt;p&gt;During my part-time internship, I had to speed-up an R program. What I found out is that the core R was already very well written. There is no loop and there are &lt;code&gt;apply()&lt;/code&gt;, &lt;code&gt;sapply()&lt;/code&gt;, &lt;code&gt;lapply()&lt;/code&gt; everywhere. After checking the running time of each bloc of code, I identified where&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;/blog/connecting-R-and-Cpp-with-Rcpp/&quot;&gt;Connecting R and C++ with Rcpp&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 25, 2015.&lt;/p&gt;
-  </content>
-</entry>
-
-
-  
-
-<entry>
-  <title type="html"><![CDATA[Blogging like a ninja with Jekyll]]></title>
-  <link rel="alternate" type="text/html" href="/blog/blogging-like-a-ninja/" />
-  <id>/blog/blogging-like-a-ninja</id>
-  <published>2015-11-20T20:39:55+01:00</published>
-  <updated>2015-11-20T20:39:55+01:00</updated>
-  <author>
-    <name>Duc-Hien VU</name>
-    <uri></uri>
-    <email>duchienvu91@gmail.com</email>
-  </author>
-  <content type="html">
-    &lt;p&gt;This post is about Jekyll, the site generator behind this blog. I have tried some blog services such as Blogger and Wordpress before ending up with Jekyll. Here’s a quick review of these tools based on my experiences!&lt;/p&gt;
-
-&lt;p&gt;Back in 2006 when I was in high school, I found out &lt;a href=&quot;https://www.blogger.com&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Blogger&lt;/strong&gt;&lt;/a&gt; (with subdomain .blogspot.com), a blog-publishing service, written in Python and developed by &lt;a href=&quot;https://en.wikipedia.org/wiki/Pyra_Labs&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Pyra Labs&lt;/strong&gt;&lt;/a&gt;, which was bought by Google in 2003. It was quite interesting back then for a kid with no IT knowledge to play with Blogger. I enjoyed customizing my blog by copying and modifying HTML/CSS code written by other people, without knowing exactly what all of that mean.&lt;/p&gt;
-
-&lt;p&gt;One day, I heard about &lt;a href=&quot;https://en.wikipedia.org/wiki/WordPress&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Wordpress&lt;/strong&gt;&lt;/a&gt;, a CMS based on PHP and MySQL, and found out that most of the famous Blogger templates were converted from Wordpress templates. Wordpress is so far the most famous and succesful CMS in the world. It was used by more than 23.3% of the top 10 million websites as of January 2015. It has a huge number of active contributors and users compared to Blogger. Contrarily to Blogger, Wordpress offers 2 options:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://wordpress.com&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Wordpress.com&lt;/strong&gt;&lt;/a&gt;: hosted by Wordpress (which means you don’t own your site, Worpress does, just like Google owns all Bloggers),&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://wordpress.org&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Worpress.org&lt;/strong&gt;&lt;/a&gt;: a CMS that you can host on your own server and freely add plugins to your Wordpress site.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Here’s an example of website I’ve created for the &lt;strong&gt;D.I.A.F. (International Diffusion of French Actuarial Science)&lt;/strong&gt; by using Wordpress.org: &lt;a href=&quot;http://assodiaf.org/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;assodiaf.org&lt;/strong&gt;&lt;/a&gt;. Wordpress (I mean Wordpress.org) is wonderful. I didn’t have to touch a line of code to build such a powerful site. But it also has limits. One of those is that you have to pay for server and domain. Another one is that it works with databases so it is slow and somehow risky (it’s a growing target for hackers).&lt;/p&gt;
-
-&lt;p&gt;Thus, I was searching for a new solution, more adapted to my blogging purpose (something free, faster than Wordpress and cool). After visiting some blogs, I found out that many bloggers have moved from Wordpress to &lt;strong&gt;Jekyll&lt;/strong&gt;, a simple, blog-aware, static site generator written in Ruby. Don’t panic! You don’t need to know about Ruby to blog with Jekyll (I don’t know Ruby). However, the way Jekyll works is quite different from Wordpress. If you are a fan of Wordpress and want to change to Jekyll, it is not trivial at the first time. Jekyll is easy, but you have to work with Jekyll via your terminal window. It took me a while to get familiar with this. Instead of using databases, Jekyll takes the content (plain text format such as Markdown), combine it with the template to produce a static website ready to be served. There is no more databases. Just write your posts with Markdown and Jekyll will take care of other things. Another cool feature of Jekyll is that it happens to be the engine behind GitHub pages. Thus, you can use GitHub to host your Jekyll site for free. Awesome right?&lt;/p&gt;
-
-&lt;p&gt;If you want to learn Jekyll, I recommend you to start with some intro to Jekyll videos that can be found on Youtube, like &lt;a href=&quot;https://www.youtube.com/watch?v=O7NBEFmA7yA&quot; target=&quot;_blank&quot;&gt;this one&lt;/a&gt;. Check out the &lt;a href=&quot;http://jekyllrb.com&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Jekyll docs&lt;/strong&gt;&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Jekyll’s GitHub repo&lt;/strong&gt;&lt;/a&gt;. With Jekyll, you can build your site from scratch, or simply use a ready-to-use theme (as I did). Here’s some &lt;a href=&quot;http://jekyllthemes.org&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Jekyll themes&lt;/strong&gt;&lt;/a&gt;. Finally, you should learn some &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Markdown&lt;/strong&gt;&lt;/a&gt; syntax before starting your Jekyll blog. That’s all for now!&lt;/p&gt;
-
-
-    &lt;p&gt;&lt;a href=&quot;/blog/blogging-like-a-ninja/&quot;&gt;Blogging like a ninja with Jekyll&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 20, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/Actuarial-applications-with-r/&quot;&gt;(Actuarial) tools with R&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on October 30, 2015.&lt;/p&gt;
   </content>
 </entry>
 

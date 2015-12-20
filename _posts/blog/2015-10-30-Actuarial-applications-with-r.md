@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Some things about writing R programs"
+title: "(Actuarial) tools with R"
 modified:
 categories: blog
 excerpt: "How to write a well-structured and understandable R program"
@@ -9,7 +9,7 @@ image:
 
 comments: true
 share: true
-date: 2015-11-30T15:39:55-04:00
+date: 2015-10-30T15:39:55-04:00
 ---
 
 When I was at school, I did some simple projects with R. Most of them were written in a dirty way (all in a same R script). Then I had a chance to work with R more seriously during my two last internships. I have learned R by reading R programs developed by experienced actuaries. Of course they are not programmers, but their programs are well-structured and much more readable and understandable than mine. A well-structured program (especially when dealing with a complex problem) helps you easily verify and debug your code and help others (who have to audit or modify your code) understand it quickly and effortlessly. Here are some rules that I find very useful for deploying a program with R. I believe they are also true for almost other languages.
@@ -117,7 +117,7 @@ output.method1$premium <- mean(frequency)*mean(severity)
 
 For listing all elements of this list
 {% highlight r %}
-print(output.method1) # or without print() if you write directly into your R console
+print(output.method1) # or without print()
 {% endhighlight %}
 For listing the names of all elements of this list, write:
 {% highlight r %}

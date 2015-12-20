@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/blog/some-things-about-writing-R-programs/</loc>
-    <lastmod>2015-11-30T20:39:55+01:00</lastmod>
+    <loc>/blog/connecting-R-and-Cpp-with-Rcpp/</loc>
+    <lastmod>2015-11-25T20:39:55+01:00</lastmod>
   </url>
   <url>
-    <loc>/blog/connecting-R-and-Cpp-with-Rcpp/</loc>
+    <loc>/blog/Web-application-framework-with-Shiny/</loc>
     <lastmod>2015-11-25T20:39:55+01:00</lastmod>
   </url>
   <url>
     <loc>/blog/blogging-like-a-ninja/</loc>
     <lastmod>2015-11-20T20:39:55+01:00</lastmod>
+  </url>
+  <url>
+    <loc>/blog/Actuarial-applications-with-r/</loc>
+    <lastmod>2015-10-30T20:39:55+01:00</lastmod>
   </url>
   <url>
     <loc>/blog/mathjax-example/</loc>

@@ -2,16 +2,16 @@
 
   
     {
-      "title"			: "Some things about writing R programs",
-      "link"			: "/blog/some-things-about-writing-R-programs/",
-      "excerpt"		: "How to write a well-structured and understandable R program"
+      "title"			: "Connecting R and C++ with Rcpp",
+      "link"			: "/blog/connecting-R-and-Cpp-with-Rcpp/",
+      "excerpt"		: "Speed-up your R program with Rcpp package"
     }
   
 
   
     ,{
       "title"			: "Connecting R and C++ with Rcpp",
-      "link"			: "/blog/connecting-R-and-Cpp-with-Rcpp/",
+      "link"			: "/blog/Web-application-framework-with-Shiny/",
       "excerpt"		: "Speed-up your R program with Rcpp package"
     }
   
@@ -21,6 +21,14 @@
       "title"			: "Blogging like a ninja with Jekyll",
       "link"			: "/blog/blogging-like-a-ninja/",
       "excerpt"		: "An introduction to Jekyll"
+    }
+  
+
+  
+    ,{
+      "title"			: "(Actuarial) tools with R",
+      "link"			: "/blog/Actuarial-applications-with-r/",
+      "excerpt"		: "How to write a well-structured and understandable R program"
     }
   
 
