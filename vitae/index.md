@@ -12,7 +12,7 @@ You can download my CV (in PDF format) here ([**English**]({{ site.url }}/vitae/
 
 ##Current situation
 
-Actuarial Consultant at [**EY**](http://www.ey.com){:target="_blank"}, associated Actuary of the [Institute of French Actuaries (I.A.)](http://www.institutdesactuaires.com/){:target="_blank"}, Engineer Statistician Economist from [**ENSAE**](http://www.ensae.fr/ensae_engl/index.php?option=com_content&view=article&id=18&Itemid=48){:target="_blank"}, member and webmaster of the [**International Diffusion of French Actuarial Science (D.I.A.F.)**](http://assodiaf.org){:target="_blank"}
+Actuarial Consultant at [**EY**](http://www.ey.com){:target="_blank"}, associated Actuary of the [Institute of Actuaries (I.A.)](http://www.institutdesactuaires.com/){:target="_blank"}, Engineer Statistician Economist from [**ENSAE**](http://www.ensae.fr/ensae_engl/index.php?option=com_content&view=article&id=18&Itemid=48){:target="_blank"}, member and webmaster of the [**International Diffusion of French Actuarial Science (D.I.A.F.)**](http://assodiaf.org){:target="_blank"}
 
 ## Professional Experience
 
@@ -32,7 +32,7 @@ Actuarial Consultant at [**EY**](http://www.ey.com){:target="_blank"}, associate
 *Nov 2014 - Apr 2015* **Part-time intern at AXA Global P&C (Reinsurance team)**
 
 * Improvement of the CAT/Atypical modeling & reinsurance pricing tool (with R/C++ thanks to Rcpp package).
-    (Here's a post of mine about Speeding-up R programs with Rcpp package in R.) 
+    ([Here's a post of mine about Speeding-up R programs with Rcpp package in R]({{ site.url }}/blog/connecting-R-and-Cpp-with-Rcpp/){:target="_blank"}.) 
 * Development of new functionalities
 * Measurement of the impact of the reinsurance structure changing 
 
