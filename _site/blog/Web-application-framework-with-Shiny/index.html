@@ -5,15 +5,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Connecting R and C++ with Rcpp &#8211; Little Actuary</title>
-<meta name="description" content="Speed-up your R program with Rcpp package">
+<title>Web application framework with Shiny &#8211; Little Actuary</title>
+<meta name="description" content="Build an awesome R application with user-friendly web interface">
 <meta name="keywords" content="R">
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Connecting R and C++ with Rcpp">
-<meta name="twitter:description" content="Speed-up your R program with Rcpp package">
+<meta name="twitter:title" content="Web application framework with Shiny">
+<meta name="twitter:description" content="Build an awesome R application with user-friendly web interface">
 <meta name="twitter:site" content="@duc_hien_vu">
 <meta name="twitter:creator" content="@duc_hien_vu">
 
@@ -23,8 +23,8 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Connecting R and C++ with Rcpp">
-<meta property="og:description" content="Speed-up your R program with Rcpp package">
+<meta property="og:title" content="Web application framework with Shiny">
+<meta property="og:description" content="Build an awesome R application with user-friendly web interface">
 <meta property="og:url" content="/blog/Web-application-framework-with-Shiny/">
 <meta property="og:site_name" content="Little Actuary">
 
@@ -131,7 +131,7 @@
           <li><a href="/tags/#R" title="Pages tagged R">R</a></li>
         </ul>
         
-          <h1 class="entry-title">Connecting R and C++ with Rcpp</h1>
+          <h1 class="entry-title">Web application framework with Shiny</h1>
         
       </header>
       <footer class="entry-meta">
@@ -141,11 +141,11 @@
           <img src="/images/bio-photo.jpg" class="bio-photo" alt="Duc-Hien VU bio photo"></a>
         
         <span class="author vcard">By <span class="fn">Duc-Hien VU</span></span>
-        <span class="entry-date date published"><time datetime="2015-11-25T20:39:55+01:00"><i class="fa fa-calendar-o"></i> November 25, 2015</time></span>
+        <span class="entry-date date published"><time datetime="2015-11-30T20:39:55+01:00"><i class="fa fa-calendar-o"></i> November 30, 2015</time></span>
         
         <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
         <span class="social-share-twitter">
-  <a href="https://twitter.com/intent/tweet?hashtags=R&amp;text=Connecting%20R%20and%20C++%20with%20Rcpp&amp;url=/blog/Web-application-framework-with-Shiny/&amp;via=duc_hien_vu" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
+  <a href="https://twitter.com/intent/tweet?hashtags=R&amp;text=Web%20application%20framework%20with%20Shiny&amp;url=/blog/Web-application-framework-with-Shiny/&amp;via=duc_hien_vu" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
 </span>
 <span class="social-share-facebook">
   <a href="https://www.facebook.com/sharer/sharer.php?u=/blog/Web-application-framework-with-Shiny/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
@@ -157,92 +157,7 @@
         
       </footer>
       <div class="entry-content">
-        <p>If you are an R user, you may know that R is potentially slow compared to other languages such as Matlab, Java or C/C++. It’s highly recommended to avoid using loops in R. A common alternative way is to vectorize your program, i.e. to use vectors and matrices. There is a family of <code>apply()</code>functions developed in R to help you work with vectors, matrices, dataframes. These functions are better than a naive loop in R, but still struggle when the dimension of your vectors or matrices is too big. A better solution I want to talk about in this post is the Rcpp package which provides a C++ API as an extension to the R system.</p>
-
-<p>I really like <code>Rcpp</code> because it allows me to call C++ functions in R and vice versa. If you are strong enough to code your whole program in C++, well, I have nothing more to say. Nothing can beat C++ in term of speed. But if you choose to stay with R (because you are familiar with many useful R packages and pre-built functions that can save you a lot of time compared to C++), and if you are an occasionnal C++ user, you may try <code>Rcpp</code>. Keep building your tool with R and you only need to code some parts in C++ and then call them in your R program through Rcpp. I will show you how well Rcpp performs.</p>
-
-<ul id="markdown-toc">
-  <li><a href="#installing-rtools" id="markdown-toc-installing-rtools">Installing Rtools</a></li>
-  <li><a href="#installing-rcpp-package" id="markdown-toc-installing-rcpp-package">Installing Rcpp package</a></li>
-  <li><a href="#using-rcpp" id="markdown-toc-using-rcpp">Using Rcpp</a></li>
-  <li><a href="#performance-comparison" id="markdown-toc-performance-comparison">Performance comparison</a></li>
-  <li><a href="#to-go-further" id="markdown-toc-to-go-further">To go further</a></li>
-</ul>
-
-<h2 id="installing-rtools">Installing Rtools</h2>
-
-<p>This is for Windows users only!</p>
-
-<p>We need to install Rtools in order to have a C++ compilator. Please <a href="https://cran.r-project.org/bin/windows/Rtools/" target="_blank"><strong>download Rtools here</strong></a>. Make sure that you are downloading an Rtools version compatible with your R version.</p>
-
-<p>After installing Rtools, the environment variable PATH needs to be re-defined to tell R where to find the C++ compilator.</p>
-
-<ul>
-  <li>If your computer does not require an admin mode, it will be done automatically.</li>
-  <li>Othersiwe, you have to do it manually. First go to Control Panel, pull down the admin password and then add the below line in your PATH:</li>
-</ul>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kt">c</span><span class="o">:</span>\Rtools\bin <span class="p">;</span> <span class="kt">c</span><span class="o">:</span>\Rtools\gcc<span class="m">-4.6.3</span>\bin <span class="p">;</span> </code></pre></div>
-
-<p>To check whether or not Rtools was sucessfully installed, enter the first line below into your R console. If everything is fine, you will see the second line:</p>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kp">Sys.getenv</span><span class="p">(</span><span class="s">&#39;PATH&#39;</span><span class="p">)</span>
-<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;</span><span class="err">c:\\\\Rtools\\\\bin;c:\\\\Rtools\\\\gcc-4.6.3\\\\bin;...</span></code></pre></div>
-
-<h2 id="installing-rcpp-package">Installing Rcpp package</h2>
-
-<p>The Rcpp package only works with R3.0.x or later. Download the latest version of Rcpp <a href="Rcpp"><strong>here</strong></a> and install it manually, or from within R:</p>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r">install.packages<span class="p">(</span><span class="s">&quot;Rcpp&quot;</span><span class="p">)</span></code></pre></div>
-
-<h2 id="using-rcpp">Using Rcpp</h2>
-<p>C++ functions need to be writeen in <code>.cpp</code>file(s), apart from R script. Below an example of C++ function <code>just_try()</code> declared in <code>test.cpp</code>:</p>
-
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp"># include &lt;Rcpp.h&gt;</span>
-<span class="n">using</span> <span class="n">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
-<span class="c1">// [[Rcpp::export]]</span>
-<span class="n">NumericMatrix</span> <span class="nf">just_try</span><span class="p">(</span><span class="n">NumericMatrix</span> <span class="n">M</span><span class="p">,</span> <span class="n">NumericVector</span> <span class="n">v</span><span class="p">,</span> <span class="kt">double</span> <span class="n">x</span><span class="p">){</span>
-<span class="c1">// your code C++</span>
-<span class="p">}</span></code></pre></div>
-
-<p>The two headers are indispensable:</p>
-
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp"># include &lt;Rcpp.h&gt;</span>
-<span class="n">using</span> <span class="n">namespace</span> <span class="n">Rcpp</span><span class="p">;</span></code></pre></div>
-
-<p>In <code>test.cpp</code>, we can define different C++ function. Each of them has to begin with:</p>
-
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// [[Rcpp::export]]</span></code></pre></div>
-
-<p>Attention: it’s not like other comment so you cannot omit it.</p>
-
-<p>Please note that NumericMatrix and NumericVector are specific types of Rcpp to define matrices and vectors.</p>
-
-<p>Now, to call <code>just_try()</code> in of R script:</p>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>Rcpp<span class="p">)</span>
-SourceCpp<span class="p">(</span><span class="s">&quot;test.cpp&quot;</span><span class="p">)</span>
-<span class="o">//</span> declare inputs of just_try<span class="p">()</span>
-<span class="o">//</span> M <span class="o">&lt;-</span> <span class="kc">...</span>
-<span class="o">//</span> v <span class="o">&lt;-</span> <span class="kc">...</span>
-<span class="o">//</span> x <span class="o">&lt;-</span> <span class="kc">...</span>
-<span class="o">//</span> call just_try<span class="p">()</span>
-result <span class="o">&lt;-</span> just_try<span class="p">(</span>M<span class="p">,</span> v<span class="p">,</span> x<span class="p">)</span></code></pre></div>
-
-<h2 id="performance-comparison">Performance comparison</h2>
-<p>Ok, so now that we’ve got some basics out of Rccp, let’s do a test to see how well Rcpp performs.</p>
-
-<p>During my part-time internship at AXA Global P&amp;C, I had to speed-up an Actuarial pricing tool built with R. What I found out is that the core R was already very well written. There is no loop and there are <code>apply()</code>, <code>sapply()</code>, <code>lapply()</code> everywhere. After checking the running time of each bloc of code, I suprisingly indentified that those <code>apply()</code> functions are the main reason of the time cost.</p>
-
-<p>Thus I decided to recode those functions in C++. What I obtained by the end is a running time reducing of 95%. For example, with 10000 simulations, the running time has reduced from 74.16s to 3.88s. Not bad at all, right?</p>
-
-<p>If you are interested in what I have done exactly in my part-time internship, here’s my two reports (in french only): <a href="https://drive.google.com/file/d/0B9sO-FiCPQljQ3M0b1hnTUdmaDg/view?usp=sharing" target="_blank">report 1</a>, <a href="https://drive.google.com/file/d/0B9sO-FiCPQljY28xYnBVQndqck0/view?usp=sharing" target="_blank">report 2</a>.</p>
-
-<h2 id="to-go-further">To go further</h2>
-<p>https://cran.r-project.org/web/packages/Rcpp/Rcpp.pdf
-https://support.rstudio.com/hc/en-us/articles/200486088-Using-Rcpp-with-RStudio
-http://www.rcpp.org
-https://github.com/RcppCore/Rcpp</p>
+        <p>Will be updated soon</p>
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
@@ -274,10 +189,8 @@ https://github.com/RcppCore/Rcpp</p>
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="/blog/blogging-like-a-ninja/" class="btn" title="Blogging like a ninja with Jekyll">Previous</a>
+        <a href="/blog/connecting-R-and-Cpp-with-Rcpp/" class="btn" title="Connecting R and C++ with Rcpp">Previous</a>
       
-      
-        <a href="/blog/connecting-R-and-Cpp-with-Rcpp/" class="btn" title="Connecting R and C++ with Rcpp">Next</a>
       
     </nav><!-- /.pagination -->
   </article>

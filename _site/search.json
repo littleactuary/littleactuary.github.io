@@ -2,16 +2,16 @@
 
   
     {
-      "title"			: "Connecting R and C++ with Rcpp",
-      "link"			: "/blog/connecting-R-and-Cpp-with-Rcpp/",
-      "excerpt"		: "Speed-up your R program with Rcpp package"
+      "title"			: "Web application framework with Shiny",
+      "link"			: "/blog/Web-application-framework-with-Shiny/",
+      "excerpt"		: "Build an awesome R application with user-friendly web interface"
     }
   
 
   
     ,{
       "title"			: "Connecting R and C++ with Rcpp",
-      "link"			: "/blog/Web-application-framework-with-Shiny/",
+      "link"			: "/blog/connecting-R-and-Cpp-with-Rcpp/",
       "excerpt"		: "Speed-up your R program with Rcpp package"
     }
   
