@@ -48,7 +48,7 @@ install.packages("Rcpp")
 {% endhighlight %}
 
 ## Using Rcpp
-C++ functions need to be writeen in `.cpp`file(s), apart from R script. If you are using RStudio, you can create one by selecting File > New File > C++ file.
+C++ functions need to be written in `.cpp`file(s), apart from R script. If you are using RStudio, you can create one by selecting File > New File > C++ file.
 Below the default example of C++ function `timesTwo()` declared in `test.cpp`:
 {% highlight c %}
 # include <Rcpp.h>

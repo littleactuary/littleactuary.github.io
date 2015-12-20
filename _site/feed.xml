@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-12-20T16:50:09+01:00</updated>
+<updated>2015-12-20T16:50:38+01:00</updated>
 <id>/</id>
 <author>
   <name>Duc-Hien VU</name>
@@ -87,7 +87,7 @@
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;install.packages&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Rcpp&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;using-rcpp&quot;&gt;Using Rcpp&lt;/h2&gt;
-&lt;p&gt;C++ functions need to be writeen in &lt;code&gt;.cpp&lt;/code&gt;file(s), apart from R script. If you are using RStudio, you can create one by selecting File &amp;gt; New File &amp;gt; C++ file.
+&lt;p&gt;C++ functions need to be written in &lt;code&gt;.cpp&lt;/code&gt;file(s), apart from R script. If you are using RStudio, you can create one by selecting File &amp;gt; New File &amp;gt; C++ file.
 Below the default example of C++ function &lt;code&gt;timesTwo()&lt;/code&gt; declared in &lt;code&gt;test.cpp&lt;/code&gt;:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cp&quot;&gt;# include &amp;lt;Rcpp.h&amp;gt;&lt;/span&gt;
