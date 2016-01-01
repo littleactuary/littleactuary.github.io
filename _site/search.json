@@ -10,7 +10,7 @@
 
   
     ,{
-      "title"			: "Connecting R and C++ with Rcpp",
+      "title"			: "Calling C++ from R with Rcpp",
       "link"			: "/blog/connecting-R-and-Cpp-with-Rcpp/",
       "excerpt"		: "Speed-up your R program with Rcpp package"
     }
@@ -56,7 +56,7 @@
 
   
     ,{
-      "title"			: "About me and this blog",
+      "title"			: "Welcome to Little Actuary Blog",
       "link"			: "/about/",
       "excerpt"		: "About me and this blog."
     }

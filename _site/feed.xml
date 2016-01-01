@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-12-20T16:50:38+01:00</updated>
+<updated>2016-01-01T11:46:23+01:00</updated>
 <id>/</id>
 <author>
   <name>Duc-Hien VU</name>
@@ -27,7 +27,24 @@
     <email>duchienvu91@gmail.com</email>
   </author>
   <content type="html">
-    &lt;p&gt;Will be updated soon&lt;/p&gt;
+    &lt;p&gt;During my last internship, I had to deploy an application for large claims (major losses) reserving. Since the method requires some serious statistical modeling, I didn’t choose Excel/VBA. R seems to be a good choice because of its statistical power and also because of some useful R packages that deal with extreme values theory. The question was: “How can I build a frinedly-user application with R ?”. The idea is that the end users don’t need to open R and run a hundred line of R code. My first thought was to install RExcel in order to use Excel spredsheet as the application interface. I had found a short presentation of using RExcel with the ChainLadder package in R but this solution seems to be a little out of date. Then I tried the TclTk package in R. Not too cool in my opinion! Finally I found something amazing called &lt;a href=&quot;&quot;&gt;Shiny&lt;/a&gt;. It’s an R package that allows you to deploy an interactive web application with R.&lt;/p&gt;
+
+&lt;h2 id=&quot;get-inspired&quot;&gt;Get inspired&lt;/h2&gt;
+
+&lt;p&gt;To get you inspired, here is a galery of Shiny applications: http://shiny.rstudio.com/gallery/
+You will see that R users have made many amazing applications with Shiny. Since I just passed a little time of my internship to deploy the application (my main mission is to develop the actuarial model), I couldn’t build a very complex one, but I think it seems cooler than an Excel spredsheet already. It looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/images/MajorLossesReserving.gif&quot;&gt;&lt;img src=&quot;/images/MajorLossesReserving.gif&quot; alt=&quot;image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-shiny&quot;&gt;What is Shiny?&lt;/h2&gt;
+
+&lt;p&gt;Ok, now we will look a little bit closer to Shiny. I think it’s more than just an R package. 
+Firstly, Shiny proposes functions with R syntaxes that replace HTML, CSS, Javascript. So you can somehow build a web interface by writing R code. Secondly, Shiny has a feature called Interactivity which is, in my opinion, a big difference compared to standard R program. There’s an interaction between the client side (through the user interface) and the server side (your R program). Thirdly, you can run Shiny apps locally with RStudio and its browser or with R and a web browser such as Google Chrome or Internet Explorer. You can also upload your apps on the Shiny server and run them online. I didn’t try the last option because of the confidentiality concern. So I will show you in this post how to deploy and run a Shiny app locally on you computer.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-learn-shiny&quot;&gt;How to learn Shiny?&lt;/h2&gt;
+&lt;p&gt;The best way to learn Shiny, of course, is to watch the series of Shiny tutorials http://shiny.rstudio.com/tutorial/ It will cover all the Shiny topics from beginner to advanced level. It however takes time. What I did in my internship is to look at a simple Shiny example and then began to build my app directly. When there was something I didn’t know how to do, I googled it. It is maybe not a good habit of learning, but in a limit time constraint, it has allowed me to build an application that meets all my need (eventhough it’s not optimal).&lt;/p&gt;
+
+&lt;p&gt;So the point is, if you want to be a Shiny pro, you can stop reading this post now and switch to the Shiny tutorials series. If you are hurry and want to deploy a Shiny app in about fifteen minutes, you can give a look at the next section where I summarize all the important points I have learned about Shiny.&lt;/p&gt;
 
     &lt;p&gt;&lt;a href=&quot;/blog/Web-application-framework-with-Shiny/&quot;&gt;Web application framework with Shiny&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 30, 2015.&lt;/p&gt;
   </content>
@@ -37,7 +54,7 @@
   
 
 <entry>
-  <title type="html"><![CDATA[Connecting R and C++ with Rcpp]]></title>
+  <title type="html"><![CDATA[Calling C++ from R with Rcpp]]></title>
   <link rel="alternate" type="text/html" href="/blog/connecting-R-and-Cpp-with-Rcpp/" />
   <id>/blog/connecting-R-and-Cpp-with-Rcpp</id>
   <published>2015-11-25T20:39:55+01:00</published>
@@ -50,45 +67,45 @@
   <content type="html">
     &lt;p&gt;If you are an R user, you may know that R is potentially slow compared to other languages such as Matlab, Java or C/C++. It’s highly recommended to avoid using loops in R. A common alternative way is to vectorize your program, i.e. to use vectors and matrices. There is a family of &lt;code&gt;apply()&lt;/code&gt;functions developed in R to help you work with vectors, matrices, dataframes. These functions are better than a naive loop in R, but still struggle when the dimension of your vectors or matrices is too big. A better solution I want to talk about in this post is the Rcpp package which provides a C++ API as an extension to the R system. FYI, many R packages today rely on Rcpp.&lt;/p&gt;
 
-&lt;p&gt;If you are strong enough to code your whole program in C++, well, I have nothing more to say. Nothing can beat C++ in term of speed. But if you choose to stay with R (because you are familiar with many useful R packages and pre-built functions that can save you a lot of time compared to C++), and if you are an occasionnal C++ user, you may try &lt;code&gt;Rcpp&lt;/code&gt;. Keep building your tool with R and you only need to code some parts in C++ and then call them in your R program through Rcpp. I will show you how well Rcpp performs.&lt;/p&gt;
+&lt;p&gt;If you are strong enough to code your whole program in C++, well, I have nothing more to say. No other languages can beat C++ in term of speed. But if you choose to stay with R (because you are familiar with many useful R packages and pre-built functions that can save you a lot of time compared to C++), and if you are an occasional C++ user, you may try &lt;code&gt;Rcpp&lt;/code&gt;. Keep building your tool with R and you only need to code some parts in C++ and then call them in your R program through Rcpp. I will show you how well Rcpp performs. But first, let’s do some preparation.&lt;/p&gt;
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#installing-rtools&quot; id=&quot;markdown-toc-installing-rtools&quot;&gt;Installing Rtools&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#installing-rcpp-package&quot; id=&quot;markdown-toc-installing-rcpp-package&quot;&gt;Installing Rcpp package&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#using-rcpp&quot; id=&quot;markdown-toc-using-rcpp&quot;&gt;Using Rcpp&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#performance-comparison&quot; id=&quot;markdown-toc-performance-comparison&quot;&gt;Performance comparison&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#real-life-application-of-rcpp&quot; id=&quot;markdown-toc-real-life-application-of-rcpp&quot;&gt;Real-life application of Rcpp&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#to-go-further&quot; id=&quot;markdown-toc-to-go-further&quot;&gt;To go further&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;installing-rtools&quot;&gt;Installing Rtools&lt;/h2&gt;
 
-&lt;p&gt;This is for Windows users only! If you are using Mac, you just need to install Xcode and go to the next section.&lt;/p&gt;
+&lt;p&gt;This step is for Windows users only! If you are using Mac, you just need to install Xcode and go to the next section.&lt;/p&gt;
 
-&lt;p&gt;We need to install Rtools in order to have a C++ compilator. Please &lt;a href=&quot;https://cran.r-project.org/bin/windows/Rtools/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;download Rtools here&lt;/strong&gt;&lt;/a&gt;. Make sure that you are downloading an Rtools version compatible with your R version.&lt;/p&gt;
-
-&lt;p&gt;After installing Rtools, the environment variable PATH needs to be re-defined to tell R where to find the C++ compilator.&lt;/p&gt;
+&lt;p&gt;We need to install Rtools in order to have a C++ compilator. Please &lt;a href=&quot;https://cran.r-project.org/bin/windows/Rtools/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;download Rtools here&lt;/strong&gt;&lt;/a&gt;. Make sure that you are downloading a Rtools version compatible with your R system. After installing Rtools, the environment variable PATH needs to be re-defined to tell R where to find the C++ compilator.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;If your computer does not require an admin mode, it will be done automatically.&lt;/li&gt;
-  &lt;li&gt;Othersiwe, you have to do it manually. First go to Control Panel, pull down the admin password and then add the below line in your PATH:&lt;/li&gt;
+  &lt;li&gt;Otherwise (when using a computer at work for example), you have to do it manually. First go to Control Panel, pull down the admin password and then add the below line in your PATH:&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;\Rtools\bin &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;\Rtools\gcc&lt;span class=&quot;m&quot;&gt;-4.6.3&lt;/span&gt;\bin &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;To check whether or not Rtools was sucessfully installed, enter the first line below into your R console. If everything is fine, you will see the second line:&lt;/p&gt;
+&lt;p&gt;To check whether or not Rtools was successfully installed, enter the first line below into your R console. If everything is fine, you will see the second line:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kp&quot;&gt;Sys.getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;PATH&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;c:\\\\Rtools\\\\bin;c:\\\\Rtools\\\\gcc-4.6.3\\\\bin;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;installing-rcpp-package&quot;&gt;Installing Rcpp package&lt;/h2&gt;
 
-&lt;p&gt;The Rcpp package only works with R3.0.x or later. Download the latest version of Rcpp &lt;a href=&quot;Rcpp&quot;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt; and install it manually, or from within R:&lt;/p&gt;
+&lt;p&gt;The Rcpp package only works with R3.0.x or later. It can be installed as simple as with other packages.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;install.packages&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Rcpp&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
+&lt;p&gt;If it doesn’t work, try to download the latest version of Rcpp &lt;a href=&quot;Rcpp&quot;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt; and install it manually.&lt;/p&gt;
+
 &lt;h2 id=&quot;using-rcpp&quot;&gt;Using Rcpp&lt;/h2&gt;
-&lt;p&gt;C++ functions need to be written in &lt;code&gt;.cpp&lt;/code&gt;file(s), apart from R script. If you are using RStudio, you can create one by selecting File &amp;gt; New File &amp;gt; C++ file.
-Below the default example of C++ function &lt;code&gt;timesTwo()&lt;/code&gt; declared in &lt;code&gt;test.cpp&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;C++ functions need to be written in &lt;code&gt;.cpp&lt;/code&gt;file(s), apart from R script. If you are using RStudio, you can create one by selecting File &amp;gt; New File &amp;gt; C++ file. Below is the default example of C++ function &lt;code&gt;timesTwo()&lt;/code&gt; given by RStudio. I will save the scirpt under the name &lt;code&gt;test.cpp&lt;/code&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cp&quot;&gt;# include &amp;lt;Rcpp.h&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Rcpp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -123,7 +140,7 @@ timesTwo&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;v&lt;span class=&quot;p&qu
 &lt;span class=&quot;o&quot;&gt;*/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;performance-comparison&quot;&gt;Performance comparison&lt;/h2&gt;
-&lt;p&gt;Ok, so now that we’ve got some basics out of Rccp, you can do some tests to see how well Rcpp performs by timming your code.  You can either use &lt;code&gt;proc.time()&lt;/code&gt; or &lt;code&gt;system.time()&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Ok, so now that we’ve got some basics out of Rccp, you can do some tests to see how well Rcpp performs by timing your code.  You can either use &lt;code&gt;proc.time()&lt;/code&gt; or &lt;code&gt;system.time()&lt;/code&gt;:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; using &lt;span class=&quot;kp&quot;&gt;system.time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;kp&quot;&gt;system.time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;timesTwo&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;v&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
@@ -133,9 +150,30 @@ timesTwo&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;v&lt;span class=&quot;p&qu
 t &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;proc.time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;t&lt;/span&gt;
 &lt;span class=&quot;kp&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Of course, this is the simplest example where timesTwo(v) is no better than v*2 because both take 0s.&lt;/p&gt;
+&lt;p&gt;Of course, this is the simplest example where timesTwo(v) is no better than v*2 because both take 0s. Let’s do something else that takes R more time: we will create a function in R and another one in C++, both aim to cumulate a matrix by column. In R we use the apply() and the cumsum() function. In C++ we simply build a loop as follow:&lt;/p&gt;
 
-&lt;p&gt;During my part-time internship at AXA Global P&amp;amp;C, I had to speed-up an Actuarial pricing tool built with R. What I found out is that the core R was already very well written. There is no loop and there are &lt;code&gt;apply()&lt;/code&gt;, &lt;code&gt;sapply()&lt;/code&gt;, &lt;code&gt;lapply()&lt;/code&gt; everywhere. After checking the running time of each bloc of code, I suprisingly indentified that those &lt;code&gt;apply()&lt;/code&gt; functions are the main reason of the time cost.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// [[Rcpp::export]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;NumericMatrix&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cumulation_CPP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NumericMatrix&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nrow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nrow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ncol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ncol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;NumericMatrix&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nrow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ncol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nrow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ncol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Store this function in test.cpp`. Now return to your R console (or your R script) and try this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;M &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ncol&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;50000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; nrow&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;50000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;kp&quot;&gt;system.time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;cumulation_CPP&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;M&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;kp&quot;&gt;system.time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;M2 &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;M&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;cumsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;real-life-application-of-rcpp&quot;&gt;Real-life application of Rcpp&lt;/h2&gt;
+&lt;p&gt;During my part-time internship at AXA Global P&amp;amp;C, I had to speed-up an Actuarial pricing tool built with R. What I found out is that the core R was already very well written. There is no loop and there are &lt;code&gt;apply()&lt;/code&gt;, &lt;code&gt;sapply()&lt;/code&gt;, &lt;code&gt;lapply()&lt;/code&gt; everywhere. After checking the running time of each bloc of code, I surprisingly identified that those &lt;code&gt;apply()&lt;/code&gt; functions are the main reason of the time cost.&lt;/p&gt;
 
 &lt;p&gt;Thus I decided to recode those functions in C++. What I obtained by the end is a running time reducing of 95%. For example, with 10000 simulations, the running time has reduced from 74.16s to 3.88s. Not bad at all, right?&lt;/p&gt;
 
@@ -160,7 +198,7 @@ t &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kp
 &lt;/ul&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;/blog/connecting-R-and-Cpp-with-Rcpp/&quot;&gt;Connecting R and C++ with Rcpp&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 25, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/connecting-R-and-Cpp-with-Rcpp/&quot;&gt;Calling C++ from R with Rcpp&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 25, 2015.&lt;/p&gt;
   </content>
 </entry>
 
