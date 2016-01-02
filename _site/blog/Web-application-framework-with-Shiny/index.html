@@ -184,9 +184,8 @@ Firstly, Shiny proposes functions with R syntaxes that replace HTML, CSS, Javasc
 </center>
 
 <p>Based on this principle, Shiny requires 2 R scripts: one for the User Interface, named <code>ui.r</code>, and one for the Server, named <code>server.r</code>. What you want to display on the the interface needs to be declared in the <code>ui.r</code> script, how this thing is done needs to be defined in <code>server.r</code>. Below is a typical structure of a Shiny application:</p>
-<center>
-<a href="/images/Shiny_structure.png"><img src="/images/Shiny_structure.png" alt="image" /></a>
-</center>
+
+<p><a href="/images/Shiny_structure.png"><img src="/images/Shiny_structure.png" alt="image" /></a></p>
 
 <p>R calls the Shiny app in a main script, thanks to the Shiny package. I prefer to create a folder named <code>Shiny folder</code> where I store 2 principal elements: <code>ui.r</code> and <code>server.r</code>. You may notice that there is third element named <code>www</code>. It’s a sub-folder where I store graphical elements (images, icons, etc.) and file (pdf) that I want to display on my application. (Attention, these three elements need to be named exactly like that). I didn’t show it in the scheme but the <code>server.r</code> can call other R scripts. Normally, an application has to read input files stored somewhere that I’ve named <code>Input folder</code> and write output files (in addition of displaying them on the user interface) in <code>Output folder</code>.</p>
 
