@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-01-02T22:29:01+01:00</updated>
+<updated>2016-01-03T23:37:19+01:00</updated>
 <id>/</id>
 <author>
   <name>Duc-Hien VU</name>
@@ -38,13 +38,16 @@ You will see that R users have made many amazing applications with Shiny. Since 
 
 &lt;h2 id=&quot;what-is-shiny&quot;&gt;What is Shiny?&lt;/h2&gt;
 
-&lt;p&gt;Ok, now we will look a little bit closer to Shiny. I think it’s more than just an R package. 
-Firstly, Shiny proposes functions with R syntaxes that replace HTML, CSS, Javascript. So you can somehow build a web interface by writing R code. Secondly, Shiny has a feature called Interactivity which is, in my opinion, a big difference compared to standard R program. There’s an interaction between the client side (through the user interface) and the server side (your R program). Thirdly, you can run Shiny apps locally with RStudio and its browser or with R and a web browser such as Google Chrome or Internet Explorer. You can also upload your apps on the Shiny server and run them online. I didn’t try the last option because of the confidentiality concern. So I will show you in this post how to deploy and run a Shiny app locally on you computer.&lt;/p&gt;
+&lt;p&gt;Ok, now we will look a little bit closer to Shiny. Firstly, Shiny proposes functions with R syntaxes that replace HTML, CSS, Javascript. So you can somehow build a web interface by writing R code. Secondly, Shiny has a feature called Interactivity which is, in my opinion, a big difference compared to standard R program. There’s an interaction between the client side (through the user interface) and the server side (your R program). Thirdly, you can run Shiny apps locally with RStudio and its browser or with R and a web browser such as Google Chrome or Internet Explorer. You can also upload your apps on the Shiny server and run them online. I didn’t try the last option because of the confidentiality concern. So I will show you in this post how to deploy and run a Shiny app locally on you computer.&lt;/p&gt;
+
+&lt;p&gt;Let’s begin by installing the Shiny package&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;install.packages&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Shiny&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;how-to-learn-shiny&quot;&gt;How to learn Shiny?&lt;/h2&gt;
 &lt;p&gt;The best way to learn Shiny, of course, is to watch the series of &lt;a href=&quot;http://shiny.rstudio.com/tutorial/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Shiny tutorials&lt;/strong&gt;&lt;/a&gt; It will cover all the Shiny topics from beginner to advanced level. It however takes time. What I did in my internship is to look at a simple Shiny example and then began to build my app directly. When there was something I didn’t know how to do, I googled it. It is maybe not a good habit of learning, but in a limit time constraint, it has allowed me to build an application that meets all my need (eventhough it’s not optimal).&lt;/p&gt;
 
-&lt;p&gt;So the point is, if you want to be a Shiny pro, you can stop reading this post now and switch to the Shiny tutorials series. If you are hurry and want to deploy a Shiny app in about fifteen minutes, you can give a look at the next section where I summarize all the important points I have learned about Shiny.&lt;/p&gt;
+&lt;p&gt;So the point is, the series of Shiny tutorials is where to start learning. Other useful guides could by found on Goolge. Since I have passed some time on doing the same thing, I’ll try to list all the important points I have learned about Shiny in the next sections for you, so that you don’t have to google too many times when developing your Shiny app.&lt;/p&gt;
 
 &lt;h2 id=&quot;shiny-structure&quot;&gt;Shiny structure&lt;/h2&gt;
 
@@ -54,8 +57,9 @@ Firstly, Shiny proposes functions with R syntaxes that replace HTML, CSS, Javasc
 &lt;/center&gt;
 
 &lt;p&gt;Based on this principle, Shiny requires 2 R scripts: one for the User Interface, named &lt;code&gt;ui.r&lt;/code&gt;, and one for the Server, named &lt;code&gt;server.r&lt;/code&gt;. What you want to display on the the interface needs to be declared in the &lt;code&gt;ui.r&lt;/code&gt; script, how this thing is done needs to be defined in &lt;code&gt;server.r&lt;/code&gt;. Below is a typical structure of a Shiny application:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/images/Shiny_structure.png&quot;&gt;&lt;img src=&quot;/images/Shiny_structure.png&quot; alt=&quot;image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt;
+&lt;a href=&quot;/images/Shiny_structure.png&quot;&gt;&lt;img src=&quot;/images/Shiny_structure.png&quot; alt=&quot;image&quot; /&gt;&lt;/a&gt;
+&lt;/center&gt;
 
 &lt;p&gt;R calls the Shiny app in a main script, thanks to the Shiny package. I prefer to create a folder named &lt;code&gt;Shiny folder&lt;/code&gt; where I store 2 principal elements: &lt;code&gt;ui.r&lt;/code&gt; and &lt;code&gt;server.r&lt;/code&gt;. You may notice that there is third element named &lt;code&gt;www&lt;/code&gt;. It’s a sub-folder where I store graphical elements (images, icons, etc.) and file (pdf) that I want to display on my application. (Attention, these three elements need to be named exactly like that). I didn’t show it in the scheme but the &lt;code&gt;server.r&lt;/code&gt; can call other R scripts. Normally, an application has to read input files stored somewhere that I’ve named &lt;code&gt;Input folder&lt;/code&gt; and write output files (in addition of displaying them on the user interface) in &lt;code&gt;Output folder&lt;/code&gt;.&lt;/p&gt;
 
@@ -63,19 +67,87 @@ Firstly, Shiny proposes functions with R syntaxes that replace HTML, CSS, Javasc
 
 &lt;h2 id=&quot;some-shiny-code&quot;&gt;Some Shiny code&lt;/h2&gt;
 
-&lt;p&gt;Frist, you need to install Shiny package&lt;/p&gt;
+&lt;h3 id=&quot;choosing-browser&quot;&gt;Choosing Browser&lt;/h3&gt;
+&lt;p&gt;You can either launch your Shiny app on the RStudio browser:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;install.packages&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Shiny&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;Shiny&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;runApp&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;./Shiny folder/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;I call the Shiny app in the &lt;code&gt;main.r&lt;/code&gt; script. The code is simple:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;shiny&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-Shiny&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;runApp&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;./Shiny folder/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;An alternative way: in RStudio, when you open &lt;code&gt;server.r&lt;/code&gt; and &lt;code&gt;ui.r&lt;/code&gt;, you can see the &lt;code&gt;Run App&lt;/code&gt; button on the top right. You can launch your app by clicking on it. 
-If you want to launch you app on your default web browser instead of the browser of RStudio, replace the last line below by:&lt;/p&gt;
+&lt;p&gt;(An alternative way: in RStudio, when you open &lt;code&gt;server.r&lt;/code&gt; and &lt;code&gt;ui.r&lt;/code&gt;, you can see the &lt;code&gt;Run App&lt;/code&gt; button on the top right. You can launch your app by clicking on it) 
+If you want to launch you app on your default web browser instead of the browser of RStudio:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;Shiny&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;runApp&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;./Shiny folder/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; launch.browser &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;shiny-theme&quot;&gt;Shiny theme&lt;/h3&gt;
+
+&lt;p&gt;Shiny has some pre-built theme for you. All you need to do is to install the &lt;a href=&quot;http://rstudio.github.io/shinythemes/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;shiny theme&lt;/strong&gt;&lt;/a&gt; package and choose the theme you want.&lt;/p&gt;
+
+&lt;h3 id=&quot;title-panel&quot;&gt;Title panel&lt;/h3&gt;
+
+&lt;p&gt;In &lt;code&gt;ui.r&lt;/code&gt;, you can define a header for you application where you show the app name and the logo for example. This is done thanks to the &lt;code&gt;titlePanel()&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;shinyUI&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;fluidPage&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    theme &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; shinytheme&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;cerulean&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# Application title&lt;/span&gt;
+    titlePanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        fluidRow&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+            column&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; strong&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Name of you application&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;align &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;center&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+            column&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;img&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;src &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;logo.png&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; height &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;72&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; width &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;150&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+
+    sidebarLayout&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        sidebarPanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+        mainPanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Since the Shiny interface is a web interface, it’s designed with the famous Bootstrap framework. The screen is divided into 12 columns and all elements will be arranged related to these 12 columns. Here I devided the title panel into 2 parts, the first one takes 9/12 columns to show the app name, the second one takes 3/12 collumns to show the logo. Please note that logo.png needs to be stored in the &lt;code&gt;www&lt;/code&gt;sub-folder.&lt;/p&gt;
+
+&lt;h3 id=&quot;tab-panel&quot;&gt;Tab panel&lt;/h3&gt;
+
+&lt;p&gt;Look at the screenshot of the applciation I’ve created in my internship. There are different tab panels. You can create as many tab panels (and sub-tab panels) as you want.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;mainPanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+
+    tabsetPanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; 
+        tabPanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tab 1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+            tabsetPanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+                tabPanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;sub-tab 1a&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; dataTableOutput&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;st1a&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;
+                tabPanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;sub-tab 1b&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; dataTableOutput&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;st1b&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# end of tab 1&lt;/span&gt;
+
+        tabPanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tab 2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+            tabsetPanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+                tabPanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;sub-tab 2a&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; dataTableOutput&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;st2a&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;
+                tabPanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;sub-tab 2b&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; dataTableOutput&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;st2b&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;event-reactivity&quot;&gt;Event reactivity&lt;/h3&gt;
+&lt;p&gt;You want to create a button in the user interface so that your app does something in response to the users demand when they click on the button?&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# in ui.r&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# define the Inputs Reading button&lt;/span&gt;
+actionButton&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;read_inputs&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Read Inputs&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# in server.r:&lt;/span&gt;
+variable1 &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; eventReactive&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;input&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;read_inputs&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# what you want to do when the user clicks on the button&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;two-way-to-display-a-table&quot;&gt;Two way to display a table&lt;/h3&gt;
+
+&lt;p&gt;In &lt;code&gt;server.r&lt;/code&gt;, to put a table into the output() list in order to display it on the user interface later, you can either use the &lt;code&gt;renderTable()&lt;/code&gt; (not pretty) or the &lt;code&gt;renderDataTable()&lt;/code&gt; (much more beautiful). With the second function, you can customize the table with options.&lt;/p&gt;
+
+&lt;h3 id=&quot;ordering-your-program&quot;&gt;Ordering your program&lt;/h3&gt;
+&lt;p&gt;Sometimes, you need to order different parts of code in a scenario. Unlike the normal logic of R, Shiny doesn’t interprete your code in the descending order. In &lt;code&gt;server.r&lt;/code&gt; each bloc of code aims to return an output element and Shiny will interprete them simultaneously. It’s very often that one output element depends on another. In Shiny you need to tell the program when to do or to not do something. The simplest way is to create reactive button so that a bloc of code will only be interpreted when the user clicks on the button. However, I find it not practicle to create too many buttons. Sometimes I just want to tell my program that when to do something conditionnally on a variable. I use &lt;code&gt;reactiveValues&lt;/code&gt; to do so.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;display.order &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; reactiveValues&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;part2 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; part3 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;I only want to do the part 2 when the part 1 is done and to do the part 3 when the part 2 is done. So I create a list of two reactive values preset at FALSE. At the end of the part 1 code, I change the value of part 2 to TRUE. At the end of the part 2 code, I change the value of part 3 to TRUE. Please note that at the beginning of the part 1, I insist that part 2 is FALSE (idem for part 3). It is because part 1 can be interpreted more than 1 time and each time it’s interpreted, I want the part 2 to be updated.&lt;/p&gt;
 
 
     &lt;p&gt;&lt;a href=&quot;/blog/Web-application-framework-with-Shiny/&quot;&gt;Web application framework with Shiny&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 30, 2015.&lt;/p&gt;
@@ -215,8 +287,6 @@ t &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kp
 &lt;a href=&quot;/images/temps3.png&quot;&gt;&lt;img src=&quot;/images/temps3.png&quot; alt=&quot;image&quot; /&gt;&lt;/a&gt;
 &lt;figcaption&gt;Comparison in term of running time: R vs Rcpp&lt;/figcaption&gt;
 &lt;/figure&gt;
-
-&lt;p&gt;If you are interested in what I have done exactly in my part-time internship, here are my two reports (in french only): &lt;a href=&quot;https://drive.google.com/file/d/0B9sO-FiCPQljQ3M0b1hnTUdmaDg/view?usp=sharing&quot; target=&quot;_blank&quot;&gt;report 1&lt;/a&gt;, &lt;a href=&quot;https://drive.google.com/file/d/0B9sO-FiCPQljY28xYnBVQndqck0/view?usp=sharing&quot; target=&quot;_blank&quot;&gt;report 2&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;to-go-further&quot;&gt;To go further&lt;/h2&gt;
 &lt;p&gt;Above is a quick introduction to Rcpp. I didn’t dig too much into Rcpp since my internship didn’t require to. If you want to learn more about Rccp, here are some useful ressources:&lt;/p&gt;

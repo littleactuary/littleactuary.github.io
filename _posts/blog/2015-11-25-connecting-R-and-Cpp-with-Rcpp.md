@@ -135,7 +135,6 @@ Thus I decided to recode those functions in C++. What I obtained by the end is a
 <figcaption>Comparison in term of running time: R vs Rcpp</figcaption>
 </figure>
 
-If you are interested in what I have done exactly in my part-time internship, here are my two reports (in french only): [report 1](https://drive.google.com/file/d/0B9sO-FiCPQljQ3M0b1hnTUdmaDg/view?usp=sharing){:target="_blank"}, [report 2](https://drive.google.com/file/d/0B9sO-FiCPQljY28xYnBVQndqck0/view?usp=sharing){:target="_blank"}.
 
 ## To go further
 Above is a quick introduction to Rcpp. I didn't dig too much into Rcpp since my internship didn't require to. If you want to learn more about Rccp, here are some useful ressources:
