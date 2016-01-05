@@ -12,7 +12,7 @@ share: true
 date: 2015-11-30T15:39:55-04:00
 ---
 
-In my final internship, I had to deploy an application for large claims (major losses) reserving. Since the method required some serious statistical modeling, I didn't choose Excel/VBA. R seemed to be a good choice because of its statistical power and also because of some useful R packages that deal with extreme values theory, distribution fitting. The question was: "How can I build a frinedly-user application with R ?". The idea is that the end users don't need to open R and run a hundred line of R code. My first thought was to install RExcel in order to use Excel spredsheet as the application interface. I had found a short presentation of using RExcel with the ChainLadder package in R but this solution seems to be a little out of date. Then I tried the TclTk package in R. Not too cool in my opinion! Finally I found something amazing called [**Shiny**](http://shiny.rstudio.com){:target="_blank"}. It's an R package that allows you to deploy an interactive web application with R. 
+In my final internship, I had to deploy an application for large claims (major losses) reserving. Since the method required some serious statistical modeling, I didn't choose Excel/VBA. R seemed to be a good choice because of its statistical power and also of some useful R packages that deal with extreme values theory and distribution fitting. The question was: "How can I build a frinedly-user application with R ?". The idea is that the end users don't need to open R and run a hundred line of R code. My first thought was to install RExcel in order to use Excel spredsheet as the application interface. I had found a short presentation of using RExcel with the ChainLadder package in R but this solution seems to be a little out of date. Then I tried the TclTk package in R. Not too cool in my opinion! Finally I found something amazing called [**Shiny**](http://shiny.rstudio.com){:target="_blank"}. It's an R package that allows you to deploy an interactive web application with R. 
 
 ## Get inspired
 
@@ -23,7 +23,7 @@ You will see that R users have made many amazing applications with Shiny. Since 
 
 ## What is Shiny?
 
-Ok, now we will look a little bit closer to Shiny. Firstly, Shiny proposes functions with R syntaxes that replace HTML, CSS, Javascript. So you can somehow build a web interface by writing R code. Secondly, Shiny has a feature called Interactivity which is, in my opinion, a big difference compared to standard R program. There's an interaction between the client side (through the user interface) and the server side (your R program). Thirdly, you can run Shiny apps locally with RStudio and its browser or with R and a web browser such as Google Chrome or Internet Explorer. You can also upload your apps on the Shiny server and run them online. I didn't try the last option because of the confidentiality concern. So I will show you in this post how to deploy and run a Shiny app locally on you computer.
+Ok, now we will look a little bit closer to Shiny. Firstly, Shiny proposes functions with R syntaxes that replace HTML, CSS, Javascript. So you can somehow build a web interface by writing R code. Secondly, Shiny has a feature called Interactivity which is, in my opinion, a big difference compared to standard R program. There's an interaction between the client side (through the user interface) and the server side (your R program). Thirdly, you can run Shiny apps locally with RStudio and its browser or with R and a web browser such as Google Chrome or Internet Explorer. You can also upload your apps on a cloud (the Shiny server) and run them online. I didn't try the last option because of the confidentiality concern. So I will show you in this post how to deploy and run a Shiny app locally on you computer.
 
 Let's begin by installing the Shiny package
 {% highlight r %}
@@ -33,7 +33,7 @@ install.packages("Shiny")
 ## How to learn Shiny?
 The best way to learn Shiny, of course, is to watch the series of [**Shiny tutorials**](http://shiny.rstudio.com/tutorial/){:target="_blank"} It will cover all the Shiny topics from beginner to advanced level. It however takes time. What I did in my internship is to look at a simple Shiny example and then began to build my app directly. When there was something I didn't know how to do, I googled it. It is maybe not a good habit of learning, but in a limit time constraint, it has allowed me to build an application that meets all my need (eventhough it's not optimal). 
 
-So the point is, the series of Shiny tutorials is where to start learning. Other useful guides could by found on Goolge. Since I have passed some time on doing the same thing, I'll try to list all the important points I have learned about Shiny in the next sections for you, so that you don't have to google too many times when developing your Shiny app.
+So the point is, the series of Shiny tutorials is where to start learning from. Other useful guides could by found on Goolge. Since I have passed some time on doing the same thing, I'll try to list all the important points I have learned about Shiny in the next sections for you, so that you don't have to google too many times when developing your Shiny app.
 
 ## Shiny structure
 
@@ -66,7 +66,7 @@ Shiny::runApp('./Shiny folder/', launch.browser = TRUE)
 
 ### Shiny theme
 
-Shiny has some pre-built theme for you. All you need to do is to install the [**shiny theme**](http://rstudio.github.io/shinythemes/){:target="_blank"} package and choose the theme you want.
+Shiny has some pre-built themes for you. All you need to do is to install the [**shiny theme**](http://rstudio.github.io/shinythemes/){:target="_blank"} package and choose the theme you want.
 
 ### Title panel
 
@@ -92,11 +92,11 @@ shinyUI(fluidPage(
 
 {% endhighlight %}
 
-Since the Shiny interface is a web interface, it's designed with the famous Bootstrap framework. The screen is divided into 12 columns and all elements will be arranged related to these 12 columns. Here I devided the title panel into 2 parts, the first one takes 9/12 columns to show the app name, the second one takes 3/12 collumns to show the logo. Please note that logo.png needs to be stored in the `www`sub-folder.
+Since the Shiny interface is a web interface, it's designed with the famous Bootstrap framework. The Shiny page is divided into 12 columns and all elements will be arranged related to these 12 columns. Here I devided the title panel into 2 parts, the first one takes 9/12 columns to show the app name, the second one takes 3/12 collumns to show the logo. Please note that logo.png needs to be stored in the `www`sub-folder.
 
 ### Tab panel
 
-Look at the screenshot of the applciation I've created in my internship. There are different tab panels. You can create as many tab panels (and sub-tab panels) as you want.
+Look at the screenshot of the application I've created in my internship. There are different tab panels. You can create as many tab panels (and sub-tab panels) as you want.
 {% highlight r %}
 mainPanel(
 
@@ -134,16 +134,76 @@ variable1 <- eventReactive(input$read_inputs, {
 ### Two way to display a table
 
 In `server.r`, to put a table into the output() list in order to display it on the user interface later, you can either use the `renderTable()` (not pretty) or the `renderDataTable()` (much more beautiful). With the second function, you can customize the table with options.
+For example, if you want to show your entire table in one page and desactivate the search option:
 
+{% highlight r %}
+example <- renderDataTable({
+# your table
+},options = list(searching = FALSE, searchable=FALSE, info=FALSE, paging = FALSE)
+)
+{% endhighlight %}
+To customize the page length, the column width:
+{% highlight r %}
+options = list(lengthMenu = list(c(15, 30, 50, -1), c('15', '30', '50', 'All')), pageLength = 15, autoWidth = TRUE, columnDefs = list(list(width = '200px', targets = 1)))
+{% endhighlight %}
 
-### Ordering your program
-Sometimes, you need to order different parts of code in a scenario. Unlike the normal logic of R, Shiny doesn't interprete your code in the descending order. In `server.r` each bloc of code aims to return an output element and Shiny will interprete them simultaneously. It's very often that one output element depends on another. In Shiny you need to tell the program when to do or to not do something. The simplest way is to create reactive button so that a bloc of code will only be interpreted when the user clicks on the button. However, I find it not practicle to create too many buttons. Sometimes I just want to tell my program that when to do something conditionnally on a variable. I use `reactiveValues` to do so. 
+### Streamlining your Shiny apps
+Sometimes, you need to order different parts of code in a scenario. Unlike the normal logic of R, Shiny doesn't interprete your code in the descending order. In `server.r` each bloc of code aims to return an output element and Shiny will interprete them simultaneously. It's very often that one output element depends on another. In Shiny you need to tell the program when to do or to not do something. 
+
+The simplest way is to create reactive button so that a bloc of code will only be interpreted when the user clicks on the button. However, I find it not practical to create too many buttons. 
+
+A good way is to use reactive expressions that let you control which parts of your app update when. You can take a look at [**this tutorial**](http://shiny.rstudio.com/tutorial/lesson6/){:target="_blank"} for a better understanding of reactive expressions.
+
+Sometimes I find it more convenient to streamline my program by using `reactiveValues`. The idea is to create reactive boolean variables to trigger a bloc of code. 
 
 {% highlight r %}
 display.order <- reactiveValues(part2 = FALSE, part3 = FALSE) 
 {% endhighlight %}
 
 I only want to do the part 2 when the part 1 is done and to do the part 3 when the part 2 is done. So I create a list of two reactive values preset at FALSE. At the end of the part 1 code, I change the value of part 2 to TRUE. At the end of the part 2 code, I change the value of part 3 to TRUE. Please note that at the beginning of the part 1, I insist that part 2 is FALSE (idem for part 3). It is because part 1 can be interpreted more than 1 time and each time it's interpreted, I want the part 2 to be updated.
+
+
+### Conditional panel
+In `ui.r`, you can tell Shiny when to show or not to show an output element with a specific condition:
+{% highlight r %}
+conditionalPanel(condition = "input.currency == 'EUR'", ...)),  
+conditionalPanel(condition = "input.currency == 'GBP'", ...))
+{% endhighlight %}
+
+### Loading circle
+Sometimes it takes time to run your code and you want to notice the users that the R program is still running. Like a web page loading, you can show a loading circle whenever your R program is busy. To do so, you first need to save this "loading_circle.gif" image into the `www` folder, 
+
+<center>
+<a href="{{ site.url }}/images/loading_circle.gif"><img src="{{ site.url }}/images/loading_circle" alt="image"></a>
+</center>
+
+and then add this line of code in the `ui.r`, in a specific area that you want to show the loading circle:
+{% highlight r %}
+conditionalPanel(condition="$('html').hasClass('shiny-busy')",
+tags$img(src="loading_circle.gif")
+)
+{% endhighlight %}
+
+
+### Closing your app
+
+2 options to close your app: create a button "close" in `ui.r` and add this in `server.r`:
+{% highlight r %}
+observe({
+    if(input$close > 0){
+        stopApp(NULL)
+    }
+})  
+{% endhighlight %}
+
+or close your app when the browser is closed:
+{% highlight r %}
+shinyServer(function(input, output, session){
+    session$onSessionEnded(function() {
+        stopApp(NULL)
+    })
+}) 
+{% endhighlight %}
 
 
 
