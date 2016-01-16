@@ -12,7 +12,7 @@ You can download my CV (in PDF format) here ([**English**]({{ site.url }}/vitae/
 
 ##Current situation
 
-Actuarial Consultant at [**EY**](http://www.ey.com){:target="_blank"}, associated Actuary of the [Institute of Actuaries (I.A.)](http://www.institutdesactuaires.com/){:target="_blank"}, Engineer Statistician Economist from [**ENSAE**](http://www.ensae.fr/ensae_engl/index.php?option=com_content&view=article&id=18&Itemid=48){:target="_blank"}, member and webmaster of the [**International Diffusion of French Actuarial Science (D.I.A.F.)**](http://assodiaf.org){:target="_blank"}
+Actuarial Consultant at [**EY**](http://www.ey.com){:target="_blank"}, associated Actuary of the [Institute of Actuaries (I.A.)](http://www.institutdesactuaires.com/){:target="_blank"}, member and webmaster of the [**International Diffusion of French Actuarial Science (D.I.A.F.)**](http://assodiaf.org){:target="_blank"}
 
 ## Professional Experience
 
@@ -21,28 +21,23 @@ Actuarial Consultant at [**EY**](http://www.ey.com){:target="_blank"}, associate
 -----
 
 *May - Oct 2015* **Intern at AXA Corporate Solutions (Model, Reserving & Reinsurance team)**
-
-* Research of a new method for Major Losses Reserving at AXA CS 
-* Deployment of a corresponding desktop application (with R and [Shiny](http://shiny.rstudio.com package){:target="_blank"}).
-    (Here's' a post of mine about deploying a user-friendly desktop app with R, Shiny, and a web browser.)
-* Economic allocation of Major Losses Reserves between the different AXA CS branches
+* My main mission was to develop an actuarial model for Major Losses Reserving at AXA CS. In this model, the Major Losses Threshold is determined according to some techniques derived from the Extreme Values Theory. Once this threshold is calibrated, the model estimates separately the IBNeR amounts (using an individual method that I've named Individual Chain-ladder) and the IBNyR amounts (thanks to a frequency-severity approach and an aggregated method). The thesis is confidential until 2017 but its summary will be soon updated on the IA site. 
+* I have deployed a corresponding desktop application (with R and Shiny package). [Here is a post of mine about deploying a user-friendly desktop application with R, Shiny, and a web browser.]({{ site.url }}/blog/Web-application-framework-with-Shiny/){:target="_blank"}
+* I also participated to the reserving process with the team during the 3rd quarter.
 
 ------
 
 *Nov 2014 - Apr 2015* **Part-time intern at AXA Global P&C (Reinsurance team)**
 
-* Improvement of the CAT/Atypical modeling & reinsurance pricing tool (with R/C++ thanks to Rcpp package).
-    ([Here's a post of mine about Speeding-up R programs with Rcpp package in R]({{ site.url }}/blog/connecting-R-and-Cpp-with-Rcpp/){:target="_blank"}.) 
-* Development of new functionalities
-* Measurement of the impact of the reinsurance structure changing 
+* I was in charge of improving and speeding-up a CAT/Atypical modeling & reinsurance pricing tool (with R/C++ thanks to Rcpp package).[Here's a post of mine about how to speed-up R programs with Rcpp package in R]({{ site.url }}/blog/connecting-R-and-Cpp-with-Rcpp/){:target="_blank"}.
+* I also helped restructure the program, added new functionalities and prepared the integration of the R core into a web platform.
 
 -----------
 
 *Jun 2014 - Sep 2014* **Actuarial Intern at AXA Solutions Collectives (Health insurance team)**
 
-* Construction of the dental claim distributions (with SAS)
-* Deployment of a tool for measuring the pricing impact of a dental cap (with Excel/VBA).
-* Study of the senior policyholders' behaviors on health insurance consumption before their retirement
+* The main mission was to calibrate different dental claim distributions (with SAS) and then to deploy a tool for measuring the pricing impact of a dental cap (with Excel/VBA).
+* I also conduct a study of the senior policyholders' behaviors on health insurance consumption before their retirement.
 
 -----------
 

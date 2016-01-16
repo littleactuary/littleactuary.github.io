@@ -210,4 +210,4 @@ shinyServer(function(input, output, session){
 {% endhighlight %}
 
 ## What next?
-Until now, you still need to open R and launch Shiny from within it. If your app will be used by other people, it will be cool to create an independent desktop app that users can launch it by clicking on an icon, like other applications in your computer. We will talk about it in the next post.
+Until now, you still need to open R and launch Shiny from within it. If your app will be used by other people, it will be cool to create an independent desktop app that users can launch by clicking on an icon, like other applications in your computer. We will talk about it in the next post.
