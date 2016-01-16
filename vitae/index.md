@@ -23,7 +23,7 @@ I participate to the audit and consulting activities of the actuarial team. I'm 
 
 *May - Oct 2015* **Intern at AXA Corporate Solutions (Model, Reserving & Reinsurance team)**
 
-* My main mission was to develop an actuarial model for Major Losses Reserving at AXA CS. In this model, the Major Losses Threshold is determined according to some techniques derived from the Extreme Values Theory. Once this threshold is calibrated, the model estimates separately the IBNeR amounts (using an individual method that I've named Individual Chain-ladder) and the IBNyR amounts (thanks to a frequency-severity approach and an aggregated method). The thesis is confidential until 2017 but its summary will be soon updated on the IA site. 
+* My main mission was to develop an actuarial model for Major Losses Reserving at AXA CS. In this model, the Major Losses Threshold is determined according to some techniques derived from the Extreme Values Theory. Once this threshold is calibrated, the model will separately estimate  the IBNeR amounts (using an individual method that I've named Individual Chain-ladder) and the IBNyR amounts (thanks to a frequency-severity approach and an aggregated method). The thesis is confidential until 2017 but its summary will be soon updated on the IA site. 
 * I have deployed a corresponding desktop application (with R and Shiny package). [Here is a post of mine about deploying a user-friendly desktop application with R, Shiny, and a web browser.]({{ site.url }}/blog/Web-application-framework-with-Shiny/){:target="_blank"}
 * I also participated to the reserving process with the team during the 3rd quarter.
 
