@@ -39,7 +39,7 @@ I participate to the audit and consulting activities of the actuarial team. I'm 
 *Jun 2014 - Sep 2014* **Actuarial Intern at AXA Solutions Collectives (Health insurance team)**
 
 * The main mission was to calibrate different dental claim distributions (with SAS) and then to deploy a tool for measuring the pricing impact of a dental cap (with Excel/VBA).
-* I also conduct a study of the senior policyholders' behaviors on health insurance consumption before their retirement.
+* I also conducted a study of the senior policyholders' behaviors on health insurance consumption before their retirement.
 
 -----------
 
