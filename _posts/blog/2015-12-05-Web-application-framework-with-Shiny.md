@@ -41,13 +41,15 @@ So the point is, the series of Shiny tutorials is where to start learning from. 
 ## Shiny structure
 
 The logic of Shiny relies on the two notions that are very close to the web ones: client side and server side. Client side is the component in interaction with the end-users. Server side is the component through what your R program receives requests from users, runs R code and then send the response to the client side.
+
 <center>
-<a href="{{ site.url }}/images/Shiny_scheme.png"><img src="{{ site.url }}/images/Shiny_scheme.png" alt="image"></a>
+<a href="{{ site.url }}/images/shiny_scheme.png"><img src="{{ site.url }}/images/shiny_scheme.png" alt="image"></a>
 </center>
 
 Based on this principle, Shiny requires 2 R scripts: one for the User Interface, named `ui.r`, and one for the Server, named `server.r`. What you want to display on the the interface needs to be declared in the `ui.r` script; how this thing is done needs to be defined in `server.r`. Below is a typical structure of a Shiny application:
+
 <center>
-<a href="{{ site.url }}/images/Shiny_structure.png"><img src="{{ site.url }}/images/Shiny_structure.png" alt="image"></a>
+<a href="{{ site.url }}/images/shiny_structure.png"><img src="{{ site.url }}/images/shiny_structure.png" alt="image"></a>
 </center>
 
 R calls the Shiny app in a main script, thanks to the Shiny package. I prefer to create a folder named `Shiny folder` where I store 2 principal elements: `ui.r` and `server.r`. You may notice that there is third element named `www`. It's a sub-folder where I store graphical elements (images, icons, etc.) and file (pdf) that I want to display on my application. (Attention, these three elements need to be named exactly like that). I didn't show it in the scheme but the `server.r` can call other R scripts. Normally, an application has to read input files stored somewhere that I've named `Input folder` and write output files (in addition of displaying them on the user interface) in `Output folder`. 

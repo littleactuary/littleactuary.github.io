@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-01-16T20:26:02+01:00</updated>
+<updated>2016-01-16T20:29:47+01:00</updated>
 <id>/</id>
 <author>
   <name>Duc-Hien VU</name>
@@ -61,13 +61,15 @@ You will see that R users have made many amazing applications with Shiny. Since 
 &lt;h2 id=&quot;shiny-structure&quot;&gt;Shiny structure&lt;/h2&gt;
 
 &lt;p&gt;The logic of Shiny relies on the two notions that are very close to the web ones: client side and server side. Client side is the component in interaction with the end-users. Server side is the component through what your R program receives requests from users, runs R code and then send the response to the client side.&lt;/p&gt;
+
 &lt;center&gt;
-&lt;a href=&quot;/images/Shiny_scheme.png&quot;&gt;&lt;img src=&quot;/images/Shiny_scheme.png&quot; alt=&quot;image&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/images/shiny_scheme.png&quot;&gt;&lt;img src=&quot;/images/shiny_scheme.png&quot; alt=&quot;image&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;p&gt;Based on this principle, Shiny requires 2 R scripts: one for the User Interface, named &lt;code&gt;ui.r&lt;/code&gt;, and one for the Server, named &lt;code&gt;server.r&lt;/code&gt;. What you want to display on the the interface needs to be declared in the &lt;code&gt;ui.r&lt;/code&gt; script; how this thing is done needs to be defined in &lt;code&gt;server.r&lt;/code&gt;. Below is a typical structure of a Shiny application:&lt;/p&gt;
+
 &lt;center&gt;
-&lt;a href=&quot;/images/Shiny_structure.png&quot;&gt;&lt;img src=&quot;/images/Shiny_structure.png&quot; alt=&quot;image&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/images/shiny_structure.png&quot;&gt;&lt;img src=&quot;/images/shiny_structure.png&quot; alt=&quot;image&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
 &lt;p&gt;R calls the Shiny app in a main script, thanks to the Shiny package. I prefer to create a folder named &lt;code&gt;Shiny folder&lt;/code&gt; where I store 2 principal elements: &lt;code&gt;ui.r&lt;/code&gt; and &lt;code&gt;server.r&lt;/code&gt;. You may notice that there is third element named &lt;code&gt;www&lt;/code&gt;. It’s a sub-folder where I store graphical elements (images, icons, etc.) and file (pdf) that I want to display on my application. (Attention, these three elements need to be named exactly like that). I didn’t show it in the scheme but the &lt;code&gt;server.r&lt;/code&gt; can call other R scripts. Normally, an application has to read input files stored somewhere that I’ve named &lt;code&gt;Input folder&lt;/code&gt; and write output files (in addition of displaying them on the user interface) in &lt;code&gt;Output folder&lt;/code&gt;.&lt;/p&gt;

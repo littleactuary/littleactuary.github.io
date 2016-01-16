@@ -191,13 +191,15 @@ You will see that R users have made many amazing applications with Shiny. Since 
 <h2 id="shiny-structure">Shiny structure</h2>
 
 <p>The logic of Shiny relies on the two notions that are very close to the web ones: client side and server side. Client side is the component in interaction with the end-users. Server side is the component through what your R program receives requests from users, runs R code and then send the response to the client side.</p>
+
 <center>
-<a href="/images/Shiny_scheme.png"><img src="/images/Shiny_scheme.png" alt="image" /></a>
+<a href="/images/shiny_scheme.png"><img src="/images/shiny_scheme.png" alt="image" /></a>
 </center>
 
 <p>Based on this principle, Shiny requires 2 R scripts: one for the User Interface, named <code>ui.r</code>, and one for the Server, named <code>server.r</code>. What you want to display on the the interface needs to be declared in the <code>ui.r</code> script; how this thing is done needs to be defined in <code>server.r</code>. Below is a typical structure of a Shiny application:</p>
+
 <center>
-<a href="/images/Shiny_structure.png"><img src="/images/Shiny_structure.png" alt="image" /></a>
+<a href="/images/shiny_structure.png"><img src="/images/shiny_structure.png" alt="image" /></a>
 </center>
 
 <p>R calls the Shiny app in a main script, thanks to the Shiny package. I prefer to create a folder named <code>Shiny folder</code> where I store 2 principal elements: <code>ui.r</code> and <code>server.r</code>. You may notice that there is third element named <code>www</code>. It’s a sub-folder where I store graphical elements (images, icons, etc.) and file (pdf) that I want to display on my application. (Attention, these three elements need to be named exactly like that). I didn’t show it in the scheme but the <code>server.r</code> can call other R scripts. Normally, an application has to read input files stored somewhere that I’ve named <code>Input folder</code> and write output files (in addition of displaying them on the user interface) in <code>Output folder</code>.</p>
