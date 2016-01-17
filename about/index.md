@@ -7,7 +7,7 @@ modified: 2015-08-08T19:44:38.564948-04:00
 
 ## About Me
 
-Hi, my name's Duc Hien and I'm from Vietnam. I moved to Paris in 2009 to pursue my higher studies and I've been living here since then. I hold a MSc degree in Statistics (Actuarial Science Major) at ENSAE ParisTech. Associated actuary of the Institue of Actuaries (IA), I currently work as an Actuarial Consultant. I'm interested in Actuarial Science (of course), Computer Science, Data Science (in progress) and Web development (a little bit). 
+Hi, my name's Duc Hien and I'm from Vietnam. I moved to Paris in 2009 to pursue my higher studies and I've been living here since then. I hold a MSc degree in Statistics (Actuarial Science Major) at ENSAE ParisTech. Associated actuary of the Institute of French Actuaries (IA), I'm currently working as an Actuarial Consultant. I'm interested in Actuarial Science (of course), Computer Science, Data Science (in progress) and Web development (a little bit). 
 
 <a markdown="0" href="{{ site.url }}/vitae" class="btn">My résumé</a>
 
@@ -20,7 +20,7 @@ You may wonder why the title of this blog is Little Actuary. In fact, Big Data i
 This blog is powered by [**Jekyll**](http://jekyllrb.com){:target="_blank"}, using [**So Simple Theme**](https://mademistakes.com/work/so-simple-jekyll-theme/){:target="_blank"}, and hosted by [**GitHub**](https://github.com){:target="_blank"}. For those who are interrested in blogging (like me), [here's some facts about Jekyll and the reasons for what I've chosen Jekyll]({{ site.url }}/blog/blogging-like-a-ninja)
 
 
-Enjoy reading my blog :)
+Enjoy reading my blog! :)
 
 
 
