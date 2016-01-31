@@ -2,9 +2,17 @@
 
   
     {
+      "title"			: "Web application framework with Shiny (part 2)",
+      "link"			: "/blog/Web-application-framework-with-Shiny-2/",
+      "excerpt"		: "A batch file to complete your application"
+    }
+  
+
+  
+    ,{
       "title"			: "Web application framework with Shiny",
-      "link"			: "/blog/Web-application-framework-with-Shiny/",
-      "excerpt"		: "R application with a user-friendly web interface"
+      "link"			: "/blog/Web-application-framework-with-Shiny-1/",
+      "excerpt"		: "R application with a user-friendly web interface (part 1)"
     }
   
 
@@ -56,7 +64,7 @@
 
   
     ,{
-      "title"			: "Welcome to Little Actuary Blog",
+      "title"			: "About me and this blog",
       "link"			: "/about/",
       "excerpt"		: "About me and this blog."
     }

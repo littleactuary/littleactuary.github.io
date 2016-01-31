@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-01-17T00:42:32+01:00</updated>
+<updated>2016-01-31T23:19:58+01:00</updated>
 <id>/</id>
 <author>
   <name>Duc-Hien VU</name>
@@ -16,9 +16,83 @@
   
 
 <entry>
+  <title type="html"><![CDATA[Web application framework with Shiny (part 2)]]></title>
+  <link rel="alternate" type="text/html" href="/blog/Web-application-framework-with-Shiny-2/" />
+  <id>/blog/Web-application-framework-with-Shiny-2</id>
+  <published>2016-01-30T20:39:55+01:00</published>
+  <updated>2016-01-30T20:39:55+01:00</updated>
+  <author>
+    <name>Duc-Hien VU</name>
+    <uri></uri>
+    <email>duchienvu91@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;In this post, I want to show a convenient way to run R program without opening R console or RStudio. By this way, you can turn your R program into a real desktop application. The end-users just need to double click on a dektop icon to run your R program. I will begin with a simple example without Shiny. We will deal with Shiny in the second example.&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#r-portable&quot; id=&quot;markdown-toc-r-portable&quot;&gt;R portable&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#example-1-r--batch-file&quot; id=&quot;markdown-toc-example-1-r--batch-file&quot;&gt;Example 1 (R + batch file)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#example-2-r--shiny--batch-file&quot; id=&quot;markdown-toc-example-2-r--shiny--batch-file&quot;&gt;Example 2 (R + Shiny + batch file)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;r-portable&quot;&gt;R portable&lt;/h2&gt;
+&lt;p&gt;Building a desktop app with R is like packaging all necessary elements, R included, into a main folder. Why do you need to put R into your app folder? Because your app will be delivered to the clients, who don’t necessarly have R installed in their computer. A solution suggested by many people is to download R portable and put it in the main folder, with all other elements.&lt;/p&gt;
+
+&lt;h2 id=&quot;example-1-r--batch-file&quot;&gt;Example 1 (R + batch file)&lt;/h2&gt;
+&lt;p&gt;The first example corresponds to a real problem I have faced at work. The aim is to prepare csv input files (for an application) from an Excel file. You can do it with a macro VBA, or a simple script R with the help of the package &lt;code&gt;readxl&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;install.packages&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;readxl&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The think is, I don’t want to open R and execute the R script each time I want to construct the csv files. I just want to put my Excel file into a folder, then hit a button to get my csv file. a simple batch file can help me do it. (please note that it only works in Windows).&lt;/p&gt;
+
+&lt;p&gt;First, you need to write your R script as usual. It looks like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;readxl&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;__________________________________&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;BEGIN: input conversion from xls to csv&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# the folder `input ML` is where I store the Excel file and also where the csv file will be generated. &lt;/span&gt;
+inputFolder &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;getwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;input ML&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; sep&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+AvailableFiles &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;getwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;input ML&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; sep&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+Excel_file &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; AvailableFiles&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;grepl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;.xls&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; AvailableFiles&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Excel_file&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+&lt;span class=&quot;kp&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;  Error: there is no excel file in input ML folder. Please verify that a .xls or .xlsx or .xlsm file exists in this folder!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Excel_file&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+&lt;span class=&quot;kp&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;  Error: there is more than one excel files in this folder. Please keep only 1 at time!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;kp&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;  Reading&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; Excel_file&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; sep&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+&lt;span class=&quot;c1&quot;&gt;# read xls file&lt;/span&gt;
+Claim_List &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; read_excel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;inputFolder&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; Excel_file&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; sep&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; sheet &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Claim List&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+Claim_List &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; Claim_List&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;is.na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Claim_List&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;id&lt;span class=&quot;p&quot;&gt;),]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# data treatment, data cleaning or whatever you want :)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# then build the csv file&lt;/span&gt;
+write.csv2&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Claim_List&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;inputFolder&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;LossMetaData.csv&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; sep&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; row.names&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;END: input conversion from xls to csv&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;__________________________________&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Save your R script under the name &lt;code&gt;input_construction.R&lt;/code&gt;. Now the fun part begins. We will write a batch file to tell Windows what to do with the above script. Create a text file (with notepad or whatever you want), copy the below line:&lt;/p&gt;
+
+&lt;p&gt;SET ROPTS=–no-save –no-environ –no-init-file –no-restore –no-Rconsole
+R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% input_construction.R 1&amp;gt; ShinyApp.log 2&amp;gt;&amp;amp;1&lt;/p&gt;
+
+&lt;p&gt;and save the text file a &lt;code&gt;.bat&lt;/code&gt; extention.&lt;/p&gt;
+
+&lt;h2 id=&quot;example-2-r--shiny--batch-file&quot;&gt;Example 2 (R + Shiny + batch file)&lt;/h2&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/blog/Web-application-framework-with-Shiny-2/&quot;&gt;Web application framework with Shiny (part 2)&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on January 30, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+  
+
+<entry>
   <title type="html"><![CDATA[Web application framework with Shiny]]></title>
-  <link rel="alternate" type="text/html" href="/blog/Web-application-framework-with-Shiny/" />
-  <id>/blog/Web-application-framework-with-Shiny</id>
+  <link rel="alternate" type="text/html" href="/blog/Web-application-framework-with-Shiny-1/" />
+  <id>/blog/Web-application-framework-with-Shiny-1</id>
   <published>2015-11-30T20:39:55+01:00</published>
   <updated>2015-11-30T20:39:55+01:00</updated>
   <author>
@@ -27,7 +101,7 @@
     <email>duchienvu91@gmail.com</email>
   </author>
   <content type="html">
-    &lt;p&gt;In my final internship, I had to deploy an application for large claims (major losses) reserving. Since the method required some serious statistical modeling methods, I didn’t choose Excel/VBA. R seemed to be a good choice because of its statistical power and also of some useful R packages that deal with extreme values theory and distribution fitting. The question was: “How can I build a frinedly-user application with R?”. The idea is that the end users don’t need to open R and run a hundred line of R code. My first thought was to install RExcel in order to use Excel spredsheet as the application interface. I had found a short presentation of using RExcel with the ChainLadder package in R but this solution seems to be a little out of date. Then I tried the TclTk package in R. Not too cool in my opinion! Finally I found something amazing called &lt;a href=&quot;http://shiny.rstudio.com&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Shiny&lt;/strong&gt;&lt;/a&gt;. It’s an R package that allows you to deploy an interactive web application with R.&lt;/p&gt;
+    &lt;p&gt;In my final internship, I had to deploy an application for large claims (major losses) reserving. Since the method required some serious statistical modeling methods, I didn’t choose Excel/VBA. R seemed to be a good choice because of its statistical power and also of some useful R packages that deal with extreme values theory and distribution fitting. The question was: “How can I build a friendly-user application with R?”. The idea is that the end users don’t need to open R and run a hundred line of R code. My first thought was to install RExcel in order to use Excel spredsheet as the application interface. I had found a short presentation of using RExcel with the ChainLadder package in R but this solution seems to be a little out of date. Then I tried the TclTk package in R. Not too cool in my opinion! Finally I found something amazing called &lt;a href=&quot;http://shiny.rstudio.com&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Shiny&lt;/strong&gt;&lt;/a&gt;. It’s an R package that allows you to deploy an interactive web application with R.&lt;/p&gt;
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#get-inspired&quot; id=&quot;markdown-toc-get-inspired&quot;&gt;Get inspired&lt;/a&gt;&lt;/li&gt;
@@ -35,7 +109,7 @@
   &lt;li&gt;&lt;a href=&quot;#how-to-learn-shiny&quot; id=&quot;markdown-toc-how-to-learn-shiny&quot;&gt;How to learn Shiny?&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#shiny-structure&quot; id=&quot;markdown-toc-shiny-structure&quot;&gt;Shiny structure&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#some-shiny-codes&quot; id=&quot;markdown-toc-some-shiny-codes&quot;&gt;Some Shiny codes&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#what-next&quot; id=&quot;markdown-toc-what-next&quot;&gt;What next?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#whats-next&quot; id=&quot;markdown-toc-whats-next&quot;&gt;What’s next?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;get-inspired&quot;&gt;Get inspired&lt;/h2&gt;
@@ -211,10 +285,10 @@ tags&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;img&lt;span class=&quot;p&quot
     &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;what-next&quot;&gt;What next?&lt;/h2&gt;
+&lt;h2 id=&quot;whats-next&quot;&gt;What’s next?&lt;/h2&gt;
 &lt;p&gt;Until now, you still need to open R and launch Shiny from within it. If your app will be used by other people, it will be cool to create an independent desktop app that users can launch by clicking on an icon, like other applications in your computer. We will talk about it in the next post.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/blog/Web-application-framework-with-Shiny/&quot;&gt;Web application framework with Shiny&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 30, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/Web-application-framework-with-Shiny-1/&quot;&gt;Web application framework with Shiny&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 30, 2015.&lt;/p&gt;
   </content>
 </entry>
 

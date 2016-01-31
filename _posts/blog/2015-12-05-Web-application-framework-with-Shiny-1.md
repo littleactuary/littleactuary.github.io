@@ -3,7 +3,7 @@ layout: post
 title: "Web application framework with Shiny"
 modified:
 categories: blog
-excerpt: "R application with a user-friendly web interface"
+excerpt: "R application with a user-friendly web interface (part 1)"
 tags: [R]
 image:
 
@@ -12,7 +12,7 @@ share: true
 date: 2015-11-30T15:39:55-04:00
 ---
 
-In my final internship, I had to deploy an application for large claims (major losses) reserving. Since the method required some serious statistical modeling methods, I didn't choose Excel/VBA. R seemed to be a good choice because of its statistical power and also of some useful R packages that deal with extreme values theory and distribution fitting. The question was: "How can I build a frinedly-user application with R?". The idea is that the end users don't need to open R and run a hundred line of R code. My first thought was to install RExcel in order to use Excel spredsheet as the application interface. I had found a short presentation of using RExcel with the ChainLadder package in R but this solution seems to be a little out of date. Then I tried the TclTk package in R. Not too cool in my opinion! Finally I found something amazing called [**Shiny**](http://shiny.rstudio.com){:target="_blank"}. It's an R package that allows you to deploy an interactive web application with R. 
+In my final internship, I had to deploy an application for large claims (major losses) reserving. Since the method required some serious statistical modeling methods, I didn't choose Excel/VBA. R seemed to be a good choice because of its statistical power and also of some useful R packages that deal with extreme values theory and distribution fitting. The question was: "How can I build a friendly-user application with R?". The idea is that the end users don't need to open R and run a hundred line of R code. My first thought was to install RExcel in order to use Excel spredsheet as the application interface. I had found a short presentation of using RExcel with the ChainLadder package in R but this solution seems to be a little out of date. Then I tried the TclTk package in R. Not too cool in my opinion! Finally I found something amazing called [**Shiny**](http://shiny.rstudio.com){:target="_blank"}. It's an R package that allows you to deploy an interactive web application with R. 
 
 * Table of Contents
 {:toc}

@@ -6,14 +6,14 @@
 <head>
 <meta charset="utf-8">
 <title>Web application framework with Shiny &#8211; Little Actuary</title>
-<meta name="description" content="R application with a user-friendly web interface">
+<meta name="description" content="R application with a user-friendly web interface (part 1)">
 <meta name="keywords" content="R">
 
 
 
 <!-- Twitter Cards -->
 <meta name="twitter:title" content="Web application framework with Shiny">
-<meta name="twitter:description" content="R application with a user-friendly web interface">
+<meta name="twitter:description" content="R application with a user-friendly web interface (part 1)">
 <meta name="twitter:site" content="@duc_hien_vu">
 <meta name="twitter:creator" content="@duc_hien_vu">
 
@@ -24,15 +24,15 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Web application framework with Shiny">
-<meta property="og:description" content="R application with a user-friendly web interface">
-<meta property="og:url" content="/blog/Web-application-framework-with-Shiny/">
+<meta property="og:description" content="R application with a user-friendly web interface (part 1)">
+<meta property="og:url" content="/blog/Web-application-framework-with-Shiny-1/">
 <meta property="og:site_name" content="Little Actuary">
 
 
 
 
 
-<link rel="canonical" href="/blog/Web-application-framework-with-Shiny/">
+<link rel="canonical" href="/blog/Web-application-framework-with-Shiny-1/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Little Actuary Feed">
 
 <!-- https://t.co/dKP3o1e -->
@@ -145,19 +145,19 @@
         
         <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
         <span class="social-share-twitter">
-  <a href="https://twitter.com/intent/tweet?hashtags=R&amp;text=Web%20application%20framework%20with%20Shiny&amp;url=/blog/Web-application-framework-with-Shiny/&amp;via=duc_hien_vu" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
+  <a href="https://twitter.com/intent/tweet?hashtags=R&amp;text=Web%20application%20framework%20with%20Shiny&amp;url=/blog/Web-application-framework-with-Shiny-1/&amp;via=duc_hien_vu" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
 </span>
 <span class="social-share-facebook">
-  <a href="https://www.facebook.com/sharer/sharer.php?u=/blog/Web-application-framework-with-Shiny/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/blog/Web-application-framework-with-Shiny-1/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
 </span>
 <span class="social-share-googleplus">
-  <a href="https://plus.google.com/share?url=/blog/Web-application-framework-with-Shiny/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
+  <a href="https://plus.google.com/share?url=/blog/Web-application-framework-with-Shiny-1/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
 </span>
 <!-- /.social-share -->
         
       </footer>
       <div class="entry-content">
-        <p>In my final internship, I had to deploy an application for large claims (major losses) reserving. Since the method required some serious statistical modeling methods, I didn’t choose Excel/VBA. R seemed to be a good choice because of its statistical power and also of some useful R packages that deal with extreme values theory and distribution fitting. The question was: “How can I build a frinedly-user application with R?”. The idea is that the end users don’t need to open R and run a hundred line of R code. My first thought was to install RExcel in order to use Excel spredsheet as the application interface. I had found a short presentation of using RExcel with the ChainLadder package in R but this solution seems to be a little out of date. Then I tried the TclTk package in R. Not too cool in my opinion! Finally I found something amazing called <a href="http://shiny.rstudio.com" target="_blank"><strong>Shiny</strong></a>. It’s an R package that allows you to deploy an interactive web application with R.</p>
+        <p>In my final internship, I had to deploy an application for large claims (major losses) reserving. Since the method required some serious statistical modeling methods, I didn’t choose Excel/VBA. R seemed to be a good choice because of its statistical power and also of some useful R packages that deal with extreme values theory and distribution fitting. The question was: “How can I build a friendly-user application with R?”. The idea is that the end users don’t need to open R and run a hundred line of R code. My first thought was to install RExcel in order to use Excel spredsheet as the application interface. I had found a short presentation of using RExcel with the ChainLadder package in R but this solution seems to be a little out of date. Then I tried the TclTk package in R. Not too cool in my opinion! Finally I found something amazing called <a href="http://shiny.rstudio.com" target="_blank"><strong>Shiny</strong></a>. It’s an R package that allows you to deploy an interactive web application with R.</p>
 
 <ul id="markdown-toc">
   <li><a href="#get-inspired" id="markdown-toc-get-inspired">Get inspired</a></li>
@@ -165,7 +165,7 @@
   <li><a href="#how-to-learn-shiny" id="markdown-toc-how-to-learn-shiny">How to learn Shiny?</a></li>
   <li><a href="#shiny-structure" id="markdown-toc-shiny-structure">Shiny structure</a></li>
   <li><a href="#some-shiny-codes" id="markdown-toc-some-shiny-codes">Some Shiny codes</a></li>
-  <li><a href="#what-next" id="markdown-toc-what-next">What next?</a></li>
+  <li><a href="#whats-next" id="markdown-toc-whats-next">What’s next?</a></li>
 </ul>
 
 <h2 id="get-inspired">Get inspired</h2>
@@ -341,7 +341,7 @@ tags<span class="o">$</span>img<span class="p">(</span>src<span class="o">=</spa
     <span class="p">})</span>
 <span class="p">})</span></code></pre></div>
 
-<h2 id="what-next">What next?</h2>
+<h2 id="whats-next">What’s next?</h2>
 <p>Until now, you still need to open R and launch Shiny from within it. If your app will be used by other people, it will be cool to create an independent desktop app that users can launch by clicking on an icon, like other applications in your computer. We will talk about it in the next post.</p>
 
         
@@ -376,6 +376,8 @@ tags<span class="o">$</span>img<span class="p">(</span>src<span class="o">=</spa
       
         <a href="/blog/connecting-R-and-Cpp-with-Rcpp/" class="btn" title="Calling C++ from R with Rcpp">Previous</a>
       
+      
+        <a href="/blog/Web-application-framework-with-Shiny-2/" class="btn" title="Web application framework with Shiny (part 2)">Next</a>
       
     </nav><!-- /.pagination -->
   </article>

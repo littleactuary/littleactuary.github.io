@@ -1,9 +1,10 @@
 ---
 layout: page
-title: Welcome to Little Actuary Blog
+title: About me and this blog
 excerpt: "About me and this blog."
 modified: 2015-08-08T19:44:38.564948-04:00
 ---
+
 
 ## About Me
 
