@@ -10,7 +10,7 @@ You can download my CV (in PDF format) here ([**English**]({{ site.url }}/vitae/
 * Table of Contents
 {:toc}
 
-##Current situation
+## Current situation
 
 Actuarial Consultant at [**EY**](http://www.ey.com){:target="_blank"}, associated Actuary of the [Institute of Actuaries (I.A.)](http://www.institutdesactuaires.com/){:target="_blank"}, member and webmaster of the [**International Diffusion of French Actuarial Science (D.I.A.F.)**](http://assodiaf.org){:target="_blank"}
 
