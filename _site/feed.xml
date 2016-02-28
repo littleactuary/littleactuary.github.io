@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-02-03T00:56:38+01:00</updated>
+<updated>2016-02-20T18:32:44+01:00</updated>
 <id>/</id>
 <author>
   <name>Duc-Hien VU</name>
@@ -91,8 +91,8 @@ R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% input_construction.R 1&amp;gt;
 
 <entry>
   <title type="html"><![CDATA[Web application framework with Shiny]]></title>
-  <link rel="alternate" type="text/html" href="/blog/Web-application-framework-with-Shiny-1/" />
-  <id>/blog/Web-application-framework-with-Shiny-1</id>
+  <link rel="alternate" type="text/html" href="/blog/Web-application-framework-with-Shiny/" />
+  <id>/blog/Web-application-framework-with-Shiny</id>
   <published>2015-11-30T20:39:55+01:00</published>
   <updated>2015-11-30T20:39:55+01:00</updated>
   <author>
@@ -288,7 +288,7 @@ tags&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;img&lt;span class=&quot;p&quot
 &lt;h2 id=&quot;whats-next&quot;&gt;What’s next?&lt;/h2&gt;
 &lt;p&gt;Until now, you still need to open R and launch Shiny from within it. If your app will be used by other people, it will be cool to create an independent desktop app that users can launch by clicking on an icon, like other applications in your computer. We will talk about it in the next post.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/blog/Web-application-framework-with-Shiny-1/&quot;&gt;Web application framework with Shiny&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 30, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/Web-application-framework-with-Shiny/&quot;&gt;Web application framework with Shiny&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 30, 2015.&lt;/p&gt;
   </content>
 </entry>
 

@@ -3,7 +3,7 @@ layout: post
 title: "MathJax Example"
 modified:
 categories: blog
-excerpt:
+excerpt: "Mathematical formulas within HTML webpages"
 tags: []
 image:
   feature:
