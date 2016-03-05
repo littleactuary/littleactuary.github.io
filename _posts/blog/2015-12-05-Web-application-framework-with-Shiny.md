@@ -222,7 +222,7 @@ Since we'are using R portable instead of RStudio, you definitely need a web brow
 * update your IE browser,
 * install GoogleChrome or Firefox and set them as your default web browser.
 
-If you want include a web browser into you whole app, you can download Goolge Chrome Portable [**here**](http://portableapps.com/apps/internet/google_chrome_portable){:target="_blank"}. Then put the `GoogleChromePortable` folder in `Your app` folder. I have tested it on different computers, sometimes it works, somtimes it doesn't and I don't know why. Anyway, I think nowadays people all have a modern web browser in their computer so you don't need to prepare google chrome portable for them.
+If you want to include a web browser into you whole app, you can download Goolge Chrome Portable [**here**](http://portableapps.com/apps/internet/google_chrome_portable){:target="_blank"}. Then put the `GoogleChromePortable` folder in `Your app` folder. I have tested it on different computers, sometimes it works, somtimes it doesn't and I don't know why. Anyway, I think nowadays people all have a modern web browser in their computer so you don't need to prepare google chrome portable for them.
 
 ### main.R
 Since our app works with a web browser, we need to speficy it in our `main.r` script:
@@ -239,7 +239,14 @@ SET ROPTS=--no-save --no-environ --no-init-file --no-restore --no-Rconsole
 R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% main.R 1> ShinyApp.log 2>&1
 {% endhighlight %}
 
-This batch file tell your computer to find `Rscript.exe` in you `R-Portable folder`, use it to run `main.r` in order to call your Shiny app. You may notice the `ShinyApp.log` in the above line of code. This is to create a log file, all messages of R console, as well as messages from your `print()` function will be saved into the batch file. 
+This batch file tell your computer to find `Rscript.exe` in you `R-Portable folder`, use it to run `main.r` in order to call your Shiny app. You may notice the `ShinyApp.log` in the above line of code. This is to create a log file. All messages of R console, as well as messages from your `print()` function will be saved into the batch file. 
+
+
+Now your program will look like this:
+
+...
+
+To launch your app, you just need to double click on your batch file. You can also create a shortcut for this batch file, set an icon for it, and put it anywhere on your computer to launch your app. 
 
 For more detail about deploying Desktop Apps with R, please visit: 
 [http://www.r-bloggers.com/deploying-desktop-apps-with-r/](http://www.r-bloggers.com/deploying-desktop-apps-with-r/){:target="_blank"}
