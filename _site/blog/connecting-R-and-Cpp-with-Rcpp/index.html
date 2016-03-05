@@ -157,9 +157,9 @@
         
       </footer>
       <div class="entry-content">
-        <p>If you are an R user, you may know that R is potentially slow compared to other languages such as Matlab, Java or C/C++. It’s highly recommended to avoid using loops in R. A common alternative way is to vectorize your program, i.e. to use vectors and matrices. There is a family of <code>apply()</code>functions developed in R to help you work with vectors, matrices, dataframes. These functions are better than a naive loop in R, but still struggle when the dimension of your vectors or matrices is too big. A better solution I want to talk about in this post is the Rcpp package which provides a C++ API as an extension to the R system. FYI, many R packages today rely on Rcpp.</p>
+        <p>If you are an R user, you may know that R is potentially slow compared to other languages such as Matlab, Java or C/C++. It’s highly recommended to avoid using loops in R. A common alternative way is to vectorize your program, i.e. to use vectors and matrices. There is a family of <code class="highlighter-rouge">apply()</code>functions developed in R to help you work with vectors, matrices, dataframes. These functions are better than a naive loop in R, but still struggle when the dimension of your vectors or matrices is too big. A better solution I want to talk about in this post is the Rcpp package which provides a C++ API as an extension to the R system. FYI, many R packages today rely on Rcpp.</p>
 
-<p>If you are strong enough to code your whole program in C++, well, I have nothing more to say. No other languages can beat C++ in term of speed. But if you choose to stay with R (because you are familiar with many useful R packages and pre-built functions that can save you a lot of time compared to C++), and if you are an occasional C++ user, you may try <code>Rcpp</code>. Keep building your tool with R and you only need to code some parts in C++ and then call them in your R program through Rcpp. I will show you how well Rcpp performs. But first, let’s do some preparation.</p>
+<p>If you are strong enough to code your whole program in C++, well, I have nothing more to say. No other languages can beat C++ in term of speed. But if you choose to stay with R (because you are familiar with many useful R packages and pre-built functions that can save you a lot of time compared to C++), and if you are an occasional C++ user, you may try <code class="highlighter-rouge">Rcpp</code>. Keep building your tool with R and you only need to code some parts in C++ and then call them in your R program through Rcpp. I will show you how well Rcpp performs. But first, let’s do some preparation.</p>
 
 <ul id="markdown-toc">
   <li><a href="#installing-rtools" id="markdown-toc-installing-rtools">Installing Rtools</a></li>
@@ -197,7 +197,7 @@
 <p>If it doesn’t work, try to download the latest version of Rcpp <a href="Rcpp"><strong>here</strong></a> and install it manually.</p>
 
 <h2 id="using-rcpp">Using Rcpp</h2>
-<p>C++ functions need to be written in <code>.cpp</code>file(s), apart from R script. If you are using RStudio, you can create one by selecting File &gt; New File &gt; C++ file. Below is the default example of C++ function <code>timesTwo()</code> given by RStudio. I will save the scirpt under the name <code>test.cpp</code>.</p>
+<p>C++ functions need to be written in <code class="highlighter-rouge">.cpp</code>file(s), apart from R script. If you are using RStudio, you can create one by selecting File &gt; New File &gt; C++ file. Below is the default example of C++ function <code class="highlighter-rouge">timesTwo()</code> given by RStudio. I will save the scirpt under the name <code class="highlighter-rouge">test.cpp</code>.</p>
 
 <div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp"># include &lt;Rcpp.h&gt;</span>
 <span class="n">using</span> <span class="n">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
@@ -211,13 +211,13 @@
 <div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp"># include &lt;Rcpp.h&gt;</span>
 <span class="n">using</span> <span class="n">namespace</span> <span class="n">Rcpp</span><span class="p">;</span></code></pre></div>
 
-<p>In <code>test.cpp</code>, we can define different C++ functions. Each of them has to begin with:</p>
+<p>In <code class="highlighter-rouge">test.cpp</code>, we can define different C++ functions. Each of them has to begin with:</p>
 
 <div class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// [[Rcpp::export]]</span></code></pre></div>
 
 <p>Attention: it’s not like other comment so you cannot omit it! Please note that NumericMatrix and NumericVector are specific types of Rcpp to define matrices and vectors.</p>
 
-<p>Now, to export <code>timesTwo()</code> to your R script:</p>
+<p>Now, to export <code class="highlighter-rouge">timesTwo()</code> to your R script:</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>Rcpp<span class="p">)</span>
 SourceCpp<span class="p">(</span><span class="s">&quot;test.cpp&quot;</span><span class="p">)</span>
@@ -232,7 +232,7 @@ timesTwo<span class="p">(</span>v<span class="p">)</span>
 <span class="o">*/</span></code></pre></div>
 
 <h2 id="performance-comparison">Performance comparison</h2>
-<p>Ok, so now that we’ve got some basics out of Rccp, you can do some tests to see how well Rcpp performs by timing your code.  You can either use <code>proc.time()</code> or <code>system.time()</code>:</p>
+<p>Ok, so now that we’ve got some basics out of Rccp, you can do some tests to see how well Rcpp performs by timing your code.  You can either use <code class="highlighter-rouge">proc.time()</code> or <code class="highlighter-rouge">system.time()</code>:</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="o">//</span> using <span class="kp">system.time</span><span class="p">()</span>
 <span class="kp">system.time</span><span class="p">(</span>timesTwo<span class="p">(</span>v<span class="p">))</span>
@@ -265,7 +265,7 @@ t <span class="o">&lt;-</span> <span class="kp">proc.time</span><span class="p">
 <span class="kp">system.time</span><span class="p">(</span>M2 <span class="o">&lt;-</span> <span class="kp">apply</span><span class="p">(</span>M<span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="kp">cumsum</span><span class="p">))</span></code></pre></div>
 
 <h2 id="real-life-application-of-rcpp">Real-life application of Rcpp</h2>
-<p>During my part-time internship at AXA Global P&amp;C, I had to speed-up an Actuarial pricing tool built with R. What I found out is that the core R was already very well written. There is no loop and there are <code>apply()</code>, <code>sapply()</code>, <code>lapply()</code> everywhere. After checking the running time of each bloc of code, I surprisingly identified that those <code>apply()</code> functions are the main reason of the time cost.</p>
+<p>During my part-time internship at AXA Global P&amp;C, I had to speed-up an Actuarial pricing tool built with R. What I found out is that the core R was already very well written. There is no loop and there are <code class="highlighter-rouge">apply()</code>, <code class="highlighter-rouge">sapply()</code>, <code class="highlighter-rouge">lapply()</code> everywhere. After checking the running time of each bloc of code, I surprisingly identified that those <code class="highlighter-rouge">apply()</code> functions are the main reason of the time cost.</p>
 
 <p>Thus I decided to recode those functions in C++. What I obtained by the end is a running time reducing of 95%. For example, with 10000 simulations, the running time has reduced from 74.16s to 3.88s. Not bad at all, right?</p>
 

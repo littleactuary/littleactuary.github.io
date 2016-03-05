@@ -169,7 +169,7 @@
 <p>Building a desktop app with R is like packaging all necessary elements, R included, into a main folder. Why do you need to put R into your app folder? Because your app will be delivered to the clients, who don’t necessarly have R installed in their computer. A solution suggested by many people is to download R portable and put it in the main folder, with all other elements.</p>
 
 <h2 id="example-1-r--batch-file">Example 1 (R + batch file)</h2>
-<p>The first example corresponds to a real problem I have faced at work. The aim is to prepare csv input files (for an application) from an Excel file. You can do it with a macro VBA, or a simple script R with the help of the package <code>readxl</code>:</p>
+<p>The first example corresponds to a real problem I have faced at work. The aim is to prepare csv input files (for an application) from an Excel file. You can do it with a macro VBA, or a simple script R with the help of the package <code class="highlighter-rouge">readxl</code>:</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r">install.packages<span class="p">(</span><span class="s">&quot;readxl&quot;</span><span class="p">)</span></code></pre></div>
 
@@ -203,12 +203,12 @@ write.csv2<span class="p">(</span>Claim_List<span class="p">,</span> <span class
 <span class="kp">paste</span><span class="p">(</span><span class="s">&quot;END: input conversion from xls to csv&quot;</span><span class="p">)</span>
 <span class="kp">paste</span><span class="p">(</span><span class="s">&quot;__________________________________&quot;</span><span class="p">)</span></code></pre></div>
 
-<p>Save your R script under the name <code>input_construction.R</code>. Now the fun part begins. We will write a batch file to tell Windows what to do with the above script. Create a text file (with notepad or whatever you want), copy the below line:</p>
+<p>Save your R script under the name <code class="highlighter-rouge">input_construction.R</code>. Now the fun part begins. We will write a batch file to tell Windows what to do with the above script. Create a text file (with notepad or whatever you want), copy the below line:</p>
 
-<p>SET ROPTS=–no-save –no-environ –no-init-file –no-restore –no-Rconsole
+<p>SET ROPTS=–no-save –no-environ –no-init-file –no-restore –no-Rconsole<br />
 R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% input_construction.R 1&gt; ShinyApp.log 2&gt;&amp;1</p>
 
-<p>and save the text file a <code>.bat</code> extention.</p>
+<p>and save the text file a <code class="highlighter-rouge">.bat</code> extention.</p>
 
 <h2 id="example-2-r--shiny--batch-file">Example 2 (R + Shiny + batch file)</h2>
 

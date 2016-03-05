@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-02-20T18:32:44+01:00</updated>
+<updated>2016-03-05T09:56:29+01:00</updated>
 <id>/</id>
 <author>
   <name>Duc-Hien VU</name>
@@ -39,7 +39,7 @@
 &lt;p&gt;Building a desktop app with R is like packaging all necessary elements, R included, into a main folder. Why do you need to put R into your app folder? Because your app will be delivered to the clients, who don’t necessarly have R installed in their computer. A solution suggested by many people is to download R portable and put it in the main folder, with all other elements.&lt;/p&gt;
 
 &lt;h2 id=&quot;example-1-r--batch-file&quot;&gt;Example 1 (R + batch file)&lt;/h2&gt;
-&lt;p&gt;The first example corresponds to a real problem I have faced at work. The aim is to prepare csv input files (for an application) from an Excel file. You can do it with a macro VBA, or a simple script R with the help of the package &lt;code&gt;readxl&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;The first example corresponds to a real problem I have faced at work. The aim is to prepare csv input files (for an application) from an Excel file. You can do it with a macro VBA, or a simple script R with the help of the package &lt;code class=&quot;highlighter-rouge&quot;&gt;readxl&lt;/code&gt;:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;install.packages&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;readxl&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -73,12 +73,12 @@ write.csv2&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Claim_List&lt;span class
 &lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;END: input conversion from xls to csv&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;__________________________________&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Save your R script under the name &lt;code&gt;input_construction.R&lt;/code&gt;. Now the fun part begins. We will write a batch file to tell Windows what to do with the above script. Create a text file (with notepad or whatever you want), copy the below line:&lt;/p&gt;
+&lt;p&gt;Save your R script under the name &lt;code class=&quot;highlighter-rouge&quot;&gt;input_construction.R&lt;/code&gt;. Now the fun part begins. We will write a batch file to tell Windows what to do with the above script. Create a text file (with notepad or whatever you want), copy the below line:&lt;/p&gt;
 
-&lt;p&gt;SET ROPTS=–no-save –no-environ –no-init-file –no-restore –no-Rconsole
+&lt;p&gt;SET ROPTS=–no-save –no-environ –no-init-file –no-restore –no-Rconsole&lt;br /&gt;
 R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% input_construction.R 1&amp;gt; ShinyApp.log 2&amp;gt;&amp;amp;1&lt;/p&gt;
 
-&lt;p&gt;and save the text file a &lt;code&gt;.bat&lt;/code&gt; extention.&lt;/p&gt;
+&lt;p&gt;and save the text file a &lt;code class=&quot;highlighter-rouge&quot;&gt;.bat&lt;/code&gt; extention.&lt;/p&gt;
 
 &lt;h2 id=&quot;example-2-r--shiny--batch-file&quot;&gt;Example 2 (R + Shiny + batch file)&lt;/h2&gt;
 
@@ -109,12 +109,12 @@ R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% input_construction.R 1&amp;gt;
   &lt;li&gt;&lt;a href=&quot;#how-to-learn-shiny&quot; id=&quot;markdown-toc-how-to-learn-shiny&quot;&gt;How to learn Shiny?&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#shiny-structure&quot; id=&quot;markdown-toc-shiny-structure&quot;&gt;Shiny structure&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#some-shiny-codes&quot; id=&quot;markdown-toc-some-shiny-codes&quot;&gt;Some Shiny codes&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#whats-next&quot; id=&quot;markdown-toc-whats-next&quot;&gt;What’s next?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#creating-a-bach-file&quot; id=&quot;markdown-toc-creating-a-bach-file&quot;&gt;Creating a bach file&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;get-inspired&quot;&gt;Get inspired&lt;/h2&gt;
 
-&lt;p&gt;To get you inspired, &lt;a href=&quot;http://shiny.rstudio.com/gallery/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;here’s a galery of Shiny applications&lt;/strong&gt;&lt;/a&gt;
+&lt;p&gt;To get you inspired, &lt;a href=&quot;http://shiny.rstudio.com/gallery/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;here’s a galery of Shiny applications&lt;/strong&gt;&lt;/a&gt;&lt;br /&gt;
 You will see that R users have made many amazing applications with Shiny. Since I just passed a little time of my internship to deploy the application (my main mission is to develop the actuarial model), I couldn’t build a very complex one, but I think it seems already cooler than an Excel spredsheet. It looks like this:&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/MajorLossesReserving.gif&quot;&gt;&lt;img src=&quot;/images/MajorLossesReserving.gif&quot; alt=&quot;image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -140,13 +140,13 @@ You will see that R users have made many amazing applications with Shiny. Since 
 &lt;a href=&quot;/images/shiny_scheme.png&quot;&gt;&lt;img src=&quot;/images/shiny_scheme.png&quot; alt=&quot;image&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
-&lt;p&gt;Based on this principle, Shiny requires 2 R scripts: one for the User Interface, named &lt;code&gt;ui.r&lt;/code&gt;, and one for the Server, named &lt;code&gt;server.r&lt;/code&gt;. What you want to display on the the interface needs to be declared in the &lt;code&gt;ui.r&lt;/code&gt; script; how this thing is done needs to be defined in &lt;code&gt;server.r&lt;/code&gt;. Below is a typical structure of a Shiny application:&lt;/p&gt;
+&lt;p&gt;Based on this principle, Shiny requires 2 R scripts: one for the User Interface, named &lt;code class=&quot;highlighter-rouge&quot;&gt;ui.r&lt;/code&gt;, and one for the Server, named &lt;code class=&quot;highlighter-rouge&quot;&gt;server.r&lt;/code&gt;. What you want to display on the the interface needs to be declared in the &lt;code class=&quot;highlighter-rouge&quot;&gt;ui.r&lt;/code&gt; script; how this thing is done needs to be defined in &lt;code class=&quot;highlighter-rouge&quot;&gt;server.r&lt;/code&gt;. Below is a typical structure of a Shiny application:&lt;/p&gt;
 
 &lt;center&gt;
 &lt;a href=&quot;/images/shiny_structure.png&quot;&gt;&lt;img src=&quot;/images/shiny_structure.png&quot; alt=&quot;image&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
-&lt;p&gt;R calls the Shiny app in a main script, thanks to the Shiny package. I prefer to create a folder named &lt;code&gt;Shiny folder&lt;/code&gt; where I store 2 principal elements: &lt;code&gt;ui.r&lt;/code&gt; and &lt;code&gt;server.r&lt;/code&gt;. You may notice that there is third element named &lt;code&gt;www&lt;/code&gt;. It’s a sub-folder where I store graphical elements (images, icons, etc.) and file (pdf) that I want to display on my application. (Attention, these three elements need to be named exactly like that). I didn’t show it in the scheme but the &lt;code&gt;server.r&lt;/code&gt; can call other R scripts. Normally, an application has to read input files stored somewhere that I’ve named &lt;code&gt;Input folder&lt;/code&gt; and write output files (in addition of displaying them on the user interface) in &lt;code&gt;Output folder&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;R calls the Shiny app in a main script, thanks to the Shiny package. I prefer to create a folder named &lt;code class=&quot;highlighter-rouge&quot;&gt;Shiny folder&lt;/code&gt; where I store 2 principal elements: &lt;code class=&quot;highlighter-rouge&quot;&gt;ui.r&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;server.r&lt;/code&gt;. You may notice that there is third element named &lt;code class=&quot;highlighter-rouge&quot;&gt;www&lt;/code&gt;. It’s a sub-folder where I store graphical elements (images, icons, etc.) and file (pdf) that I want to display on my application. (Attention, these three elements need to be named exactly like that). I didn’t show it in the scheme but the &lt;code class=&quot;highlighter-rouge&quot;&gt;server.r&lt;/code&gt; can call other R scripts. Normally, an application has to read input files stored somewhere that I’ve named &lt;code class=&quot;highlighter-rouge&quot;&gt;Input folder&lt;/code&gt; and write output files (in addition of displaying them on the user interface) in &lt;code class=&quot;highlighter-rouge&quot;&gt;Output folder&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;The user interface can be displayed on the default browser of RStudio if you run Shiny through it, or on a web browser (if you are using Internet explorer version &amp;lt; 10, you could get into trouble with Shiny). This user interface works exactly like a web page. There are buttons, input text, etc. for you to make your decision and there will be output (graphs, images, tables, etc.) displayed on the main panel, or separately on different tabs.&lt;/p&gt;
 
@@ -157,7 +157,7 @@ You will see that R users have made many amazing applications with Shiny. Since 
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;Shiny&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;runApp&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;./Shiny folder/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;(An alternative way: in RStudio, when you open &lt;code&gt;server.r&lt;/code&gt; and &lt;code&gt;ui.r&lt;/code&gt;, you can see the &lt;code&gt;Run App&lt;/code&gt; button on the top right. You can launch your app by clicking on it) 
+&lt;p&gt;(An alternative way: in RStudio, when you open &lt;code class=&quot;highlighter-rouge&quot;&gt;server.r&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;ui.r&lt;/code&gt;, you can see the &lt;code class=&quot;highlighter-rouge&quot;&gt;Run App&lt;/code&gt; button on the top right. You can launch your app by clicking on it) &lt;br /&gt;
 If you want to launch you app on your default web browser instead of the browser of RStudio:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;Shiny&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;runApp&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;./Shiny folder/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; launch.browser &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -168,7 +168,7 @@ If you want to launch you app on your default web browser instead of the browser
 
 &lt;h3 id=&quot;title-panel&quot;&gt;Title panel&lt;/h3&gt;
 
-&lt;p&gt;In &lt;code&gt;ui.r&lt;/code&gt;, you can define a header for you application where you show the app name and the logo for example. This is done thanks to the &lt;code&gt;titlePanel()&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;ui.r&lt;/code&gt;, you can define a header for you application where you show the app name and the logo for example. This is done thanks to the &lt;code class=&quot;highlighter-rouge&quot;&gt;titlePanel()&lt;/code&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;shinyUI&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;fluidPage&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
     theme &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; shinytheme&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;cerulean&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
@@ -187,7 +187,7 @@ If you want to launch you app on your default web browser instead of the browser
     &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Since the Shiny interface is a web interface, it is designed with the famous Bootstrap framework. The Shiny page is divided into 12 columns and all elements will be arranged according to these 12 columns. Here I devided the title panel into 2 parts, the first one takes 9/12 columns to show the app name, the second one takes 3/12 collumns to show the logo. Please note that logo.png needs to be stored in the &lt;code&gt;www&lt;/code&gt;sub-folder.&lt;/p&gt;
+&lt;p&gt;Since the Shiny interface is a web interface, it is designed with the famous Bootstrap framework. The Shiny page is divided into 12 columns and all elements will be arranged according to these 12 columns. Here I devided the title panel into 2 parts, the first one takes 9/12 columns to show the app name, the second one takes 3/12 collumns to show the logo. Please note that logo.png needs to be stored in the &lt;code class=&quot;highlighter-rouge&quot;&gt;www&lt;/code&gt;sub-folder.&lt;/p&gt;
 
 &lt;h3 id=&quot;tab-panel&quot;&gt;Tab panel&lt;/h3&gt;
 
@@ -225,7 +225,7 @@ variable1 &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; eventReactive&l
 
 &lt;h3 id=&quot;two-way-to-display-a-table&quot;&gt;Two way to display a table&lt;/h3&gt;
 
-&lt;p&gt;In &lt;code&gt;server.r&lt;/code&gt;, to put a table into the output() list in order to display it on the user interface later, you can either use the &lt;code&gt;renderTable()&lt;/code&gt; (not pretty) or the &lt;code&gt;renderDataTable()&lt;/code&gt; (much more beautiful). With the second function, you can customize the table with options.
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;server.r&lt;/code&gt;, to put a table into the output() list in order to display it on the user interface later, you can either use the &lt;code class=&quot;highlighter-rouge&quot;&gt;renderTable()&lt;/code&gt; (not pretty) or the &lt;code class=&quot;highlighter-rouge&quot;&gt;renderDataTable()&lt;/code&gt; (much more beautiful). With the second function, you can customize the table with options.&lt;br /&gt;
 For example, if you want to show your entire table in one page and desactivate the search option:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;example &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; renderDataTable&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
@@ -238,30 +238,30 @@ For example, if you want to show your entire table in one page and desactivate t
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;options &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;lengthMenu &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;15&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;30&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;50&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;All&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt; pageLength &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; autoWidth &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; columnDefs &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;width &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;200px&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; targets &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;streamlining-your-shiny-apps&quot;&gt;Streamlining your Shiny apps&lt;/h3&gt;
-&lt;p&gt;Sometimes, you need to order different parts of code in a given scenario. Unlike the normal logic of R, Shiny doesn’t interprete your code in the descending order. In &lt;code&gt;server.r&lt;/code&gt; each bloc of code aims to return an output element and Shiny will interprete them almost simultaneously. It’s very often that one output element depends on others. In Shiny you need to tell the program when to do or to not do something.&lt;/p&gt;
+&lt;p&gt;Sometimes, you need to order different parts of code in a given scenario. Unlike the normal logic of R, Shiny doesn’t interprete your code in the descending order. In &lt;code class=&quot;highlighter-rouge&quot;&gt;server.r&lt;/code&gt; each bloc of code aims to return an output element and Shiny will interprete them almost simultaneously. It’s very often that one output element depends on others. In Shiny you need to tell the program when to do or to not do something.&lt;/p&gt;
 
 &lt;p&gt;The simplest way is to create reactive button so that a bloc of code will only be interpreted when the user clicks on the button. However, I find it not practical to create too many buttons.&lt;/p&gt;
 
 &lt;p&gt;A good way is to use reactive expressions that let you control which parts of your app update when. You can take a look at &lt;a href=&quot;http://shiny.rstudio.com/tutorial/lesson6/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;this tutorial&lt;/strong&gt;&lt;/a&gt; for a better understanding of reactive expressions.&lt;/p&gt;
 
-&lt;p&gt;Sometimes I find it more convenient to manually streamline my program by using &lt;code&gt;reactiveValues&lt;/code&gt; as a condition. The idea is to create reactive boolean variables to trigger a bloc of code.&lt;/p&gt;
+&lt;p&gt;Sometimes I find it more convenient to manually streamline my program by using &lt;code class=&quot;highlighter-rouge&quot;&gt;reactiveValues&lt;/code&gt; as a condition. The idea is to create reactive boolean variables to trigger a bloc of code.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;display.order &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; reactiveValues&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;part2 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; part3 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;conditional-panel&quot;&gt;Conditional panel&lt;/h3&gt;
-&lt;p&gt;In &lt;code&gt;ui.r&lt;/code&gt;, you can tell Shiny when to show or not to show an output element with a specific condition:&lt;/p&gt;
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;ui.r&lt;/code&gt;, you can tell Shiny when to show or not to show an output element with a specific condition:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;conditionalPanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;condition &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;input.currency == &amp;#39;EUR&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;  
 conditionalPanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;condition &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;input.currency == &amp;#39;GBP&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;loading-circle&quot;&gt;Loading circle&lt;/h3&gt;
-&lt;p&gt;Sometimes it takes time to run your code and you want to tell the users that the R program is still running. Like a web page loading, you can show a loading circle whenever your R program is busy. To do so, you first need to save this “loading_circle.gif” image into the &lt;code&gt;www&lt;/code&gt; folder,&lt;/p&gt;
+&lt;p&gt;Sometimes it takes time to run your code and you want to tell the users that the R program is still running. Like a web page loading, you can show a loading circle whenever your R program is busy. To do so, you first need to save this “loading_circle.gif” image into the &lt;code class=&quot;highlighter-rouge&quot;&gt;www&lt;/code&gt; folder,&lt;/p&gt;
 
 &lt;center&gt;
 &lt;a href=&quot;/images/loading_circle.gif&quot;&gt;&lt;img src=&quot;/images/loading_circle.gif&quot; alt=&quot;image&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
-&lt;p&gt;and then add this line of code in the &lt;code&gt;ui.r&lt;/code&gt;, in a specific area that you want to show the loading circle:&lt;/p&gt;
+&lt;p&gt;and then add this line of code in the &lt;code class=&quot;highlighter-rouge&quot;&gt;ui.r&lt;/code&gt;, in a specific area that you want to show the loading circle:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;conditionalPanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;condition&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;$(&amp;#39;html&amp;#39;).hasClass(&amp;#39;shiny-busy&amp;#39;)&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 tags&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;img&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;src&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;loading_circle.gif&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -269,7 +269,7 @@ tags&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;img&lt;span class=&quot;p&quot
 
 &lt;h3 id=&quot;closing-your-app&quot;&gt;Closing your app&lt;/h3&gt;
 
-&lt;p&gt;2 options to close your app: create a button “close” in &lt;code&gt;ui.r&lt;/code&gt; and add this in &lt;code&gt;server.r&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;2 options to close your app: create a button “close” in &lt;code class=&quot;highlighter-rouge&quot;&gt;ui.r&lt;/code&gt; and add this in &lt;code class=&quot;highlighter-rouge&quot;&gt;server.r&lt;/code&gt;:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;observe&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
     &lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;input&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;close &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
@@ -285,8 +285,14 @@ tags&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;img&lt;span class=&quot;p&quot
     &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;whats-next&quot;&gt;What’s next?&lt;/h2&gt;
-&lt;p&gt;Until now, you still need to open R and launch Shiny from within it. If your app will be used by other people, it will be cool to create an independent desktop app that users can launch by clicking on an icon, like other applications in your computer. We will talk about it in the next post.&lt;/p&gt;
+&lt;h2 id=&quot;creating-a-bach-file&quot;&gt;Creating a bach file&lt;/h2&gt;
+&lt;p&gt;Until now, you still need to open R and launch Shiny from within it. If your app will be used by other people, it will be cool to create an independent desktop app that users can launch by clicking on an icon, like other applications in your computer. You can do it by creating a bach file as followed.&lt;/p&gt;
+
+&lt;p&gt;Building a desktop app with R is like packaging all necessary elements, R included, into a main folder. Why do you need to put R into your app folder? Because your app will be delivered to the clients, who don’t necessarly have R installed in their computer. A solution suggested by many people is to download R portable and put it in the main folder, with all other elements. Download R portable here and&lt;/p&gt;
+
+&lt;p&gt;SET ROPTS=–no-save –no-environ –no-init-file –no-restore –no-Rconsole&lt;br /&gt;
+R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% main.R 1&amp;gt; ShinyApp.log 2&amp;gt;&amp;amp;1&lt;/p&gt;
+
 
     &lt;p&gt;&lt;a href=&quot;/blog/Web-application-framework-with-Shiny/&quot;&gt;Web application framework with Shiny&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 30, 2015.&lt;/p&gt;
   </content>
@@ -307,9 +313,9 @@ tags&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;img&lt;span class=&quot;p&quot
     <email>duchienvu91@gmail.com</email>
   </author>
   <content type="html">
-    &lt;p&gt;If you are an R user, you may know that R is potentially slow compared to other languages such as Matlab, Java or C/C++. It’s highly recommended to avoid using loops in R. A common alternative way is to vectorize your program, i.e. to use vectors and matrices. There is a family of &lt;code&gt;apply()&lt;/code&gt;functions developed in R to help you work with vectors, matrices, dataframes. These functions are better than a naive loop in R, but still struggle when the dimension of your vectors or matrices is too big. A better solution I want to talk about in this post is the Rcpp package which provides a C++ API as an extension to the R system. FYI, many R packages today rely on Rcpp.&lt;/p&gt;
+    &lt;p&gt;If you are an R user, you may know that R is potentially slow compared to other languages such as Matlab, Java or C/C++. It’s highly recommended to avoid using loops in R. A common alternative way is to vectorize your program, i.e. to use vectors and matrices. There is a family of &lt;code class=&quot;highlighter-rouge&quot;&gt;apply()&lt;/code&gt;functions developed in R to help you work with vectors, matrices, dataframes. These functions are better than a naive loop in R, but still struggle when the dimension of your vectors or matrices is too big. A better solution I want to talk about in this post is the Rcpp package which provides a C++ API as an extension to the R system. FYI, many R packages today rely on Rcpp.&lt;/p&gt;
 
-&lt;p&gt;If you are strong enough to code your whole program in C++, well, I have nothing more to say. No other languages can beat C++ in term of speed. But if you choose to stay with R (because you are familiar with many useful R packages and pre-built functions that can save you a lot of time compared to C++), and if you are an occasional C++ user, you may try &lt;code&gt;Rcpp&lt;/code&gt;. Keep building your tool with R and you only need to code some parts in C++ and then call them in your R program through Rcpp. I will show you how well Rcpp performs. But first, let’s do some preparation.&lt;/p&gt;
+&lt;p&gt;If you are strong enough to code your whole program in C++, well, I have nothing more to say. No other languages can beat C++ in term of speed. But if you choose to stay with R (because you are familiar with many useful R packages and pre-built functions that can save you a lot of time compared to C++), and if you are an occasional C++ user, you may try &lt;code class=&quot;highlighter-rouge&quot;&gt;Rcpp&lt;/code&gt;. Keep building your tool with R and you only need to code some parts in C++ and then call them in your R program through Rcpp. I will show you how well Rcpp performs. But first, let’s do some preparation.&lt;/p&gt;
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#installing-rtools&quot; id=&quot;markdown-toc-installing-rtools&quot;&gt;Installing Rtools&lt;/a&gt;&lt;/li&gt;
@@ -347,7 +353,7 @@ tags&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;img&lt;span class=&quot;p&quot
 &lt;p&gt;If it doesn’t work, try to download the latest version of Rcpp &lt;a href=&quot;Rcpp&quot;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt; and install it manually.&lt;/p&gt;
 
 &lt;h2 id=&quot;using-rcpp&quot;&gt;Using Rcpp&lt;/h2&gt;
-&lt;p&gt;C++ functions need to be written in &lt;code&gt;.cpp&lt;/code&gt;file(s), apart from R script. If you are using RStudio, you can create one by selecting File &amp;gt; New File &amp;gt; C++ file. Below is the default example of C++ function &lt;code&gt;timesTwo()&lt;/code&gt; given by RStudio. I will save the scirpt under the name &lt;code&gt;test.cpp&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;C++ functions need to be written in &lt;code class=&quot;highlighter-rouge&quot;&gt;.cpp&lt;/code&gt;file(s), apart from R script. If you are using RStudio, you can create one by selecting File &amp;gt; New File &amp;gt; C++ file. Below is the default example of C++ function &lt;code class=&quot;highlighter-rouge&quot;&gt;timesTwo()&lt;/code&gt; given by RStudio. I will save the scirpt under the name &lt;code class=&quot;highlighter-rouge&quot;&gt;test.cpp&lt;/code&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cp&quot;&gt;# include &amp;lt;Rcpp.h&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Rcpp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -361,13 +367,13 @@ tags&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;img&lt;span class=&quot;p&quot
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cp&quot;&gt;# include &amp;lt;Rcpp.h&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Rcpp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;In &lt;code&gt;test.cpp&lt;/code&gt;, we can define different C++ functions. Each of them has to begin with:&lt;/p&gt;
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;test.cpp&lt;/code&gt;, we can define different C++ functions. Each of them has to begin with:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// [[Rcpp::export]]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Attention: it’s not like other comment so you cannot omit it! Please note that NumericMatrix and NumericVector are specific types of Rcpp to define matrices and vectors.&lt;/p&gt;
 
-&lt;p&gt;Now, to export &lt;code&gt;timesTwo()&lt;/code&gt; to your R script:&lt;/p&gt;
+&lt;p&gt;Now, to export &lt;code class=&quot;highlighter-rouge&quot;&gt;timesTwo()&lt;/code&gt; to your R script:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Rcpp&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 SourceCpp&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;test.cpp&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -382,7 +388,7 @@ timesTwo&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;v&lt;span class=&quot;p&qu
 &lt;span class=&quot;o&quot;&gt;*/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;performance-comparison&quot;&gt;Performance comparison&lt;/h2&gt;
-&lt;p&gt;Ok, so now that we’ve got some basics out of Rccp, you can do some tests to see how well Rcpp performs by timing your code.  You can either use &lt;code&gt;proc.time()&lt;/code&gt; or &lt;code&gt;system.time()&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Ok, so now that we’ve got some basics out of Rccp, you can do some tests to see how well Rcpp performs by timing your code.  You can either use &lt;code class=&quot;highlighter-rouge&quot;&gt;proc.time()&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;system.time()&lt;/code&gt;:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; using &lt;span class=&quot;kp&quot;&gt;system.time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;kp&quot;&gt;system.time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;timesTwo&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;v&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
@@ -415,7 +421,7 @@ t &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kp
 &lt;span class=&quot;kp&quot;&gt;system.time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;M2 &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;M&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;cumsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;real-life-application-of-rcpp&quot;&gt;Real-life application of Rcpp&lt;/h2&gt;
-&lt;p&gt;During my part-time internship at AXA Global P&amp;amp;C, I had to speed-up an Actuarial pricing tool built with R. What I found out is that the core R was already very well written. There is no loop and there are &lt;code&gt;apply()&lt;/code&gt;, &lt;code&gt;sapply()&lt;/code&gt;, &lt;code&gt;lapply()&lt;/code&gt; everywhere. After checking the running time of each bloc of code, I surprisingly identified that those &lt;code&gt;apply()&lt;/code&gt; functions are the main reason of the time cost.&lt;/p&gt;
+&lt;p&gt;During my part-time internship at AXA Global P&amp;amp;C, I had to speed-up an Actuarial pricing tool built with R. What I found out is that the core R was already very well written. There is no loop and there are &lt;code class=&quot;highlighter-rouge&quot;&gt;apply()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;sapply()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;lapply()&lt;/code&gt; everywhere. After checking the running time of each bloc of code, I surprisingly identified that those &lt;code class=&quot;highlighter-rouge&quot;&gt;apply()&lt;/code&gt; functions are the main reason of the time cost.&lt;/p&gt;
 
 &lt;p&gt;Thus I decided to recode those functions in C++. What I obtained by the end is a running time reducing of 95%. For example, with 10000 simulations, the running time has reduced from 74.16s to 3.88s. Not bad at all, right?&lt;/p&gt;
 
@@ -507,7 +513,7 @@ t &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kp
 &lt;span class=&quot;nt&quot;&gt;else&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;pricing&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Your R program will be called through a &lt;code&gt;main.R&lt;/code&gt; script:&lt;/p&gt;
+&lt;p&gt;Your R program will be called through a &lt;code class=&quot;highlighter-rouge&quot;&gt;main.R&lt;/code&gt; script:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# functions loading       &lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;F-simple_functions.R&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -526,30 +532,30 @@ t &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kp
 &lt;span class=&quot;kp&quot;&gt;else&lt;/span&gt;
     &lt;span class=&quot;kn&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;E-pricing_method2.R&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;This script is the main workflow where your program tells R what to do. To run your program, just execute the &lt;code&gt;main.R&lt;/code&gt; script! Firstly, R will load 4 different scripts that only contain functions (that’s why their names begin with &lt;code&gt;F-&lt;/code&gt;).  While &lt;code&gt;F-simple_functions.R&lt;/code&gt; stores some simple functions that will be used almost everywhere in your program, &lt;code&gt;F-claims_modeling.R&quot;&lt;/code&gt; is reserved to specific functions that will be called in &lt;code&gt;E-claims_modeling.R&lt;/code&gt; and so one. Once all functions are loaded, R will call executive scripts whose name begins with &lt;code&gt;E-&lt;/code&gt;, in a scenario that you have pre-determined in the main script.&lt;/p&gt;
+&lt;p&gt;This script is the main workflow where your program tells R what to do. To run your program, just execute the &lt;code class=&quot;highlighter-rouge&quot;&gt;main.R&lt;/code&gt; script! Firstly, R will load 4 different scripts that only contain functions (that’s why their names begin with &lt;code class=&quot;highlighter-rouge&quot;&gt;F-&lt;/code&gt;).  While &lt;code class=&quot;highlighter-rouge&quot;&gt;F-simple_functions.R&lt;/code&gt; stores some simple functions that will be used almost everywhere in your program, &lt;code class=&quot;highlighter-rouge&quot;&gt;F-claims_modeling.R&quot;&lt;/code&gt; is reserved to specific functions that will be called in &lt;code class=&quot;highlighter-rouge&quot;&gt;E-claims_modeling.R&lt;/code&gt; and so one. Once all functions are loaded, R will call executive scripts whose name begins with &lt;code class=&quot;highlighter-rouge&quot;&gt;E-&lt;/code&gt;, in a scenario that you have pre-determined in the main script.&lt;/p&gt;
 
 &lt;p&gt;You can also replace each executive script by creating and calling a big function with parameters in order to make your R modules really independent (however, in my experience, it is sometimes complicate to do so). While structuring the program seems useless in this simplified example, it turns out to be very helpful when working with more than hundred lines of code per module.&lt;/p&gt;
 
 &lt;h3 id=&quot;commenting-code&quot;&gt;#2: Commenting code&lt;/h3&gt;
 &lt;p&gt;Comment a complex line of code, a function or a variable is a good habit and should be done whenever it is possible. I remember how hard it was for me to understand a bloc of code written by others (or even by myself long ago) without any comments.&lt;/p&gt;
 
-&lt;p&gt;I recently found out that it is better to comment a function from inside. Let’s take an example where I declare the function &lt;code&gt;beautifulAmount()&lt;/code&gt; in &lt;code&gt;F-simple_functions.R&lt;/code&gt; and I call it in the main script &lt;code&gt;main.R&lt;/code&gt;. I used to comment this function this way:&lt;/p&gt;
+&lt;p&gt;I recently found out that it is better to comment a function from inside. Let’s take an example where I declare the function &lt;code class=&quot;highlighter-rouge&quot;&gt;beautifulAmount()&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;F-simple_functions.R&lt;/code&gt; and I call it in the main script &lt;code class=&quot;highlighter-rouge&quot;&gt;main.R&lt;/code&gt;. I used to comment this function this way:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# function to dislay claim amount in a beautiful way&lt;/span&gt;
 beautifulAmount &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;scientific&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; big.mark&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;When I look at this function in &lt;code&gt;F-simple_functions.R&lt;/code&gt;, I can understand it immediately thanks to the comment. However, if I identify this function in &lt;code&gt;main.R&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;When I look at this function in &lt;code class=&quot;highlighter-rouge&quot;&gt;F-simple_functions.R&lt;/code&gt;, I can understand it immediately thanks to the comment. However, if I identify this function in &lt;code class=&quot;highlighter-rouge&quot;&gt;main.R&lt;/code&gt;:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;y &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; beautifulAmount&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;and I forget what it was supposed to do, I’m obligated to re-open &lt;code&gt;F-simple_functions.R&lt;/code&gt;. Now, I put my comment inside the function:&lt;/p&gt;
+&lt;p&gt;and I forget what it was supposed to do, I’m obligated to re-open &lt;code class=&quot;highlighter-rouge&quot;&gt;F-simple_functions.R&lt;/code&gt;. Now, I put my comment inside the function:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;beautifulAmount &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;# function to dislay claim amount in a beautiful way&lt;/span&gt;
 &lt;span class=&quot;kp&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;scientific&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; big.mark&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Whenever I have a doubt with the purpose of this function, I only need to write “beautifulAmount” in my R console and hit enter. R will show me the full code of the function &lt;code&gt;beautifulAmount()&lt;/code&gt;, including the comment inside. By this way, I don’t need to open &lt;code&gt;F-simple_functions.R&lt;/code&gt; to understand &lt;code&gt;beautifulAmount()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Whenever I have a doubt with the purpose of this function, I only need to write “beautifulAmount” in my R console and hit enter. R will show me the full code of the function &lt;code class=&quot;highlighter-rouge&quot;&gt;beautifulAmount()&lt;/code&gt;, including the comment inside. By this way, I don’t need to open &lt;code class=&quot;highlighter-rouge&quot;&gt;F-simple_functions.R&lt;/code&gt; to understand &lt;code class=&quot;highlighter-rouge&quot;&gt;beautifulAmount()&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;naming-your-variables-wisely&quot;&gt;#3: Naming your variables wisely&lt;/h3&gt;
 
@@ -567,10 +573,10 @@ beautifulAmount &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&q
 &lt;span class=&quot;kc&quot;&gt;...&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Using the second option, when you need to find and modify your loop, you just need to jump into your R script and search (&lt;code&gt;Ctrl + F&lt;/code&gt;) “ii”. With the first option, doing a search of “i” letter in your whole script seems desperate.&lt;/p&gt;
+&lt;p&gt;Using the second option, when you need to find and modify your loop, you just need to jump into your R script and search (&lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl + F&lt;/code&gt;) “ii”. With the first option, doing a search of “i” letter in your whole script seems desperate.&lt;/p&gt;
 
 &lt;h3 id=&quot;using-list&quot;&gt;#4: Using list()&lt;/h3&gt;
-&lt;p&gt;If you have many variables to work with in your program, you should group them into lists. The two basic lists are &lt;code&gt;input()&lt;/code&gt;and &lt;code&gt;output()&lt;/code&gt; but you are not obligated to stay with these two. In the above example of pricing, you can create one list for variables of each method. By doing so, each method is somehow similar to an object.&lt;/p&gt;
+&lt;p&gt;If you have many variables to work with in your program, you should group them into lists. The two basic lists are &lt;code class=&quot;highlighter-rouge&quot;&gt;input()&lt;/code&gt;and &lt;code class=&quot;highlighter-rouge&quot;&gt;output()&lt;/code&gt; but you are not obligated to stay with these two. In the above example of pricing, you can create one list for variables of each method. By doing so, each method is somehow similar to an object.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;output.method1 &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 output.method2 &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -610,24 +616,26 @@ output.method1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;premium &lt;span cla
     <email>duchienvu91@gmail.com</email>
   </author>
   <content type="html">
-    &lt;p&gt;&lt;a href=&quot;http://www.mathjax.org/&quot;&gt;MathJax&lt;/a&gt; is a simple way of including Tex/LaTex/MathML based mathematics in HTML webpages. To get up and running you need to include the MathJax script in the header of your github pages page, and then write some maths. For LaTex, there are two delimiters you need to know about, one for block or displayed mathematics &lt;code&gt;\[ ... \]&lt;/code&gt;, and the other for inline mathematics &lt;code&gt;\( ... \)&lt;/code&gt;.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.mathjax.org/&quot;&gt;MathJax&lt;/a&gt; is a simple way of including Tex/LaTex/MathML based mathematics in HTML webpages. To get up and running you need to include the MathJax script in the header of your github pages page, and then write some maths. For LaTex, there are two delimiters you need to know about, one for block or displayed mathematics &lt;code class=&quot;highlighter-rouge&quot;&gt;\[ ... \]&lt;/code&gt;, and the other for inline mathematics &lt;code class=&quot;highlighter-rouge&quot;&gt;\( ... \)&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
 
-&lt;p&gt;To enable MathJax support be sure Kramdown is your Markdown flavor of choice and MathJax is set to true in your &lt;code&gt;_config.yml&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;To enable MathJax support be sure Kramdown is your Markdown flavor of choice and MathJax is set to true in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;markdown: kramdown
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;markdown: kramdown
 mathjax: true
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;pre&gt;&lt;code&gt;Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block rendering: 
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block rendering: 
 \\[ \frac{1}{n^{2}} \\]
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;Here is an example MathJax inline rendering \( 1/x^{2} \), and here is a block rendering: 
+&lt;p&gt;Here is an example MathJax inline rendering \( 1/x^{2} \), and here is a block rendering: &lt;br /&gt;
 \[ \frac{1}{n^{2}} \]&lt;/p&gt;
 
-&lt;p&gt;The only thing to look out for is the escaping of the backslash when using markdown, so the delimiters become &lt;code&gt;\\[ ... \\]&lt;/code&gt; and &lt;code&gt;\\( ... \\)&lt;/code&gt; for inline and block maths respectively.&lt;/p&gt;
+&lt;p&gt;The only thing to look out for is the escaping of the backslash when using markdown, so the delimiters become &lt;code class=&quot;highlighter-rouge&quot;&gt;\\[ ... \\]&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;\\( ... \\)&lt;/code&gt; for inline and block maths respectively.&lt;/p&gt;
 
     &lt;p&gt;&lt;a href=&quot;/blog/mathjax-example/&quot;&gt;MathJax Example&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on August 10, 2015.&lt;/p&gt;
   </content>

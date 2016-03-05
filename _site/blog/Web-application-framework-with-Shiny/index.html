@@ -165,12 +165,12 @@
   <li><a href="#how-to-learn-shiny" id="markdown-toc-how-to-learn-shiny">How to learn Shiny?</a></li>
   <li><a href="#shiny-structure" id="markdown-toc-shiny-structure">Shiny structure</a></li>
   <li><a href="#some-shiny-codes" id="markdown-toc-some-shiny-codes">Some Shiny codes</a></li>
-  <li><a href="#whats-next" id="markdown-toc-whats-next">What’s next?</a></li>
+  <li><a href="#creating-a-bach-file" id="markdown-toc-creating-a-bach-file">Creating a bach file</a></li>
 </ul>
 
 <h2 id="get-inspired">Get inspired</h2>
 
-<p>To get you inspired, <a href="http://shiny.rstudio.com/gallery/" target="_blank"><strong>here’s a galery of Shiny applications</strong></a>
+<p>To get you inspired, <a href="http://shiny.rstudio.com/gallery/" target="_blank"><strong>here’s a galery of Shiny applications</strong></a><br />
 You will see that R users have made many amazing applications with Shiny. Since I just passed a little time of my internship to deploy the application (my main mission is to develop the actuarial model), I couldn’t build a very complex one, but I think it seems already cooler than an Excel spredsheet. It looks like this:</p>
 
 <p><a href="/images/MajorLossesReserving.gif"><img src="/images/MajorLossesReserving.gif" alt="image" /></a></p>
@@ -196,13 +196,13 @@ You will see that R users have made many amazing applications with Shiny. Since 
 <a href="/images/shiny_scheme.png"><img src="/images/shiny_scheme.png" alt="image" /></a>
 </center>
 
-<p>Based on this principle, Shiny requires 2 R scripts: one for the User Interface, named <code>ui.r</code>, and one for the Server, named <code>server.r</code>. What you want to display on the the interface needs to be declared in the <code>ui.r</code> script; how this thing is done needs to be defined in <code>server.r</code>. Below is a typical structure of a Shiny application:</p>
+<p>Based on this principle, Shiny requires 2 R scripts: one for the User Interface, named <code class="highlighter-rouge">ui.r</code>, and one for the Server, named <code class="highlighter-rouge">server.r</code>. What you want to display on the the interface needs to be declared in the <code class="highlighter-rouge">ui.r</code> script; how this thing is done needs to be defined in <code class="highlighter-rouge">server.r</code>. Below is a typical structure of a Shiny application:</p>
 
 <center>
 <a href="/images/shiny_structure.png"><img src="/images/shiny_structure.png" alt="image" /></a>
 </center>
 
-<p>R calls the Shiny app in a main script, thanks to the Shiny package. I prefer to create a folder named <code>Shiny folder</code> where I store 2 principal elements: <code>ui.r</code> and <code>server.r</code>. You may notice that there is third element named <code>www</code>. It’s a sub-folder where I store graphical elements (images, icons, etc.) and file (pdf) that I want to display on my application. (Attention, these three elements need to be named exactly like that). I didn’t show it in the scheme but the <code>server.r</code> can call other R scripts. Normally, an application has to read input files stored somewhere that I’ve named <code>Input folder</code> and write output files (in addition of displaying them on the user interface) in <code>Output folder</code>.</p>
+<p>R calls the Shiny app in a main script, thanks to the Shiny package. I prefer to create a folder named <code class="highlighter-rouge">Shiny folder</code> where I store 2 principal elements: <code class="highlighter-rouge">ui.r</code> and <code class="highlighter-rouge">server.r</code>. You may notice that there is third element named <code class="highlighter-rouge">www</code>. It’s a sub-folder where I store graphical elements (images, icons, etc.) and file (pdf) that I want to display on my application. (Attention, these three elements need to be named exactly like that). I didn’t show it in the scheme but the <code class="highlighter-rouge">server.r</code> can call other R scripts. Normally, an application has to read input files stored somewhere that I’ve named <code class="highlighter-rouge">Input folder</code> and write output files (in addition of displaying them on the user interface) in <code class="highlighter-rouge">Output folder</code>.</p>
 
 <p>The user interface can be displayed on the default browser of RStudio if you run Shiny through it, or on a web browser (if you are using Internet explorer version &lt; 10, you could get into trouble with Shiny). This user interface works exactly like a web page. There are buttons, input text, etc. for you to make your decision and there will be output (graphs, images, tables, etc.) displayed on the main panel, or separately on different tabs.</p>
 
@@ -213,7 +213,7 @@ You will see that R users have made many amazing applications with Shiny. Since 
 
 <div class="highlight"><pre><code class="language-r" data-lang="r">Shiny<span class="o">::</span>runApp<span class="p">(</span><span class="s">&#39;./Shiny folder/&#39;</span><span class="p">)</span></code></pre></div>
 
-<p>(An alternative way: in RStudio, when you open <code>server.r</code> and <code>ui.r</code>, you can see the <code>Run App</code> button on the top right. You can launch your app by clicking on it) 
+<p>(An alternative way: in RStudio, when you open <code class="highlighter-rouge">server.r</code> and <code class="highlighter-rouge">ui.r</code>, you can see the <code class="highlighter-rouge">Run App</code> button on the top right. You can launch your app by clicking on it) <br />
 If you want to launch you app on your default web browser instead of the browser of RStudio:</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r">Shiny<span class="o">::</span>runApp<span class="p">(</span><span class="s">&#39;./Shiny folder/&#39;</span><span class="p">,</span> launch.browser <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
@@ -224,7 +224,7 @@ If you want to launch you app on your default web browser instead of the browser
 
 <h3 id="title-panel">Title panel</h3>
 
-<p>In <code>ui.r</code>, you can define a header for you application where you show the app name and the logo for example. This is done thanks to the <code>titlePanel()</code></p>
+<p>In <code class="highlighter-rouge">ui.r</code>, you can define a header for you application where you show the app name and the logo for example. This is done thanks to the <code class="highlighter-rouge">titlePanel()</code></p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r">shinyUI<span class="p">(</span>fluidPage<span class="p">(</span>
     theme <span class="o">=</span> shinytheme<span class="p">(</span><span class="s">&quot;cerulean&quot;</span><span class="p">),</span>
@@ -243,7 +243,7 @@ If you want to launch you app on your default web browser instead of the browser
     <span class="p">)</span>
 <span class="p">)</span></code></pre></div>
 
-<p>Since the Shiny interface is a web interface, it is designed with the famous Bootstrap framework. The Shiny page is divided into 12 columns and all elements will be arranged according to these 12 columns. Here I devided the title panel into 2 parts, the first one takes 9/12 columns to show the app name, the second one takes 3/12 collumns to show the logo. Please note that logo.png needs to be stored in the <code>www</code>sub-folder.</p>
+<p>Since the Shiny interface is a web interface, it is designed with the famous Bootstrap framework. The Shiny page is divided into 12 columns and all elements will be arranged according to these 12 columns. Here I devided the title panel into 2 parts, the first one takes 9/12 columns to show the app name, the second one takes 3/12 collumns to show the logo. Please note that logo.png needs to be stored in the <code class="highlighter-rouge">www</code>sub-folder.</p>
 
 <h3 id="tab-panel">Tab panel</h3>
 
@@ -281,7 +281,7 @@ variable1 <span class="o">&lt;-</span> eventReactive<span class="p">(</span>inpu
 
 <h3 id="two-way-to-display-a-table">Two way to display a table</h3>
 
-<p>In <code>server.r</code>, to put a table into the output() list in order to display it on the user interface later, you can either use the <code>renderTable()</code> (not pretty) or the <code>renderDataTable()</code> (much more beautiful). With the second function, you can customize the table with options.
+<p>In <code class="highlighter-rouge">server.r</code>, to put a table into the output() list in order to display it on the user interface later, you can either use the <code class="highlighter-rouge">renderTable()</code> (not pretty) or the <code class="highlighter-rouge">renderDataTable()</code> (much more beautiful). With the second function, you can customize the table with options.<br />
 For example, if you want to show your entire table in one page and desactivate the search option:</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r">example <span class="o">&lt;-</span> renderDataTable<span class="p">({</span>
@@ -294,30 +294,30 @@ For example, if you want to show your entire table in one page and desactivate t
 <div class="highlight"><pre><code class="language-r" data-lang="r">options <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>lengthMenu <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">15</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="m">50</span><span class="p">,</span> <span class="m">-1</span><span class="p">),</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;15&#39;</span><span class="p">,</span> <span class="s">&#39;30&#39;</span><span class="p">,</span> <span class="s">&#39;50&#39;</span><span class="p">,</span> <span class="s">&#39;All&#39;</span><span class="p">)),</span> pageLength <span class="o">=</span> <span class="m">15</span><span class="p">,</span> autoWidth <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> columnDefs <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="kt">list</span><span class="p">(</span>width <span class="o">=</span> <span class="s">&#39;200px&#39;</span><span class="p">,</span> targets <span class="o">=</span> <span class="m">1</span><span class="p">)))</span></code></pre></div>
 
 <h3 id="streamlining-your-shiny-apps">Streamlining your Shiny apps</h3>
-<p>Sometimes, you need to order different parts of code in a given scenario. Unlike the normal logic of R, Shiny doesn’t interprete your code in the descending order. In <code>server.r</code> each bloc of code aims to return an output element and Shiny will interprete them almost simultaneously. It’s very often that one output element depends on others. In Shiny you need to tell the program when to do or to not do something.</p>
+<p>Sometimes, you need to order different parts of code in a given scenario. Unlike the normal logic of R, Shiny doesn’t interprete your code in the descending order. In <code class="highlighter-rouge">server.r</code> each bloc of code aims to return an output element and Shiny will interprete them almost simultaneously. It’s very often that one output element depends on others. In Shiny you need to tell the program when to do or to not do something.</p>
 
 <p>The simplest way is to create reactive button so that a bloc of code will only be interpreted when the user clicks on the button. However, I find it not practical to create too many buttons.</p>
 
 <p>A good way is to use reactive expressions that let you control which parts of your app update when. You can take a look at <a href="http://shiny.rstudio.com/tutorial/lesson6/" target="_blank"><strong>this tutorial</strong></a> for a better understanding of reactive expressions.</p>
 
-<p>Sometimes I find it more convenient to manually streamline my program by using <code>reactiveValues</code> as a condition. The idea is to create reactive boolean variables to trigger a bloc of code.</p>
+<p>Sometimes I find it more convenient to manually streamline my program by using <code class="highlighter-rouge">reactiveValues</code> as a condition. The idea is to create reactive boolean variables to trigger a bloc of code.</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r">display.order <span class="o">&lt;-</span> reactiveValues<span class="p">(</span>part2 <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> part3 <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span></code></pre></div>
 
 <h3 id="conditional-panel">Conditional panel</h3>
-<p>In <code>ui.r</code>, you can tell Shiny when to show or not to show an output element with a specific condition:</p>
+<p>In <code class="highlighter-rouge">ui.r</code>, you can tell Shiny when to show or not to show an output element with a specific condition:</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r">conditionalPanel<span class="p">(</span>condition <span class="o">=</span> <span class="s">&quot;input.currency == &#39;EUR&#39;&quot;</span><span class="p">,</span> <span class="kc">...</span><span class="p">)),</span>  
 conditionalPanel<span class="p">(</span>condition <span class="o">=</span> <span class="s">&quot;input.currency == &#39;GBP&#39;&quot;</span><span class="p">,</span> <span class="kc">...</span><span class="p">))</span></code></pre></div>
 
 <h3 id="loading-circle">Loading circle</h3>
-<p>Sometimes it takes time to run your code and you want to tell the users that the R program is still running. Like a web page loading, you can show a loading circle whenever your R program is busy. To do so, you first need to save this “loading_circle.gif” image into the <code>www</code> folder,</p>
+<p>Sometimes it takes time to run your code and you want to tell the users that the R program is still running. Like a web page loading, you can show a loading circle whenever your R program is busy. To do so, you first need to save this “loading_circle.gif” image into the <code class="highlighter-rouge">www</code> folder,</p>
 
 <center>
 <a href="/images/loading_circle.gif"><img src="/images/loading_circle.gif" alt="image" /></a>
 </center>
 
-<p>and then add this line of code in the <code>ui.r</code>, in a specific area that you want to show the loading circle:</p>
+<p>and then add this line of code in the <code class="highlighter-rouge">ui.r</code>, in a specific area that you want to show the loading circle:</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r">conditionalPanel<span class="p">(</span>condition<span class="o">=</span><span class="s">&quot;$(&#39;html&#39;).hasClass(&#39;shiny-busy&#39;)&quot;</span><span class="p">,</span>
 tags<span class="o">$</span>img<span class="p">(</span>src<span class="o">=</span><span class="s">&quot;loading_circle.gif&quot;</span><span class="p">)</span>
@@ -325,7 +325,7 @@ tags<span class="o">$</span>img<span class="p">(</span>src<span class="o">=</spa
 
 <h3 id="closing-your-app">Closing your app</h3>
 
-<p>2 options to close your app: create a button “close” in <code>ui.r</code> and add this in <code>server.r</code>:</p>
+<p>2 options to close your app: create a button “close” in <code class="highlighter-rouge">ui.r</code> and add this in <code class="highlighter-rouge">server.r</code>:</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r">observe<span class="p">({</span>
     <span class="kr">if</span><span class="p">(</span>input<span class="o">$</span>close <span class="o">&gt;</span> <span class="m">0</span><span class="p">){</span>
@@ -341,8 +341,14 @@ tags<span class="o">$</span>img<span class="p">(</span>src<span class="o">=</spa
     <span class="p">})</span>
 <span class="p">})</span></code></pre></div>
 
-<h2 id="whats-next">What’s next?</h2>
-<p>Until now, you still need to open R and launch Shiny from within it. If your app will be used by other people, it will be cool to create an independent desktop app that users can launch by clicking on an icon, like other applications in your computer. We will talk about it in the next post.</p>
+<h2 id="creating-a-bach-file">Creating a bach file</h2>
+<p>Until now, you still need to open R and launch Shiny from within it. If your app will be used by other people, it will be cool to create an independent desktop app that users can launch by clicking on an icon, like other applications in your computer. You can do it by creating a bach file as followed.</p>
+
+<p>Building a desktop app with R is like packaging all necessary elements, R included, into a main folder. Why do you need to put R into your app folder? Because your app will be delivered to the clients, who don’t necessarly have R installed in their computer. A solution suggested by many people is to download R portable and put it in the main folder, with all other elements. Download R portable here and</p>
+
+<p>SET ROPTS=–no-save –no-environ –no-init-file –no-restore –no-Rconsole<br />
+R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% main.R 1&gt; ShinyApp.log 2&gt;&amp;1</p>
+
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->

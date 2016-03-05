@@ -3,7 +3,7 @@ layout: post
 title: "Web application framework with Shiny"
 modified:
 categories: blog
-excerpt: "R application with a user-friendly web interface (part 1)"
+excerpt: "R application with a user-friendly web interface"
 tags: [R]
 image:
 
@@ -209,5 +209,37 @@ shinyServer(function(input, output, session){
 }) 
 {% endhighlight %}
 
-## What's next?
-Until now, you still need to open R and launch Shiny from within it. If your app will be used by other people, it will be cool to create an independent desktop app that users can launch by clicking on an icon, like other applications in your computer. We will talk about it in the next post.
+## Creating a bach file 
+Until now, you still need to open R and launch Shiny from within it. If your app will be used by other people, it will be cool to create an independent desktop app that users can launch by clicking on an icon, like other applications in your computer. You can do it by creating a bach file as followed.
+
+Firstly, create a folder for you app, name it `Your app` for example, and then put all your tool elements in it (Main.r, Shiny folder, Input folder, Output folder)
+
+### R Portable
+Building a desktop app with R is like packaging all necessary elements, R included, into a main folder. Why do you need to put R into your app folder? Because your app will be delivered to the clients, who don't necessarly have R installed in their computer. A solution suggested by many people is to download R portable and put it in the main folder, with all other elements. Download R portable [**here**](http://sourceforge.net/projects/rportable/){:target="_blank"}. Put the folder `R-Portable` in `Your app` folder.
+
+### Web browser
+Since we'are using R portable instead of RStudio, you definitely need a web brower.  In case you are using Internet Explorer version < 10 which does not support Shiny, please either:
+* update your IE browser,
+* install GoogleChrome or Firefox and set them as your default web browser.
+
+If you want include a web browser into you whole app, you can download Goolge Chrome Portable [**here**](http://portableapps.com/apps/internet/google_chrome_portable){:target="_blank"}. Then put the `GoogleChromePortable` folder in `Your app` folder. I have tested it on different computers, sometimes it works, somtimes it doesn't and I don't know why. Anyway, I think nowadays people all have a modern web browser in their computer so you don't need to prepare google chrome portable for them.
+
+### main.R
+Since our app works with a web browser, we need to speficy it in our `main.r` script:
+
+{% highlight r %}
+Shiny::runApp('./Shiny folder/', launch.browser = TRUE)
+{% endhighlight %}
+
+### Bach file
+Now we're moving to the most exciting step: creating a bach file to tell Windows what to do with the above script. Create a text file (with notepad or whatever you want), write down the below line of code, close and save it with a `.bat` extention name. For example, I name my batch file `YourApp.bat`.
+
+{% highlight r%}
+SET ROPTS=--no-save --no-environ --no-init-file --no-restore --no-Rconsole
+R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% main.R 1> ShinyApp.log 2>&1
+{% endhighlight %}
+
+This batch file tell your computer to find `Rscript.exe` in you `R-Portable folder`, use it to run `main.r` in order to call your Shiny app. You may notice the `ShinyApp.log` in the above line of code. This is to create a log file, all messages of R console, as well as messages from your `print()` function will be saved into the batch file. 
+
+For more detail about deploying Desktop Apps with R, please visit: 
+[http://www.r-bloggers.com/deploying-desktop-apps-with-r/](http://www.r-bloggers.com/deploying-desktop-apps-with-r/){:target="_blank"}
