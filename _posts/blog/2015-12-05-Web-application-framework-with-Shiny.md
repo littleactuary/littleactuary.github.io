@@ -244,7 +244,9 @@ This batch file tell your computer to find `Rscript.exe` in you `R-Portable fold
 
 Now your program will look like this:
 
-...
+<center>
+<a href="{{ site.url }}/images/shiny.png"><img src="{{ site.url }}/images/shiny.png" alt="image"></a>
+</center>
 
 To launch your app, you just need to double click on your batch file. You can also create a shortcut for this batch file, set an icon for it, and put it anywhere on your computer to launch your app. 
 
