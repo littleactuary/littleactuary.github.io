@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <title>(Actuarial) tools with R &#8211; Little Actuary</title>
 <meta name="description" content="How to write a well-structured and understandable R program">
-<meta name="keywords" content="R">
+<meta name="keywords" content="R, Actuary, Actuariat, Actuarial">
 
 
 
@@ -128,7 +128,7 @@
     <div class="entry-wrapper">
       <header class="entry-header">
         <ul class="entry-tags">
-          <li><a href="/tags/#R" title="Pages tagged R">R</a></li>
+          <li><a href="/tags/#R" title="Pages tagged R">R</a></li><li><a href="/tags/#Actuary" title="Pages tagged Actuary">Actuary</a></li><li><a href="/tags/#Actuariat" title="Pages tagged Actuariat">Actuariat</a></li><li><a href="/tags/#Actuarial" title="Pages tagged Actuarial">Actuarial</a></li>
         </ul>
         
           <h1 class="entry-title">(Actuarial) tools with R</h1>
@@ -145,7 +145,7 @@
         
         <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
         <span class="social-share-twitter">
-  <a href="https://twitter.com/intent/tweet?hashtags=R&amp;text=(Actuarial)%20tools%20with%20R&amp;url=/blog/Actuarial-applications-with-r/&amp;via=duc_hien_vu" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
+  <a href="https://twitter.com/intent/tweet?hashtags=R,Actuary,Actuariat,Actuarial&amp;text=(Actuarial)%20tools%20with%20R&amp;url=/blog/Actuarial-applications-with-r/&amp;via=duc_hien_vu" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
 </span>
 <span class="social-share-facebook">
   <a href="https://www.facebook.com/sharer/sharer.php?u=/blog/Actuarial-applications-with-r/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
@@ -157,18 +157,20 @@
         
       </footer>
       <div class="entry-content">
-        <p>When I was at school, I did some simple projects with R. Most of them were written in a dirty way (all in a same R script). Then I had a chance to work with R more seriously during my two last internships. I have learned R by reading R programs developed by experienced actuaries. Of course they are not programmers, but their programs are well-structured and much more readable and understandable than mine. A well-structured program (especially when dealing with a complex problem) helps you easily verify and debug your code and help others (who have to audit or modify your code) understand it quickly and effortlessly. Here are some rules that I find very useful for deploying a program with R. I believe they are also true for almost other languages.</p>
+        <p>At school, I have done some simple projects with R. Most of them were written in a dirty way (all in a same R script). Then I had a chance to work with R more seriously during my two last internships. I have learned R by reading R programs developed by experienced actuaries. Of course they are not programmers, but their programs are well-structured and much more readable and understandable than mine. A well-structured program (especially when dealing with a complex problem) helps you easily verify and debug your code and help others (who have to audit or modify your code) understand it quickly and effortlessly. Here are some rules that I find very useful for deploying a program with R. I believe they are also true for almost other languages.</p>
 
 <h3 id="moduling-your-program">#1: Moduling your program</h3>
 
 <p>If your program is long and complex, instead of using one single R script, you should divide your program into separate modules whenever possible and store them in separate R scripts. For example, if you want to develop a pricing tool that proposes 2 different pricing methods, your program structure may look like this:</p>
 
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">input</span> <span class="nt">reading</span>
-<span class="nt">claims</span> <span class="nt">modeling</span> 
-<span class="nt">if</span> <span class="o">(</span><span class="nt">method</span> <span class="o">==</span><span class="nt">1</span><span class="o">)</span>
-    <span class="nt">pricing</span> <span class="nt">method</span> <span class="nt">1</span>
-<span class="nt">else</span>
-    <span class="nt">pricing</span> <span class="nt">method</span> <span class="nt">2</span></code></pre></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>input reading
+claims modeling 
+if (method ==1)
+    pricing method 1
+else
+    pricing method 2
+</code></pre>
+</div>
 
 <p>Your R program will be called through a <code class="highlighter-rouge">main.R</code> script:</p>
 

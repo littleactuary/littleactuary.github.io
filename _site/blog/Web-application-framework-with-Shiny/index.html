@@ -6,14 +6,14 @@
 <head>
 <meta charset="utf-8">
 <title>Web application framework with Shiny &#8211; Little Actuary</title>
-<meta name="description" content="R application with a user-friendly web interface (part 1)">
-<meta name="keywords" content="R">
+<meta name="description" content="R application with an user-friendly web interface">
+<meta name="keywords" content="R, Shiny, Actuary, Actuarial, Actuariat, Actuaire, application, web">
 
 
 
 <!-- Twitter Cards -->
 <meta name="twitter:title" content="Web application framework with Shiny">
-<meta name="twitter:description" content="R application with a user-friendly web interface (part 1)">
+<meta name="twitter:description" content="R application with an user-friendly web interface">
 <meta name="twitter:site" content="@duc_hien_vu">
 <meta name="twitter:creator" content="@duc_hien_vu">
 
@@ -24,7 +24,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Web application framework with Shiny">
-<meta property="og:description" content="R application with a user-friendly web interface (part 1)">
+<meta property="og:description" content="R application with an user-friendly web interface">
 <meta property="og:url" content="/blog/Web-application-framework-with-Shiny/">
 <meta property="og:site_name" content="Little Actuary">
 
@@ -128,7 +128,7 @@
     <div class="entry-wrapper">
       <header class="entry-header">
         <ul class="entry-tags">
-          <li><a href="/tags/#R" title="Pages tagged R">R</a></li>
+          <li><a href="/tags/#R" title="Pages tagged R">R</a></li><li><a href="/tags/#Shiny" title="Pages tagged Shiny">Shiny</a></li><li><a href="/tags/#Actuary" title="Pages tagged Actuary">Actuary</a></li><li><a href="/tags/#Actuarial" title="Pages tagged Actuarial">Actuarial</a></li><li><a href="/tags/#Actuariat" title="Pages tagged Actuariat">Actuariat</a></li><li><a href="/tags/#Actuaire" title="Pages tagged Actuaire">Actuaire</a></li><li><a href="/tags/#application" title="Pages tagged application">application</a></li><li><a href="/tags/#web" title="Pages tagged web">web</a></li>
         </ul>
         
           <h1 class="entry-title">Web application framework with Shiny</h1>
@@ -145,7 +145,7 @@
         
         <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
         <span class="social-share-twitter">
-  <a href="https://twitter.com/intent/tweet?hashtags=R&amp;text=Web%20application%20framework%20with%20Shiny&amp;url=/blog/Web-application-framework-with-Shiny/&amp;via=duc_hien_vu" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
+  <a href="https://twitter.com/intent/tweet?hashtags=R,Shiny,Actuary,Actuarial,Actuariat,Actuaire,application,web&amp;text=Web%20application%20framework%20with%20Shiny&amp;url=/blog/Web-application-framework-with-Shiny/&amp;via=duc_hien_vu" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
 </span>
 <span class="social-share-facebook">
   <a href="https://www.facebook.com/sharer/sharer.php?u=/blog/Web-application-framework-with-Shiny/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
@@ -157,7 +157,7 @@
         
       </footer>
       <div class="entry-content">
-        <p>In my final internship, I had to deploy an application for large claims (major losses) reserving. Since the method required some serious statistical modeling methods, I didn’t choose Excel/VBA. R seemed to be a good choice because of its statistical power and also of some useful R packages that deal with extreme values theory and distribution fitting. The question was: “How can I build a friendly-user application with R?”. The idea is that the end users don’t need to open R and run a hundred line of R code. My first thought was to install RExcel in order to use Excel spredsheet as the application interface. I had found a short presentation of using RExcel with the ChainLadder package in R but this solution seems to be a little out of date. Then I tried the TclTk package in R. Not too cool in my opinion! Finally I found something amazing called <a href="http://shiny.rstudio.com" target="_blank"><strong>Shiny</strong></a>. It’s an R package that allows you to deploy an interactive web application with R.</p>
+        <p>In my final internship, I’ve had to deploy an application for large claims (major losses) reserving. Since the method required some serious statistical modeling methods, I didn’t choose Excel/VBA. R seemed to be a good choice because of its statistical power and also of some useful R packages that deal with extreme values theory and distribution fitting. The question was: “How can I build a friendly-user application with R?”. The purpose is that the end users don’t need to open R and run a hundred line of R code. My first thought was to install RExcel in order to use Excel spredsheet as the application interface. I had found a short presentation of using RExcel with the ChainLadder package in R but this solution seems to be a little out of date. Then I tried the TclTk package in R. Not too cool in my opinion! Finally I found something amazing called <a href="http://shiny.rstudio.com" target="_blank"><strong>Shiny</strong></a>. It’s an R package that allows you to deploy an interactive web application with R.</p>
 
 <ul id="markdown-toc">
   <li><a href="#get-inspired" id="markdown-toc-get-inspired">Get inspired</a></li>
@@ -165,26 +165,26 @@
   <li><a href="#how-to-learn-shiny" id="markdown-toc-how-to-learn-shiny">How to learn Shiny?</a></li>
   <li><a href="#shiny-structure" id="markdown-toc-shiny-structure">Shiny structure</a></li>
   <li><a href="#some-shiny-codes" id="markdown-toc-some-shiny-codes">Some Shiny codes</a></li>
-  <li><a href="#creating-a-bach-file" id="markdown-toc-creating-a-bach-file">Creating a bach file</a></li>
+  <li><a href="#packaging" id="markdown-toc-packaging">Packaging</a></li>
 </ul>
 
 <h2 id="get-inspired">Get inspired</h2>
 
 <p>To get you inspired, <a href="http://shiny.rstudio.com/gallery/" target="_blank"><strong>here’s a galery of Shiny applications</strong></a><br />
-You will see that R users have made many amazing applications with Shiny. Since I just passed a little time of my internship to deploy the application (my main mission is to develop the actuarial model), I couldn’t build a very complex one, but I think it seems already cooler than an Excel spredsheet. It looks like this:</p>
+You will see that R users have made many amazing applications with Shiny. Since I only passed a little time of my internship to deploy the application (my main mission is to develop the actuarial model), I couldn’t build a very complex one, but I think it seems already cooler than an Excel spredsheet. It looks like this:</p>
 
 <p><a href="/images/MajorLossesReserving.gif"><img src="/images/MajorLossesReserving.gif" alt="image" /></a></p>
 
 <h2 id="what-is-shiny">What is Shiny?</h2>
 
-<p>Ok, now we will look a little bit closer to Shiny. Firstly, Shiny proposes functions with R syntaxes that replace HTML, CSS, Javascript. So you can somehow build a web interface by writing R code. Secondly, Shiny has a feature called Interactivity, which is, in my opinion, a big difference compared to standard R program. There’s an interaction between the client side (through the user interface) and the server side (your R program). Thirdly, you can run Shiny apps locally with RStudio and its browser or with R and a web browser such as Google Chrome or Internet Explorer. You can also upload your apps on a cloud (the Shiny server) and run them online. I didn’t try the last option because of the confidentiality concern. So I will show you in this post how to deploy and run a Shiny app locally on you computer.</p>
+<p>Ok, now we will look a little bit closer to Shiny. Firstly, Shiny proposes functions with R syntaxes that replace HTML, CSS, Javascript. So you can somehow build a web interface by writing R code. Secondly, Shiny has a feature called Interactivity, which is, in my opinion, a big difference in comparison to standard R programs. There’s an interaction between the client side (through the user interface) and the server side (your R program). Thirdly, you can run Shiny apps locally with RStudio and its browser or with R and a web browser such as Google Chrome or Internet Explorer. You can also upload your apps on a cloud (the Shiny server) and run them online. I didn’t try the last option because of the confidentiality concern. So I will show you in this post how to deploy and run a Shiny app locally on your computer.</p>
 
 <p>Let’s begin by installing the Shiny package</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r">install.packages<span class="p">(</span><span class="s">&quot;Shiny&quot;</span><span class="p">)</span></code></pre></div>
 
 <h2 id="how-to-learn-shiny">How to learn Shiny?</h2>
-<p>The best way to learn Shiny, of course, is to watch the series of <a href="http://shiny.rstudio.com/tutorial/" target="_blank"><strong>Shiny tutorials</strong></a> It will cover all the Shiny topics from beginner to advanced level. It however takes time. What I did in my internship is to look at a simple Shiny example and then began directly to build my app. When there was something I didn’t know how to do, I googled it. It is maybe not a good habit of learning, but in a limit time constraint, it has allowed me to build an application that meets all my need (eventhough it’s not optimal).</p>
+<p>The best way to learn Shiny, of course, is to watch the series of <a href="http://shiny.rstudio.com/tutorial/" target="_blank"><strong>Shiny tutorials</strong></a> It will cover all the Shiny topics from beginner to advanced level. It will however takes time. What I did in my internship is to look at a simple Shiny example and then began directly to build my app. When there was something I didn’t know how to do, I googled it. It is maybe not a good habit of learning, but in a limit time constraint, it has allowed me to build an application that meets all my need (though it’s not optimal).</p>
 
 <p>So the point is, the series of Shiny tutorials is where to start learning from. Other useful guides could by found on Goolge. Since I have passed some time on doing the same thing, I’ll try to list all the important points I have learned about Shiny in the next sections for you, so that you don’t have to google too many times when developing your Shiny app.</p>
 
@@ -202,9 +202,9 @@ You will see that R users have made many amazing applications with Shiny. Since 
 <a href="/images/shiny_structure.png"><img src="/images/shiny_structure.png" alt="image" /></a>
 </center>
 
-<p>R calls the Shiny app in a main script, thanks to the Shiny package. I prefer to create a folder named <code class="highlighter-rouge">Shiny folder</code> where I store 2 principal elements: <code class="highlighter-rouge">ui.r</code> and <code class="highlighter-rouge">server.r</code>. You may notice that there is third element named <code class="highlighter-rouge">www</code>. It’s a sub-folder where I store graphical elements (images, icons, etc.) and file (pdf) that I want to display on my application. (Attention, these three elements need to be named exactly like that). I didn’t show it in the scheme but the <code class="highlighter-rouge">server.r</code> can call other R scripts. Normally, an application has to read input files stored somewhere that I’ve named <code class="highlighter-rouge">Input folder</code> and write output files (in addition of displaying them on the user interface) in <code class="highlighter-rouge">Output folder</code>.</p>
+<p>R calls the Shiny app in a main script, thanks to the Shiny package. I prefer to create a folder named <code class="highlighter-rouge">Shiny folder</code> where I store 2 principal elements: <code class="highlighter-rouge">ui.r</code> and <code class="highlighter-rouge">server.r</code>. You may notice that there is a third element named <code class="highlighter-rouge">www</code>. It’s a sub-folder where I store graphical elements (images, icons, etc.) and file (pdf) that I want to display on my application. (Attention, these three elements need to be named exactly that way). I did not show it in the scheme but the <code class="highlighter-rouge">server.r</code> can call other R scripts. Normally, an application has to read input files stored somewhere that I’ve named <code class="highlighter-rouge">Input folder</code> and write output files (in addition of displaying them on the user interface) in <code class="highlighter-rouge">Output folder</code>.</p>
 
-<p>The user interface can be displayed on the default browser of RStudio if you run Shiny through it, or on a web browser (if you are using Internet explorer version &lt; 10, you could get into trouble with Shiny). This user interface works exactly like a web page. There are buttons, input text, etc. for you to make your decision and there will be output (graphs, images, tables, etc.) displayed on the main panel, or separately on different tabs.</p>
+<p>The user interface can be displayed on the default browser of RStudio if you run Shiny through it, or on a web browser (if you are using Internet explorer version &lt; 10, you could get into trouble with Shiny). This user interface works exactly like a web page. There are buttons, input text, etc. for you to make your decision and there will be output (graphs, images, tables, etc.) displayed on the main panel, or separately on different tabs/panels.</p>
 
 <h2 id="some-shiny-codes">Some Shiny codes</h2>
 
@@ -268,7 +268,7 @@ If you want to launch you app on your default web browser instead of the browser
     <span class="p">)</span></code></pre></div>
 
 <h3 id="event-reactivity">Event reactivity</h3>
-<p>You want to create a button in the user interface so that your app does something in response to the users demand when they click on the button?</p>
+<p>You want to add a button in the user interface so that your app does something in response to the users demand when they click on the button?</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># in ui.r</span>
 <span class="c1"># define the Inputs Reading button</span>
@@ -300,7 +300,7 @@ For example, if you want to show your entire table in one page and desactivate t
 
 <p>A good way is to use reactive expressions that let you control which parts of your app update when. You can take a look at <a href="http://shiny.rstudio.com/tutorial/lesson6/" target="_blank"><strong>this tutorial</strong></a> for a better understanding of reactive expressions.</p>
 
-<p>Sometimes I find it more convenient to manually streamline my program by using <code class="highlighter-rouge">reactiveValues</code> as a condition. The idea is to create reactive boolean variables to trigger a bloc of code.</p>
+<p>Every now and then, I find it more convenient to manually streamline my program by using <code class="highlighter-rouge">reactiveValues</code> as a condition. The idea is to create reactive boolean variables to trigger a bloc of code.</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r">display.order <span class="o">&lt;-</span> reactiveValues<span class="p">(</span>part2 <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> part3 <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span></code></pre></div>
 
@@ -311,7 +311,7 @@ For example, if you want to show your entire table in one page and desactivate t
 conditionalPanel<span class="p">(</span>condition <span class="o">=</span> <span class="s">&quot;input.currency == &#39;GBP&#39;&quot;</span><span class="p">,</span> <span class="kc">...</span><span class="p">))</span></code></pre></div>
 
 <h3 id="loading-circle">Loading circle</h3>
-<p>Sometimes it takes time to run your code and you want to tell the users that the R program is still running. Like a web page loading, you can show a loading circle whenever your R program is busy. To do so, you first need to save this “loading_circle.gif” image into the <code class="highlighter-rouge">www</code> folder,</p>
+<p>Every once in a while, it takes time to run your code and you want to tell the users that the R program is still running. Like a web page loading, you can show a loading circle whenever your R program is busy. To do so, you first need to save this “loading_circle.gif” image into the <code class="highlighter-rouge">www</code> folder,</p>
 
 <center>
 <a href="/images/loading_circle.gif"><img src="/images/loading_circle.gif" alt="image" /></a>
@@ -323,7 +323,7 @@ conditionalPanel<span class="p">(</span>condition <span class="o">=</span> <span
 tags<span class="o">$</span>img<span class="p">(</span>src<span class="o">=</span><span class="s">&quot;loading_circle.gif&quot;</span><span class="p">)</span>
 <span class="p">)</span></code></pre></div>
 
-<h3 id="closing-your-app">Closing your app</h3>
+<h3 id="close-your-app">Close your app</h3>
 
 <p>2 options to close your app: create a button “close” in <code class="highlighter-rouge">ui.r</code> and add this in <code class="highlighter-rouge">server.r</code>:</p>
 
@@ -341,14 +341,49 @@ tags<span class="o">$</span>img<span class="p">(</span>src<span class="o">=</spa
     <span class="p">})</span>
 <span class="p">})</span></code></pre></div>
 
-<h2 id="creating-a-bach-file">Creating a bach file</h2>
-<p>Until now, you still need to open R and launch Shiny from within it. If your app will be used by other people, it will be cool to create an independent desktop app that users can launch by clicking on an icon, like other applications in your computer. You can do it by creating a bach file as followed.</p>
+<h2 id="packaging">Packaging</h2>
+<p>Until now, you still need to open R and launch Shiny from within it. If your app will be used by other people, it will be cool to create an independent desktop app that users can launch by clicking on an icon, like other applications in your computer. You can do it as followed.</p>
 
-<p>Building a desktop app with R is like packaging all necessary elements, R included, into a main folder. Why do you need to put R into your app folder? Because your app will be delivered to the clients, who don’t necessarly have R installed in their computer. A solution suggested by many people is to download R portable and put it in the main folder, with all other elements. Download R portable here and</p>
+<p>Firstly, create a folder for you app, name it <code class="highlighter-rouge">Your app</code> for example, and then put all your tool elements in it (Main.r, Shiny folder, Input folder, Output folder)</p>
 
-<p>SET ROPTS=–no-save –no-environ –no-init-file –no-restore –no-Rconsole<br />
-R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% main.R 1&gt; ShinyApp.log 2&gt;&amp;1</p>
+<h3 id="r-portable">R Portable</h3>
+<p>Building a desktop app with R is like packaging all necessary elements, R included, into a main folder. Why do you need to put R into your app folder? Because your app will be delivered to the clients, who don’t necessarly have R installed in their computer. A solution suggested by many people is to download R portable and put it in the main folder, with all other elements. Download R portable <a href="http://sourceforge.net/projects/rportable/" target="_blank"><strong>here</strong></a>. Put the folder <code class="highlighter-rouge">R-Portable</code> in <code class="highlighter-rouge">Your app</code> folder.</p>
 
+<h3 id="web-browser">Web browser</h3>
+<p>Since we’are using R portable instead of RStudio, you definitely need a web brower.  In case you are using Internet Explorer version &lt; 10 which does not support Shiny, please either:</p>
+
+<ul>
+  <li>update your IE browser,</li>
+  <li>install GoogleChrome or Firefox and set them as your default web browser.</li>
+</ul>
+
+<p>If you want to include a web browser into you whole app, you can download Goolge Chrome Portable <a href="http://portableapps.com/apps/internet/google_chrome_portable" target="_blank"><strong>here</strong></a>. Then put the <code class="highlighter-rouge">GoogleChromePortable</code> folder in <code class="highlighter-rouge">Your app</code> folder. I have tested it on different computers, sometimes it works, somtimes it doesn’t and I don’t know why. Anyway, I think nowadays people all have a modern web browser in their computer so you don’t need to prepare google chrome portable for them.</p>
+
+<h3 id="mainr">main.R</h3>
+<p>Now that our app works with a web browser, we need to speficy it in our <code class="highlighter-rouge">main.r</code> script:</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">Shiny<span class="o">::</span>runApp<span class="p">(</span><span class="s">&#39;./Shiny folder/&#39;</span><span class="p">,</span> launch.browser <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
+
+<h3 id="bach-file">Bach file</h3>
+<p>Now we’re moving to the most exciting step: creating a bach file to tell Windows what to do with the above script. Create a text file (with notepad or whatever you want), write down the below line of code, close and save it with a <code class="highlighter-rouge">.bat</code> extention name. For example, I name my batch file <code class="highlighter-rouge">YourApp.bat</code>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SET ROPTS=--no-save --no-environ --no-init-file --no-restore --no-Rconsole
+R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% main.R 1&gt; ShinyApp.log 2&gt;&amp;1
+</code></pre>
+</div>
+
+<p>This batch file tell your computer to find <code class="highlighter-rouge">Rscript.exe</code> in you <code class="highlighter-rouge">R-Portable folder</code>, use it to run <code class="highlighter-rouge">main.r</code> in order to call your Shiny app. You may notice the <code class="highlighter-rouge">ShinyApp.log</code> in the above line of code. This is to create a log file. All messages of R console, as well as messages from your <code class="highlighter-rouge">print()</code> function will be saved into the batch file.</p>
+
+<p>Now your program will look like this:</p>
+
+<center>
+<a href="/images/shiny.png"><img src="/images/shiny.png" alt="image" /></a>
+</center>
+
+<p>To launch your app, you just need to double click on your batch file. You can also create a shortcut for this batch file, set an icon for it, and put it anywhere on your computer to launch your app.</p>
+
+<p>For more detail about deploying Desktop Apps with R, please visit: <br />
+<a href="http://www.r-bloggers.com/deploying-desktop-apps-with-r/" target="_blank">http://www.r-bloggers.com/deploying-desktop-apps-with-r/</a></p>
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
@@ -383,7 +418,7 @@ R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% main.R 1&gt; ShinyApp.log 2&gt
         <a href="/blog/connecting-R-and-Cpp-with-Rcpp/" class="btn" title="Calling C++ from R with Rcpp">Previous</a>
       
       
-        <a href="/blog/Web-application-framework-with-Shiny-2/" class="btn" title="Web application framework with Shiny (part 2)">Next</a>
+        <a href="/blog/Duration/" class="btn" title="Duration">Next</a>
       
     </nav><!-- /.pagination -->
   </article>

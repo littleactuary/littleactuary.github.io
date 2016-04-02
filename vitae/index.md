@@ -18,7 +18,7 @@ Actuarial Consultant at [**EY**](http://www.ey.com){:target="_blank"}, associate
 
 *From Dec 2015* **Actuarial Consultant at EY**
 
-I participate to the audit and consulting activities of the actuarial team. I'm specialized in P&C (re)insurance. I also do Life and Pension missions every once in a while.
+I participate to the audit and consulting activities of the actuarial team. I'm specialized in Life and Non-Life insurance. I also do Pension and Analytics missions every once in a while.
 
 -----
 

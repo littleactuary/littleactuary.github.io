@@ -2,9 +2,17 @@
 
   
     {
-      "title"			: "Web application framework with Shiny (part 2)",
-      "link"			: "/blog/Web-application-framework-with-Shiny-2/",
-      "excerpt"		: "A batch file to complete your application"
+      "title"			: "Calcul stochastique en bref",
+      "link"			: "/blog/Calcul-stochastique-en-bref/",
+      "excerpt"		: "Les fondamanteux du calcul stochastique appliqué à la finance"
+    }
+  
+
+  
+    ,{
+      "title"			: "Duration",
+      "link"			: "/blog/Duration/",
+      "excerpt"		: "Sensibilité, duration, duration modifiée"
     }
   
 
@@ -12,7 +20,7 @@
     ,{
       "title"			: "Web application framework with Shiny",
       "link"			: "/blog/Web-application-framework-with-Shiny/",
-      "excerpt"		: "R application with a user-friendly web interface (part 1)"
+      "excerpt"		: "R application with an user-friendly web interface"
     }
   
 

@@ -3,8 +3,8 @@ layout: post
 title: "Web application framework with Shiny"
 modified:
 categories: blog
-excerpt: "R application with a user-friendly web interface"
-tags: [R]
+excerpt: "R application with an user-friendly web interface"
+tags: [R, Shiny, Actuary, Actuarial, Actuariat, Actuaire, application, web]
 image:
 
 comments: true
@@ -12,7 +12,7 @@ share: true
 date: 2015-11-30T15:39:55-04:00
 ---
 
-In my final internship, I had to deploy an application for large claims (major losses) reserving. Since the method required some serious statistical modeling methods, I didn't choose Excel/VBA. R seemed to be a good choice because of its statistical power and also of some useful R packages that deal with extreme values theory and distribution fitting. The question was: "How can I build a friendly-user application with R?". The idea is that the end users don't need to open R and run a hundred line of R code. My first thought was to install RExcel in order to use Excel spredsheet as the application interface. I had found a short presentation of using RExcel with the ChainLadder package in R but this solution seems to be a little out of date. Then I tried the TclTk package in R. Not too cool in my opinion! Finally I found something amazing called [**Shiny**](http://shiny.rstudio.com){:target="_blank"}. It's an R package that allows you to deploy an interactive web application with R. 
+In my final internship, I've had to deploy an application for large claims (major losses) reserving. Since the method required some serious statistical modeling methods, I didn't choose Excel/VBA. R seemed to be a good choice because of its statistical power and also of some useful R packages that deal with extreme values theory and distribution fitting. The question was: "How can I build a friendly-user application with R?". The purpose is that the end users don't need to open R and run a hundred line of R code. My first thought was to install RExcel in order to use Excel spredsheet as the application interface. I had found a short presentation of using RExcel with the ChainLadder package in R but this solution seems to be a little out of date. Then I tried the TclTk package in R. Not too cool in my opinion! Finally I found something amazing called [**Shiny**](http://shiny.rstudio.com){:target="_blank"}. It's an R package that allows you to deploy an interactive web application with R. 
 
 * Table of Contents
 {:toc}
@@ -20,13 +20,13 @@ In my final internship, I had to deploy an application for large claims (major l
 ## Get inspired
 
 To get you inspired, [**here's a galery of Shiny applications**](http://shiny.rstudio.com/gallery/){:target="_blank"}
-You will see that R users have made many amazing applications with Shiny. Since I just passed a little time of my internship to deploy the application (my main mission is to develop the actuarial model), I couldn't build a very complex one, but I think it seems already cooler than an Excel spredsheet. It looks like this:
+You will see that R users have made many amazing applications with Shiny. Since I only passed a little time of my internship to deploy the application (my main mission is to develop the actuarial model), I couldn't build a very complex one, but I think it seems already cooler than an Excel spredsheet. It looks like this:
 
 <a href="{{ site.url }}/images/MajorLossesReserving.gif"><img src="{{ site.url }}/images/MajorLossesReserving.gif" alt="image"></a>
 
 ## What is Shiny?
 
-Ok, now we will look a little bit closer to Shiny. Firstly, Shiny proposes functions with R syntaxes that replace HTML, CSS, Javascript. So you can somehow build a web interface by writing R code. Secondly, Shiny has a feature called Interactivity, which is, in my opinion, a big difference compared to standard R program. There's an interaction between the client side (through the user interface) and the server side (your R program). Thirdly, you can run Shiny apps locally with RStudio and its browser or with R and a web browser such as Google Chrome or Internet Explorer. You can also upload your apps on a cloud (the Shiny server) and run them online. I didn't try the last option because of the confidentiality concern. So I will show you in this post how to deploy and run a Shiny app locally on you computer.
+Ok, now we will look a little bit closer to Shiny. Firstly, Shiny proposes functions with R syntaxes that replace HTML, CSS, Javascript. So you can somehow build a web interface by writing R code. Secondly, Shiny has a feature called Interactivity, which is, in my opinion, a big difference in comparison to standard R programs. There's an interaction between the client side (through the user interface) and the server side (your R program). Thirdly, you can run Shiny apps locally with RStudio and its browser or with R and a web browser such as Google Chrome or Internet Explorer. You can also upload your apps on a cloud (the Shiny server) and run them online. I didn't try the last option because of the confidentiality concern. So I will show you in this post how to deploy and run a Shiny app locally on your computer.
 
 Let's begin by installing the Shiny package
 {% highlight r %}
@@ -34,7 +34,7 @@ install.packages("Shiny")
 {% endhighlight %}
 
 ## How to learn Shiny?
-The best way to learn Shiny, of course, is to watch the series of [**Shiny tutorials**](http://shiny.rstudio.com/tutorial/){:target="_blank"} It will cover all the Shiny topics from beginner to advanced level. It however takes time. What I did in my internship is to look at a simple Shiny example and then began directly to build my app. When there was something I didn't know how to do, I googled it. It is maybe not a good habit of learning, but in a limit time constraint, it has allowed me to build an application that meets all my need (eventhough it's not optimal). 
+The best way to learn Shiny, of course, is to watch the series of [**Shiny tutorials**](http://shiny.rstudio.com/tutorial/){:target="_blank"} It will cover all the Shiny topics from beginner to advanced level. It will however takes time. What I did in my internship is to look at a simple Shiny example and then began directly to build my app. When there was something I didn't know how to do, I googled it. It is maybe not a good habit of learning, but in a limit time constraint, it has allowed me to build an application that meets all my need (though it's not optimal). 
 
 So the point is, the series of Shiny tutorials is where to start learning from. Other useful guides could by found on Goolge. Since I have passed some time on doing the same thing, I'll try to list all the important points I have learned about Shiny in the next sections for you, so that you don't have to google too many times when developing your Shiny app.
 
@@ -52,9 +52,9 @@ Based on this principle, Shiny requires 2 R scripts: one for the User Interface,
 <a href="{{ site.url }}/images/shiny_structure.png"><img src="{{ site.url }}/images/shiny_structure.png" alt="image"></a>
 </center>
 
-R calls the Shiny app in a main script, thanks to the Shiny package. I prefer to create a folder named `Shiny folder` where I store 2 principal elements: `ui.r` and `server.r`. You may notice that there is third element named `www`. It's a sub-folder where I store graphical elements (images, icons, etc.) and file (pdf) that I want to display on my application. (Attention, these three elements need to be named exactly like that). I didn't show it in the scheme but the `server.r` can call other R scripts. Normally, an application has to read input files stored somewhere that I've named `Input folder` and write output files (in addition of displaying them on the user interface) in `Output folder`. 
+R calls the Shiny app in a main script, thanks to the Shiny package. I prefer to create a folder named `Shiny folder` where I store 2 principal elements: `ui.r` and `server.r`. You may notice that there is a third element named `www`. It's a sub-folder where I store graphical elements (images, icons, etc.) and file (pdf) that I want to display on my application. (Attention, these three elements need to be named exactly that way). I did not show it in the scheme but the `server.r` can call other R scripts. Normally, an application has to read input files stored somewhere that I've named `Input folder` and write output files (in addition of displaying them on the user interface) in `Output folder`. 
 
-The user interface can be displayed on the default browser of RStudio if you run Shiny through it, or on a web browser (if you are using Internet explorer version < 10, you could get into trouble with Shiny). This user interface works exactly like a web page. There are buttons, input text, etc. for you to make your decision and there will be output (graphs, images, tables, etc.) displayed on the main panel, or separately on different tabs.
+The user interface can be displayed on the default browser of RStudio if you run Shiny through it, or on a web browser (if you are using Internet explorer version < 10, you could get into trouble with Shiny). This user interface works exactly like a web page. There are buttons, input text, etc. for you to make your decision and there will be output (graphs, images, tables, etc.) displayed on the main panel, or separately on different tabs/panels.
 
 ## Some Shiny codes
 
@@ -124,7 +124,7 @@ mainPanel(
 {% endhighlight %}
 
 ### Event reactivity
-You want to create a button in the user interface so that your app does something in response to the users demand when they click on the button? 
+You want to add a button in the user interface so that your app does something in response to the users demand when they click on the button? 
 {% highlight r %}
 # in ui.r
 # define the Inputs Reading button
@@ -159,7 +159,7 @@ The simplest way is to create reactive button so that a bloc of code will only b
 
 A good way is to use reactive expressions that let you control which parts of your app update when. You can take a look at [**this tutorial**](http://shiny.rstudio.com/tutorial/lesson6/){:target="_blank"} for a better understanding of reactive expressions.
 
-Sometimes I find it more convenient to manually streamline my program by using `reactiveValues` as a condition. The idea is to create reactive boolean variables to trigger a bloc of code. 
+Every now and then, I find it more convenient to manually streamline my program by using `reactiveValues` as a condition. The idea is to create reactive boolean variables to trigger a bloc of code. 
 
 {% highlight r %}
 display.order <- reactiveValues(part2 = FALSE, part3 = FALSE) 
@@ -175,7 +175,7 @@ conditionalPanel(condition = "input.currency == 'GBP'", ...))
 {% endhighlight %}
 
 ### Loading circle
-Sometimes it takes time to run your code and you want to tell the users that the R program is still running. Like a web page loading, you can show a loading circle whenever your R program is busy. To do so, you first need to save this "loading_circle.gif" image into the `www` folder, 
+ Every once in a while, it takes time to run your code and you want to tell the users that the R program is still running. Like a web page loading, you can show a loading circle whenever your R program is busy. To do so, you first need to save this "loading_circle.gif" image into the `www` folder, 
 
 <center>
 <a href="{{ site.url }}/images/loading_circle.gif"><img src="{{ site.url }}/images/loading_circle.gif" alt="image"></a>
@@ -189,7 +189,7 @@ tags$img(src="loading_circle.gif")
 {% endhighlight %}
 
 
-### Closing your app
+### Close your app
 
 2 options to close your app: create a button "close" in `ui.r` and add this in `server.r`:
 {% highlight r %}
@@ -209,8 +209,8 @@ shinyServer(function(input, output, session){
 }) 
 {% endhighlight %}
 
-## Creating a bach file 
-Until now, you still need to open R and launch Shiny from within it. If your app will be used by other people, it will be cool to create an independent desktop app that users can launch by clicking on an icon, like other applications in your computer. You can do it by creating a bach file as followed.
+## Packaging  
+Until now, you still need to open R and launch Shiny from within it. If your app will be used by other people, it will be cool to create an independent desktop app that users can launch by clicking on an icon, like other applications in your computer. You can do it as followed.
 
 Firstly, create a folder for you app, name it `Your app` for example, and then put all your tool elements in it (Main.r, Shiny folder, Input folder, Output folder)
 
@@ -219,13 +219,14 @@ Building a desktop app with R is like packaging all necessary elements, R includ
 
 ### Web browser
 Since we'are using R portable instead of RStudio, you definitely need a web brower.  In case you are using Internet Explorer version < 10 which does not support Shiny, please either:
+
 * update your IE browser,
 * install GoogleChrome or Firefox and set them as your default web browser.
 
 If you want to include a web browser into you whole app, you can download Goolge Chrome Portable [**here**](http://portableapps.com/apps/internet/google_chrome_portable){:target="_blank"}. Then put the `GoogleChromePortable` folder in `Your app` folder. I have tested it on different computers, sometimes it works, somtimes it doesn't and I don't know why. Anyway, I think nowadays people all have a modern web browser in their computer so you don't need to prepare google chrome portable for them.
 
 ### main.R
-Since our app works with a web browser, we need to speficy it in our `main.r` script:
+Now that our app works with a web browser, we need to speficy it in our `main.r` script:
 
 {% highlight r %}
 Shiny::runApp('./Shiny folder/', launch.browser = TRUE)
@@ -234,10 +235,10 @@ Shiny::runApp('./Shiny folder/', launch.browser = TRUE)
 ### Bach file
 Now we're moving to the most exciting step: creating a bach file to tell Windows what to do with the above script. Create a text file (with notepad or whatever you want), write down the below line of code, close and save it with a `.bat` extention name. For example, I name my batch file `YourApp.bat`.
 
-{% highlight r%}
+~~~
 SET ROPTS=--no-save --no-environ --no-init-file --no-restore --no-Rconsole
 R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% main.R 1> ShinyApp.log 2>&1
-{% endhighlight %}
+~~~
 
 This batch file tell your computer to find `Rscript.exe` in you `R-Portable folder`, use it to run `main.r` in order to call your Shiny app. You may notice the `ShinyApp.log` in the above line of code. This is to create a log file. All messages of R console, as well as messages from your `print()` function will be saved into the batch file. 
 

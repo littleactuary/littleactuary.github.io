@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-03-05T09:56:29+01:00</updated>
+<updated>2016-04-02T20:43:30+02:00</updated>
 <id>/</id>
 <author>
   <name>Duc-Hien VU</name>
@@ -16,73 +16,58 @@
   
 
 <entry>
-  <title type="html"><![CDATA[Web application framework with Shiny (part 2)]]></title>
-  <link rel="alternate" type="text/html" href="/blog/Web-application-framework-with-Shiny-2/" />
-  <id>/blog/Web-application-framework-with-Shiny-2</id>
-  <published>2016-01-30T20:39:55+01:00</published>
-  <updated>2016-01-30T20:39:55+01:00</updated>
+  <title type="html"><![CDATA[Calcul stochastique en bref]]></title>
+  <link rel="alternate" type="text/html" href="/blog/Calcul-stochastique-en-bref/" />
+  <id>/blog/Calcul-stochastique-en-bref</id>
+  <published>2016-03-28T14:08:50+02:00</published>
+  <updated>2016-03-28T14:08:50+02:00</updated>
   <author>
     <name>Duc-Hien VU</name>
     <uri></uri>
     <email>duchienvu91@gmail.com</email>
   </author>
   <content type="html">
-    &lt;p&gt;In this post, I want to show a convenient way to run R program without opening R console or RStudio. By this way, you can turn your R program into a real desktop application. The end-users just need to double click on a dektop icon to run your R program. I will begin with a simple example without Shiny. We will deal with Shiny in the second example.&lt;/p&gt;
+    &lt;p&gt;Récemment, un ami à moi m’a demandé de lui expliquer rapidement les calculs stochastiques pour préparer son examen en M2 Finance. Je lui ai répondu que ça faisait 2 ans que je ne les ai pas touchés et que je ne retenais que dalle de ces fameux calculs. Finalement, j’ai quand même passé un soir à reparcourir un poly de cours sur les principes de bases en calcul stochastique. Ce qui m’a étonné est que j’ai eu l’impression de les avoir mieux compris qu’il y a deux trois ans quand je les faisais à l’école.&lt;/p&gt;
+
+&lt;p&gt;Bref, je voulais expliquer en quelques mots (je m’en doute) les fondamentaux du calcul stochastique, appliqué à la finance surtout, en me focalisant sur leurs interprétations et en négligeant toutes les démonstrations ainsi que des notions mathématiques abstraites.&lt;/p&gt;
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#r-portable&quot; id=&quot;markdown-toc-r-portable&quot;&gt;R portable&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#example-1-r--batch-file&quot; id=&quot;markdown-toc-example-1-r--batch-file&quot;&gt;Example 1 (R + batch file)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#example-2-r--shiny--batch-file&quot; id=&quot;markdown-toc-example-2-r--shiny--batch-file&quot;&gt;Example 2 (R + Shiny + batch file)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#rappels-mathmatiques&quot; id=&quot;markdown-toc-rappels-mathmatiques&quot;&gt;Rappels mathématiques&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;r-portable&quot;&gt;R portable&lt;/h2&gt;
-&lt;p&gt;Building a desktop app with R is like packaging all necessary elements, R included, into a main folder. Why do you need to put R into your app folder? Because your app will be delivered to the clients, who don’t necessarly have R installed in their computer. A solution suggested by many people is to download R portable and put it in the main folder, with all other elements.&lt;/p&gt;
+&lt;h2 id=&quot;rappels-mathmatiques&quot;&gt;Rappels mathématiques&lt;/h2&gt;
 
-&lt;h2 id=&quot;example-1-r--batch-file&quot;&gt;Example 1 (R + batch file)&lt;/h2&gt;
-&lt;p&gt;The first example corresponds to a real problem I have faced at work. The aim is to prepare csv input files (for an application) from an Excel file. You can do it with a macro VBA, or a simple script R with the help of the package &lt;code class=&quot;highlighter-rouge&quot;&gt;readxl&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Pour comprendre le calcul stochastique, nous ne pouvons quand même pas négliger tout le côté mathématique. Nous allons revoir les notions de martingale,&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;install.packages&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;readxl&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/Calcul-stochastique-en-bref/&quot;&gt;Calcul stochastique en bref&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on March 28, 2016.&lt;/p&gt;
+  </content>
+</entry>
 
-&lt;p&gt;The think is, I don’t want to open R and execute the R script each time I want to construct the csv files. I just want to put my Excel file into a folder, then hit a button to get my csv file. a simple batch file can help me do it. (please note that it only works in Windows).&lt;/p&gt;
 
-&lt;p&gt;First, you need to write your R script as usual. It looks like this:&lt;/p&gt;
+  
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;readxl&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;__________________________________&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;BEGIN: input conversion from xls to csv&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# the folder `input ML` is where I store the Excel file and also where the csv file will be generated. &lt;/span&gt;
-inputFolder &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;getwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;input ML&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; sep&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+<entry>
+  <title type="html"><![CDATA[Duration]]></title>
+  <link rel="alternate" type="text/html" href="/blog/Duration/" />
+  <id>/blog/Duration</id>
+  <published>2016-03-11T13:08:50+01:00</published>
+  <updated>2016-03-11T13:08:50+01:00</updated>
+  <author>
+    <name>Duc-Hien VU</name>
+    <uri></uri>
+    <email>duchienvu91@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;Alors que j’ai fait tous mes stages en Assurance Non-Vie, je ne travaille que sur les missions Vie depuis avoir commencé mon vrai job. Le passage de l’actuariat Non-Vie à l’actuariat Vie est pour moi une transition radicale de la Statistique à la Finance. J’ai donc eu l’occasion de réviser mes cours de finance que j’ai quasiment pas touchés depuis quelques années. Ma révision commence par la duration, le terme dont j’ai beaucoup entendu parler au boulot mais dont la signification m’avait étrangement échappé.&lt;/p&gt;
 
-AvailableFiles &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;getwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;input ML&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; sep&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;p&gt;On parle de la duration quand on parle d’un instrument à taux fixe, tel qu’une obligation à taux fixe (OTF). C’est&lt;/p&gt;
 
-Excel_file &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; AvailableFiles&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;grepl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;.xls&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; AvailableFiles&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
-&lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Excel_file&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-&lt;span class=&quot;kp&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;  Error: there is no excel file in input ML folder. Please verify that a .xls or .xlsx or .xlsm file exists in this folder!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Excel_file&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-&lt;span class=&quot;kp&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;  Error: there is more than one excel files in this folder. Please keep only 1 at time!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;kp&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;  Reading&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; Excel_file&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; sep&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
-&lt;span class=&quot;c1&quot;&gt;# read xls file&lt;/span&gt;
-Claim_List &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; read_excel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;inputFolder&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; Excel_file&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; sep&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; sheet &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Claim List&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-Claim_List &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; Claim_List&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;is.na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Claim_List&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;id&lt;span class=&quot;p&quot;&gt;),]&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# data treatment, data cleaning or whatever you want :)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# then build the csv file&lt;/span&gt;
-write.csv2&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Claim_List&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;inputFolder&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;LossMetaData.csv&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; sep&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; row.names&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;END: input conversion from xls to csv&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kp&quot;&gt;paste&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;__________________________________&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here is an example MathJax inline rendering \( 1/x^{2} \), and here is a block rendering: &lt;br /&gt;
+\[ \frac{1}{n^{2}} \]&lt;/p&gt;
 
-&lt;p&gt;Save your R script under the name &lt;code class=&quot;highlighter-rouge&quot;&gt;input_construction.R&lt;/code&gt;. Now the fun part begins. We will write a batch file to tell Windows what to do with the above script. Create a text file (with notepad or whatever you want), copy the below line:&lt;/p&gt;
+&lt;p&gt;The only thing to look out for is the escaping of the backslash when using markdown, so the delimiters become &lt;code class=&quot;highlighter-rouge&quot;&gt;\\[ ... \\]&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;\\( ... \\)&lt;/code&gt; for inline and block maths respectively.&lt;/p&gt;
 
-&lt;p&gt;SET ROPTS=–no-save –no-environ –no-init-file –no-restore –no-Rconsole&lt;br /&gt;
-R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% input_construction.R 1&amp;gt; ShinyApp.log 2&amp;gt;&amp;amp;1&lt;/p&gt;
-
-&lt;p&gt;and save the text file a &lt;code class=&quot;highlighter-rouge&quot;&gt;.bat&lt;/code&gt; extention.&lt;/p&gt;
-
-&lt;h2 id=&quot;example-2-r--shiny--batch-file&quot;&gt;Example 2 (R + Shiny + batch file)&lt;/h2&gt;
-
-    &lt;p&gt;&lt;a href=&quot;/blog/Web-application-framework-with-Shiny-2/&quot;&gt;Web application framework with Shiny (part 2)&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on January 30, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/Duration/&quot;&gt;Duration&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on March 11, 2016.&lt;/p&gt;
   </content>
 </entry>
 
@@ -101,7 +86,7 @@ R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% input_construction.R 1&amp;gt;
     <email>duchienvu91@gmail.com</email>
   </author>
   <content type="html">
-    &lt;p&gt;In my final internship, I had to deploy an application for large claims (major losses) reserving. Since the method required some serious statistical modeling methods, I didn’t choose Excel/VBA. R seemed to be a good choice because of its statistical power and also of some useful R packages that deal with extreme values theory and distribution fitting. The question was: “How can I build a friendly-user application with R?”. The idea is that the end users don’t need to open R and run a hundred line of R code. My first thought was to install RExcel in order to use Excel spredsheet as the application interface. I had found a short presentation of using RExcel with the ChainLadder package in R but this solution seems to be a little out of date. Then I tried the TclTk package in R. Not too cool in my opinion! Finally I found something amazing called &lt;a href=&quot;http://shiny.rstudio.com&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Shiny&lt;/strong&gt;&lt;/a&gt;. It’s an R package that allows you to deploy an interactive web application with R.&lt;/p&gt;
+    &lt;p&gt;In my final internship, I’ve had to deploy an application for large claims (major losses) reserving. Since the method required some serious statistical modeling methods, I didn’t choose Excel/VBA. R seemed to be a good choice because of its statistical power and also of some useful R packages that deal with extreme values theory and distribution fitting. The question was: “How can I build a friendly-user application with R?”. The purpose is that the end users don’t need to open R and run a hundred line of R code. My first thought was to install RExcel in order to use Excel spredsheet as the application interface. I had found a short presentation of using RExcel with the ChainLadder package in R but this solution seems to be a little out of date. Then I tried the TclTk package in R. Not too cool in my opinion! Finally I found something amazing called &lt;a href=&quot;http://shiny.rstudio.com&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Shiny&lt;/strong&gt;&lt;/a&gt;. It’s an R package that allows you to deploy an interactive web application with R.&lt;/p&gt;
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#get-inspired&quot; id=&quot;markdown-toc-get-inspired&quot;&gt;Get inspired&lt;/a&gt;&lt;/li&gt;
@@ -109,26 +94,26 @@ R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% input_construction.R 1&amp;gt;
   &lt;li&gt;&lt;a href=&quot;#how-to-learn-shiny&quot; id=&quot;markdown-toc-how-to-learn-shiny&quot;&gt;How to learn Shiny?&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#shiny-structure&quot; id=&quot;markdown-toc-shiny-structure&quot;&gt;Shiny structure&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#some-shiny-codes&quot; id=&quot;markdown-toc-some-shiny-codes&quot;&gt;Some Shiny codes&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#creating-a-bach-file&quot; id=&quot;markdown-toc-creating-a-bach-file&quot;&gt;Creating a bach file&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#packaging&quot; id=&quot;markdown-toc-packaging&quot;&gt;Packaging&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;get-inspired&quot;&gt;Get inspired&lt;/h2&gt;
 
 &lt;p&gt;To get you inspired, &lt;a href=&quot;http://shiny.rstudio.com/gallery/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;here’s a galery of Shiny applications&lt;/strong&gt;&lt;/a&gt;&lt;br /&gt;
-You will see that R users have made many amazing applications with Shiny. Since I just passed a little time of my internship to deploy the application (my main mission is to develop the actuarial model), I couldn’t build a very complex one, but I think it seems already cooler than an Excel spredsheet. It looks like this:&lt;/p&gt;
+You will see that R users have made many amazing applications with Shiny. Since I only passed a little time of my internship to deploy the application (my main mission is to develop the actuarial model), I couldn’t build a very complex one, but I think it seems already cooler than an Excel spredsheet. It looks like this:&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/MajorLossesReserving.gif&quot;&gt;&lt;img src=&quot;/images/MajorLossesReserving.gif&quot; alt=&quot;image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;what-is-shiny&quot;&gt;What is Shiny?&lt;/h2&gt;
 
-&lt;p&gt;Ok, now we will look a little bit closer to Shiny. Firstly, Shiny proposes functions with R syntaxes that replace HTML, CSS, Javascript. So you can somehow build a web interface by writing R code. Secondly, Shiny has a feature called Interactivity, which is, in my opinion, a big difference compared to standard R program. There’s an interaction between the client side (through the user interface) and the server side (your R program). Thirdly, you can run Shiny apps locally with RStudio and its browser or with R and a web browser such as Google Chrome or Internet Explorer. You can also upload your apps on a cloud (the Shiny server) and run them online. I didn’t try the last option because of the confidentiality concern. So I will show you in this post how to deploy and run a Shiny app locally on you computer.&lt;/p&gt;
+&lt;p&gt;Ok, now we will look a little bit closer to Shiny. Firstly, Shiny proposes functions with R syntaxes that replace HTML, CSS, Javascript. So you can somehow build a web interface by writing R code. Secondly, Shiny has a feature called Interactivity, which is, in my opinion, a big difference in comparison to standard R programs. There’s an interaction between the client side (through the user interface) and the server side (your R program). Thirdly, you can run Shiny apps locally with RStudio and its browser or with R and a web browser such as Google Chrome or Internet Explorer. You can also upload your apps on a cloud (the Shiny server) and run them online. I didn’t try the last option because of the confidentiality concern. So I will show you in this post how to deploy and run a Shiny app locally on your computer.&lt;/p&gt;
 
 &lt;p&gt;Let’s begin by installing the Shiny package&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;install.packages&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Shiny&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;how-to-learn-shiny&quot;&gt;How to learn Shiny?&lt;/h2&gt;
-&lt;p&gt;The best way to learn Shiny, of course, is to watch the series of &lt;a href=&quot;http://shiny.rstudio.com/tutorial/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Shiny tutorials&lt;/strong&gt;&lt;/a&gt; It will cover all the Shiny topics from beginner to advanced level. It however takes time. What I did in my internship is to look at a simple Shiny example and then began directly to build my app. When there was something I didn’t know how to do, I googled it. It is maybe not a good habit of learning, but in a limit time constraint, it has allowed me to build an application that meets all my need (eventhough it’s not optimal).&lt;/p&gt;
+&lt;p&gt;The best way to learn Shiny, of course, is to watch the series of &lt;a href=&quot;http://shiny.rstudio.com/tutorial/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Shiny tutorials&lt;/strong&gt;&lt;/a&gt; It will cover all the Shiny topics from beginner to advanced level. It will however takes time. What I did in my internship is to look at a simple Shiny example and then began directly to build my app. When there was something I didn’t know how to do, I googled it. It is maybe not a good habit of learning, but in a limit time constraint, it has allowed me to build an application that meets all my need (though it’s not optimal).&lt;/p&gt;
 
 &lt;p&gt;So the point is, the series of Shiny tutorials is where to start learning from. Other useful guides could by found on Goolge. Since I have passed some time on doing the same thing, I’ll try to list all the important points I have learned about Shiny in the next sections for you, so that you don’t have to google too many times when developing your Shiny app.&lt;/p&gt;
 
@@ -146,9 +131,9 @@ You will see that R users have made many amazing applications with Shiny. Since 
 &lt;a href=&quot;/images/shiny_structure.png&quot;&gt;&lt;img src=&quot;/images/shiny_structure.png&quot; alt=&quot;image&quot; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 
-&lt;p&gt;R calls the Shiny app in a main script, thanks to the Shiny package. I prefer to create a folder named &lt;code class=&quot;highlighter-rouge&quot;&gt;Shiny folder&lt;/code&gt; where I store 2 principal elements: &lt;code class=&quot;highlighter-rouge&quot;&gt;ui.r&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;server.r&lt;/code&gt;. You may notice that there is third element named &lt;code class=&quot;highlighter-rouge&quot;&gt;www&lt;/code&gt;. It’s a sub-folder where I store graphical elements (images, icons, etc.) and file (pdf) that I want to display on my application. (Attention, these three elements need to be named exactly like that). I didn’t show it in the scheme but the &lt;code class=&quot;highlighter-rouge&quot;&gt;server.r&lt;/code&gt; can call other R scripts. Normally, an application has to read input files stored somewhere that I’ve named &lt;code class=&quot;highlighter-rouge&quot;&gt;Input folder&lt;/code&gt; and write output files (in addition of displaying them on the user interface) in &lt;code class=&quot;highlighter-rouge&quot;&gt;Output folder&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;R calls the Shiny app in a main script, thanks to the Shiny package. I prefer to create a folder named &lt;code class=&quot;highlighter-rouge&quot;&gt;Shiny folder&lt;/code&gt; where I store 2 principal elements: &lt;code class=&quot;highlighter-rouge&quot;&gt;ui.r&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;server.r&lt;/code&gt;. You may notice that there is a third element named &lt;code class=&quot;highlighter-rouge&quot;&gt;www&lt;/code&gt;. It’s a sub-folder where I store graphical elements (images, icons, etc.) and file (pdf) that I want to display on my application. (Attention, these three elements need to be named exactly that way). I did not show it in the scheme but the &lt;code class=&quot;highlighter-rouge&quot;&gt;server.r&lt;/code&gt; can call other R scripts. Normally, an application has to read input files stored somewhere that I’ve named &lt;code class=&quot;highlighter-rouge&quot;&gt;Input folder&lt;/code&gt; and write output files (in addition of displaying them on the user interface) in &lt;code class=&quot;highlighter-rouge&quot;&gt;Output folder&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;The user interface can be displayed on the default browser of RStudio if you run Shiny through it, or on a web browser (if you are using Internet explorer version &amp;lt; 10, you could get into trouble with Shiny). This user interface works exactly like a web page. There are buttons, input text, etc. for you to make your decision and there will be output (graphs, images, tables, etc.) displayed on the main panel, or separately on different tabs.&lt;/p&gt;
+&lt;p&gt;The user interface can be displayed on the default browser of RStudio if you run Shiny through it, or on a web browser (if you are using Internet explorer version &amp;lt; 10, you could get into trouble with Shiny). This user interface works exactly like a web page. There are buttons, input text, etc. for you to make your decision and there will be output (graphs, images, tables, etc.) displayed on the main panel, or separately on different tabs/panels.&lt;/p&gt;
 
 &lt;h2 id=&quot;some-shiny-codes&quot;&gt;Some Shiny codes&lt;/h2&gt;
 
@@ -212,7 +197,7 @@ If you want to launch you app on your default web browser instead of the browser
     &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;event-reactivity&quot;&gt;Event reactivity&lt;/h3&gt;
-&lt;p&gt;You want to create a button in the user interface so that your app does something in response to the users demand when they click on the button?&lt;/p&gt;
+&lt;p&gt;You want to add a button in the user interface so that your app does something in response to the users demand when they click on the button?&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# in ui.r&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;# define the Inputs Reading button&lt;/span&gt;
@@ -244,7 +229,7 @@ For example, if you want to show your entire table in one page and desactivate t
 
 &lt;p&gt;A good way is to use reactive expressions that let you control which parts of your app update when. You can take a look at &lt;a href=&quot;http://shiny.rstudio.com/tutorial/lesson6/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;this tutorial&lt;/strong&gt;&lt;/a&gt; for a better understanding of reactive expressions.&lt;/p&gt;
 
-&lt;p&gt;Sometimes I find it more convenient to manually streamline my program by using &lt;code class=&quot;highlighter-rouge&quot;&gt;reactiveValues&lt;/code&gt; as a condition. The idea is to create reactive boolean variables to trigger a bloc of code.&lt;/p&gt;
+&lt;p&gt;Every now and then, I find it more convenient to manually streamline my program by using &lt;code class=&quot;highlighter-rouge&quot;&gt;reactiveValues&lt;/code&gt; as a condition. The idea is to create reactive boolean variables to trigger a bloc of code.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;display.order &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; reactiveValues&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;part2 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; part3 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -255,7 +240,7 @@ For example, if you want to show your entire table in one page and desactivate t
 conditionalPanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;condition &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;input.currency == &amp;#39;GBP&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;loading-circle&quot;&gt;Loading circle&lt;/h3&gt;
-&lt;p&gt;Sometimes it takes time to run your code and you want to tell the users that the R program is still running. Like a web page loading, you can show a loading circle whenever your R program is busy. To do so, you first need to save this “loading_circle.gif” image into the &lt;code class=&quot;highlighter-rouge&quot;&gt;www&lt;/code&gt; folder,&lt;/p&gt;
+&lt;p&gt;Every once in a while, it takes time to run your code and you want to tell the users that the R program is still running. Like a web page loading, you can show a loading circle whenever your R program is busy. To do so, you first need to save this “loading_circle.gif” image into the &lt;code class=&quot;highlighter-rouge&quot;&gt;www&lt;/code&gt; folder,&lt;/p&gt;
 
 &lt;center&gt;
 &lt;a href=&quot;/images/loading_circle.gif&quot;&gt;&lt;img src=&quot;/images/loading_circle.gif&quot; alt=&quot;image&quot; /&gt;&lt;/a&gt;
@@ -267,7 +252,7 @@ conditionalPanel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;condition &lt;span
 tags&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;img&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;src&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;loading_circle.gif&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;closing-your-app&quot;&gt;Closing your app&lt;/h3&gt;
+&lt;h3 id=&quot;close-your-app&quot;&gt;Close your app&lt;/h3&gt;
 
 &lt;p&gt;2 options to close your app: create a button “close” in &lt;code class=&quot;highlighter-rouge&quot;&gt;ui.r&lt;/code&gt; and add this in &lt;code class=&quot;highlighter-rouge&quot;&gt;server.r&lt;/code&gt;:&lt;/p&gt;
 
@@ -285,14 +270,49 @@ tags&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;img&lt;span class=&quot;p&quot
     &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;creating-a-bach-file&quot;&gt;Creating a bach file&lt;/h2&gt;
-&lt;p&gt;Until now, you still need to open R and launch Shiny from within it. If your app will be used by other people, it will be cool to create an independent desktop app that users can launch by clicking on an icon, like other applications in your computer. You can do it by creating a bach file as followed.&lt;/p&gt;
+&lt;h2 id=&quot;packaging&quot;&gt;Packaging&lt;/h2&gt;
+&lt;p&gt;Until now, you still need to open R and launch Shiny from within it. If your app will be used by other people, it will be cool to create an independent desktop app that users can launch by clicking on an icon, like other applications in your computer. You can do it as followed.&lt;/p&gt;
 
-&lt;p&gt;Building a desktop app with R is like packaging all necessary elements, R included, into a main folder. Why do you need to put R into your app folder? Because your app will be delivered to the clients, who don’t necessarly have R installed in their computer. A solution suggested by many people is to download R portable and put it in the main folder, with all other elements. Download R portable here and&lt;/p&gt;
+&lt;p&gt;Firstly, create a folder for you app, name it &lt;code class=&quot;highlighter-rouge&quot;&gt;Your app&lt;/code&gt; for example, and then put all your tool elements in it (Main.r, Shiny folder, Input folder, Output folder)&lt;/p&gt;
 
-&lt;p&gt;SET ROPTS=–no-save –no-environ –no-init-file –no-restore –no-Rconsole&lt;br /&gt;
-R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% main.R 1&amp;gt; ShinyApp.log 2&amp;gt;&amp;amp;1&lt;/p&gt;
+&lt;h3 id=&quot;r-portable&quot;&gt;R Portable&lt;/h3&gt;
+&lt;p&gt;Building a desktop app with R is like packaging all necessary elements, R included, into a main folder. Why do you need to put R into your app folder? Because your app will be delivered to the clients, who don’t necessarly have R installed in their computer. A solution suggested by many people is to download R portable and put it in the main folder, with all other elements. Download R portable &lt;a href=&quot;http://sourceforge.net/projects/rportable/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;. Put the folder &lt;code class=&quot;highlighter-rouge&quot;&gt;R-Portable&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;Your app&lt;/code&gt; folder.&lt;/p&gt;
 
+&lt;h3 id=&quot;web-browser&quot;&gt;Web browser&lt;/h3&gt;
+&lt;p&gt;Since we’are using R portable instead of RStudio, you definitely need a web brower.  In case you are using Internet Explorer version &amp;lt; 10 which does not support Shiny, please either:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;update your IE browser,&lt;/li&gt;
+  &lt;li&gt;install GoogleChrome or Firefox and set them as your default web browser.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you want to include a web browser into you whole app, you can download Goolge Chrome Portable &lt;a href=&quot;http://portableapps.com/apps/internet/google_chrome_portable&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;. Then put the &lt;code class=&quot;highlighter-rouge&quot;&gt;GoogleChromePortable&lt;/code&gt; folder in &lt;code class=&quot;highlighter-rouge&quot;&gt;Your app&lt;/code&gt; folder. I have tested it on different computers, sometimes it works, somtimes it doesn’t and I don’t know why. Anyway, I think nowadays people all have a modern web browser in their computer so you don’t need to prepare google chrome portable for them.&lt;/p&gt;
+
+&lt;h3 id=&quot;mainr&quot;&gt;main.R&lt;/h3&gt;
+&lt;p&gt;Now that our app works with a web browser, we need to speficy it in our &lt;code class=&quot;highlighter-rouge&quot;&gt;main.r&lt;/code&gt; script:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;Shiny&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;runApp&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;./Shiny folder/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; launch.browser &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;bach-file&quot;&gt;Bach file&lt;/h3&gt;
+&lt;p&gt;Now we’re moving to the most exciting step: creating a bach file to tell Windows what to do with the above script. Create a text file (with notepad or whatever you want), write down the below line of code, close and save it with a &lt;code class=&quot;highlighter-rouge&quot;&gt;.bat&lt;/code&gt; extention name. For example, I name my batch file &lt;code class=&quot;highlighter-rouge&quot;&gt;YourApp.bat&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SET ROPTS=--no-save --no-environ --no-init-file --no-restore --no-Rconsole
+R-Portable\App\R-Portable\bin\Rscript.exe %ROPTS% main.R 1&amp;gt; ShinyApp.log 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This batch file tell your computer to find &lt;code class=&quot;highlighter-rouge&quot;&gt;Rscript.exe&lt;/code&gt; in you &lt;code class=&quot;highlighter-rouge&quot;&gt;R-Portable folder&lt;/code&gt;, use it to run &lt;code class=&quot;highlighter-rouge&quot;&gt;main.r&lt;/code&gt; in order to call your Shiny app. You may notice the &lt;code class=&quot;highlighter-rouge&quot;&gt;ShinyApp.log&lt;/code&gt; in the above line of code. This is to create a log file. All messages of R console, as well as messages from your &lt;code class=&quot;highlighter-rouge&quot;&gt;print()&lt;/code&gt; function will be saved into the batch file.&lt;/p&gt;
+
+&lt;p&gt;Now your program will look like this:&lt;/p&gt;
+
+&lt;center&gt;
+&lt;a href=&quot;/images/shiny.png&quot;&gt;&lt;img src=&quot;/images/shiny.png&quot; alt=&quot;image&quot; /&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+&lt;p&gt;To launch your app, you just need to double click on your batch file. You can also create a shortcut for this batch file, set an icon for it, and put it anywhere on your computer to launch your app.&lt;/p&gt;
+
+&lt;p&gt;For more detail about deploying Desktop Apps with R, please visit: &lt;br /&gt;
+&lt;a href=&quot;http://www.r-bloggers.com/deploying-desktop-apps-with-r/&quot; target=&quot;_blank&quot;&gt;http://www.r-bloggers.com/deploying-desktop-apps-with-r/&lt;/a&gt;&lt;/p&gt;
 
     &lt;p&gt;&lt;a href=&quot;/blog/Web-application-framework-with-Shiny/&quot;&gt;Web application framework with Shiny&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on November 30, 2015.&lt;/p&gt;
   </content>
@@ -500,18 +520,20 @@ t &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kp
     <email>duchienvu91@gmail.com</email>
   </author>
   <content type="html">
-    &lt;p&gt;When I was at school, I did some simple projects with R. Most of them were written in a dirty way (all in a same R script). Then I had a chance to work with R more seriously during my two last internships. I have learned R by reading R programs developed by experienced actuaries. Of course they are not programmers, but their programs are well-structured and much more readable and understandable than mine. A well-structured program (especially when dealing with a complex problem) helps you easily verify and debug your code and help others (who have to audit or modify your code) understand it quickly and effortlessly. Here are some rules that I find very useful for deploying a program with R. I believe they are also true for almost other languages.&lt;/p&gt;
+    &lt;p&gt;At school, I have done some simple projects with R. Most of them were written in a dirty way (all in a same R script). Then I had a chance to work with R more seriously during my two last internships. I have learned R by reading R programs developed by experienced actuaries. Of course they are not programmers, but their programs are well-structured and much more readable and understandable than mine. A well-structured program (especially when dealing with a complex problem) helps you easily verify and debug your code and help others (who have to audit or modify your code) understand it quickly and effortlessly. Here are some rules that I find very useful for deploying a program with R. I believe they are also true for almost other languages.&lt;/p&gt;
 
 &lt;h3 id=&quot;moduling-your-program&quot;&gt;#1: Moduling your program&lt;/h3&gt;
 
 &lt;p&gt;If your program is long and complex, instead of using one single R script, you should divide your program into separate modules whenever possible and store them in separate R scripts. For example, if you want to develop a pricing tool that proposes 2 different pricing methods, your program structure may look like this:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;reading&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;claims&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;modeling&lt;/span&gt; 
-&lt;span class=&quot;nt&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;pricing&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;else&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;pricing&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;input reading
+claims modeling 
+if (method ==1)
+    pricing method 1
+else
+    pricing method 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Your R program will be called through a &lt;code class=&quot;highlighter-rouge&quot;&gt;main.R&lt;/code&gt; script:&lt;/p&gt;
 

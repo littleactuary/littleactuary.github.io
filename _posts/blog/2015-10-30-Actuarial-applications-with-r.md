@@ -4,7 +4,7 @@ title: "(Actuarial) tools with R"
 modified:
 categories: blog
 excerpt: "How to write a well-structured and understandable R program"
-tags: [R]
+tags: [R, Actuary, Actuariat, Actuarial]
 image:
 
 comments: true
@@ -18,14 +18,14 @@ At school, I have done some simple projects with R. Most of them were written in
 
 If your program is long and complex, instead of using one single R script, you should divide your program into separate modules whenever possible and store them in separate R scripts. For example, if you want to develop a pricing tool that proposes 2 different pricing methods, your program structure may look like this:
 
-{% highlight css %}
+~~~
 input reading
 claims modeling 
 if (method ==1)
     pricing method 1
 else
     pricing method 2
-{% endhighlight %}
+~~~
 
 Your R program will be called through a `main.R` script: 
 

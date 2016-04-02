@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/blog/Web-application-framework-with-Shiny-2/</loc>
-    <lastmod>2016-01-30T20:39:55+01:00</lastmod>
+    <loc>/blog/Calcul-stochastique-en-bref/</loc>
+    <lastmod>2016-03-28T14:08:50+02:00</lastmod>
+  </url>
+  <url>
+    <loc>/blog/Duration/</loc>
+    <lastmod>2016-03-11T13:08:50+01:00</lastmod>
   </url>
   <url>
     <loc>/blog/Web-application-framework-with-Shiny/</loc>

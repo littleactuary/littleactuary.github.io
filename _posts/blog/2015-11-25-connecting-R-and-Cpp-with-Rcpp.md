@@ -4,7 +4,7 @@ title: "Calling C++ from R with Rcpp"
 modified:
 categories: blog
 excerpt: "Speed-up your R program with Rcpp package"
-tags: [R]
+tags: [R, Rcpp, Actuary, Actuarial, Actuariat]
 image:
 
 comments: true
