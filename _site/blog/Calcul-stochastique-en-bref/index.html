@@ -158,7 +158,16 @@
 
 <h2 id="rappels-mathmatiques">Rappels mathématiques</h2>
 
-<p>Pour comprendre le calcul stochastique, nous ne pouvons quand même pas négliger tout le côté mathématique. Nous allons revoir les notions de martingale,</p>
+<p>Pour comprendre le calcul stochastique, nous ne pouvons quand même pas négliger tout le côté mathématique. Nous allons revoir les quelques notions indispensables pour la suite.</p>
+
+<p>Un espace de probabilité filtré ( \( \Omega, (\mathcal{F}<em>n) , \mathbb{P} \) ) <br />
+est un espace de probabilité muni d”une filtration \( (\mathcal{F}_n)_n \) où \( \mathcal{F}_n \) représente l’ensemble des informations disponibles à la date \(t\) (par exemple, les cours de bourse). Plus le temps passe, plus on connait de l’information, d’où \( \mathcal{F}_n \in \mathcal{F}</em>{n+1}  \).<br />
+Un <strong>monde risque neutre</strong> correspond à un espace de probabilité où le prix d’un produit vu d’aujourdui peut être calculé comme l’espérance de son prix futur actualisé. C’est un univers fictif dans lequel les prix peuvent être calculés facilement.</p>
+
+<p>\[ P_0  = \mathbb{E}[P_t] \times A(0,t) \]<br />
+avec \(A(0,t)\) le facteur d’actualisation de la date future \(t\) à la date présente \(0\).</p>
+
+<p>Une martingale</p>
 
         
       </div><!-- /.entry-content -->
