@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-04-02T22:13:57+02:00</updated>
+<updated>2016-04-03T10:48:33+02:00</updated>
 <id>/</id>
 <author>
   <name>Duc-Hien VU</name>
@@ -39,8 +39,7 @@
 
 &lt;p&gt;Pour comprendre le calcul stochastique, nous ne pouvons quand même pas négliger tout le côté mathématique. Nous allons revoir les quelques notions indispensables pour la suite.&lt;/p&gt;
 
-&lt;p&gt;Un espace de probabilité filtré ( \( \Omega, (\mathcal{F}&lt;em&gt;n) , \mathbb{P} \) ) &lt;br /&gt;
-est un espace de probabilité muni d”une filtration \( (\mathcal{F}_n)_n \) où \( \mathcal{F}_n \) représente l’ensemble des informations disponibles à la date \(t\) (par exemple, les cours de bourse). Plus le temps passe, plus on connait de l’information, d’où \( \mathcal{F}_n \in \mathcal{F}&lt;/em&gt;{n+1}  \).&lt;br /&gt;
+&lt;p&gt;Un &lt;strong&gt;espace de probabilité filtré&lt;/strong&gt; \( (\Omega, (\mathcal{F}&lt;em&gt;n) , \mathbb{P}) \) est un espace de probabilité muni d’une filtration \( (\mathcal{F}_n)_n \) où \( \mathcal{F}_n \) représente l’ensemble des informations disponibles à la date \(t\) (par exemple, les cours de bourse). Plus le temps passe, plus on connait de l’information, d’où \( \mathcal{F}_n \in \mathcal{F}&lt;/em&gt;{n+1}  \).&lt;br /&gt;
 Un &lt;strong&gt;monde risque neutre&lt;/strong&gt; correspond à un espace de probabilité où le prix d’un produit vu d’aujourdui peut être calculé comme l’espérance de son prix futur actualisé. C’est un univers fictif dans lequel les prix peuvent être calculés facilement.&lt;/p&gt;
 
 &lt;p&gt;\[ P_0  = \mathbb{E}[P_t] \times A(0,t) \]&lt;br /&gt;
