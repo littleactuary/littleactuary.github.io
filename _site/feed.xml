@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-04-03T10:48:33+02:00</updated>
+<updated>2016-06-27T23:52:24+02:00</updated>
 <id>/</id>
 <author>
   <name>Duc-Hien VU</name>
@@ -39,43 +39,32 @@
 
 &lt;p&gt;Pour comprendre le calcul stochastique, nous ne pouvons quand même pas négliger tout le côté mathématique. Nous allons revoir les quelques notions indispensables pour la suite.&lt;/p&gt;
 
-&lt;p&gt;Un &lt;strong&gt;espace de probabilité filtré&lt;/strong&gt; \( (\Omega, (\mathcal{F}&lt;em&gt;n) , \mathbb{P}) \) est un espace de probabilité muni d’une filtration \( (\mathcal{F}_n)_n \) où \( \mathcal{F}_n \) représente l’ensemble des informations disponibles à la date \(t\) (par exemple, les cours de bourse). Plus le temps passe, plus on connait de l’information, d’où \( \mathcal{F}_n \in \mathcal{F}&lt;/em&gt;{n+1}  \).&lt;br /&gt;
-Un &lt;strong&gt;monde risque neutre&lt;/strong&gt; correspond à un espace de probabilité où le prix d’un produit vu d’aujourdui peut être calculé comme l’espérance de son prix futur actualisé. C’est un univers fictif dans lequel les prix peuvent être calculés facilement.&lt;/p&gt;
+&lt;p&gt;Un &lt;strong&gt;espace de probabilité filtré&lt;/strong&gt; &lt;script type=&quot;math/tex&quot;&gt;(\Omega, (\mathcal{F}_n) , \mathbb{P})&lt;/script&gt;  est un espace de probabilité muni d’une filtration &lt;script type=&quot;math/tex&quot;&gt;(\mathcal{F}_n)_n&lt;/script&gt; où &lt;script type=&quot;math/tex&quot;&gt;\mathcal{F}_n&lt;/script&gt; représente l’ensemble des informations disponibles à la date \(t\) (par exemple, les cours de bourse). Plus le temps passe, plus on connait de l’information, d’où &lt;script type=&quot;math/tex&quot;&gt;\mathcal{F}_n \subset \mathcal{F}_{n+1}&lt;/script&gt;.&lt;br /&gt;
+Une suite &lt;script type=&quot;math/tex&quot;&gt;(X_n)&lt;/script&gt; est dite &lt;strong&gt;adaptée&lt;/strong&gt; à la filtration &lt;script type=&quot;math/tex&quot;&gt;(\mathcal{F}_n)&lt;/script&gt; si elle est &lt;script type=&quot;math/tex&quot;&gt;\mathcal{F}_n&lt;/script&gt;- mesurable, c’est-à-dire que l’ensemble des informations &lt;script type=&quot;math/tex&quot;&gt;\mathcal{F}_n&lt;/script&gt; nous permet de reconstruire &lt;script type=&quot;math/tex&quot;&gt;X_n&lt;/script&gt;.&lt;br /&gt;
+Une suite &lt;script type=&quot;math/tex&quot;&gt;(X_n)&lt;/script&gt; est dite &lt;script type=&quot;math/tex&quot;&gt;\mathcal{F}_n&lt;/script&gt;- &lt;strong&gt;prévisible&lt;/strong&gt; si elle est &lt;script type=&quot;math/tex&quot;&gt;\mathcal{F}_{n-1}&lt;/script&gt;- mesurable, c’est-à-dire que l’ensemble des informations disponibles à la date &lt;script type=&quot;math/tex&quot;&gt;n-1&lt;/script&gt; nous permet déjà de connaître &lt;script type=&quot;math/tex&quot;&gt;X_n&lt;/script&gt;.&lt;/p&gt;
 
-&lt;p&gt;\[ P_0  = \mathbb{E}[P_t] \times A(0,t) \]&lt;br /&gt;
+&lt;p&gt;Une &lt;strong&gt;martingale&lt;/strong&gt; &lt;script type=&quot;math/tex&quot;&gt;(M_n)_{n \in \mathbb{N}}&lt;/script&gt; est une famille définie dans une espace de probabilité filtrée &lt;script type=&quot;math/tex&quot;&gt;(\Omega, (\mathcal{F}_n) , \mathbb{P})&lt;/script&gt; et qui satisfait :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;M_n \in L^1&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;(&lt;script type=&quot;math/tex&quot;&gt;M_n&lt;/script&gt;) est &lt;script type=&quot;math/tex&quot;&gt;\mathcal{F}_n&lt;/script&gt;- adaptée&lt;/li&gt;
+  &lt;li&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbb{E}[M_n / \mathcal{F}_{n-1}] = M_{n-1}&lt;/script&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Si on se positionne à la date &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;, on connait bien évidemment &lt;script type=&quot;math/tex&quot;&gt;X_n&lt;/script&gt;. Ce qui est intéressant pour une martingale est qu’à la date &lt;script type=&quot;math/tex&quot;&gt;n-1&lt;/script&gt;, avec toutes les informations disponibles jusqu’au moment là, on peut dire que &lt;script type=&quot;math/tex&quot;&gt;M_n&lt;/script&gt; vaut en moyenne &lt;script type=&quot;math/tex&quot;&gt;M_{n-1}&lt;/script&gt;. C’est-à-dire que l’espérance pour demain est la réalisation observée aujourd’hui.&lt;/p&gt;
+
+&lt;p&gt;Un &lt;strong&gt;monde risque neutre&lt;/strong&gt; correspond à un espace de probabilité où le prix d’un produit vu d’aujourdui peut être calculé comme l’espérance de son prix futur actualisé.&lt;br /&gt;
+\[ P_0  = \mathbb{E}[P_t] \times A(0,t) \]&lt;br /&gt;
 avec \(A(0,t)\) le facteur d’actualisation de la date future \(t\) à la date présente \(0\).&lt;/p&gt;
 
-&lt;p&gt;Une martingale&lt;/p&gt;
+&lt;p&gt;C’est un univers fictif dans lequel les prix peuvent être calculés facilement.&lt;/p&gt;
+
 
     &lt;p&gt;&lt;a href=&quot;/blog/Calcul-stochastique-en-bref/&quot;&gt;Calcul stochastique en bref&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on March 28, 2016.&lt;/p&gt;
-  </content>
-</entry>
-
-
-  
-
-<entry>
-  <title type="html"><![CDATA[Duration]]></title>
-  <link rel="alternate" type="text/html" href="/blog/Duration/" />
-  <id>/blog/Duration</id>
-  <published>2016-03-11T13:08:50+01:00</published>
-  <updated>2016-03-11T13:08:50+01:00</updated>
-  <author>
-    <name>Duc-Hien VU</name>
-    <uri></uri>
-    <email>duchienvu91@gmail.com</email>
-  </author>
-  <content type="html">
-    &lt;p&gt;Alors que j’ai fait tous mes stages en Assurance Non-Vie, je ne travaille que sur les missions Vie depuis avoir commencé mon vrai job. Le passage de l’actuariat Non-Vie à l’actuariat Vie est pour moi une transition radicale de la Statistique à la Finance. J’ai donc eu l’occasion de réviser mes cours de finance que j’ai quasiment pas touchés depuis quelques années. Ma révision commence par la duration, le terme dont j’ai beaucoup entendu parler au boulot mais dont la signification m’avait étrangement échappé.&lt;/p&gt;
-
-&lt;p&gt;On parle de la duration quand on parle d’un instrument à taux fixe, tel qu’une obligation à taux fixe (OTF). C’est&lt;/p&gt;
-
-&lt;p&gt;Here is an example MathJax inline rendering \( 1/x^{2} \), and here is a block rendering: &lt;br /&gt;
-\[ \frac{1}{n^{2}} \]&lt;/p&gt;
-
-&lt;p&gt;The only thing to look out for is the escaping of the backslash when using markdown, so the delimiters become &lt;code class=&quot;highlighter-rouge&quot;&gt;\\[ ... \\]&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;\\( ... \\)&lt;/code&gt; for inline and block maths respectively.&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;/blog/Duration/&quot;&gt;Duration&lt;/a&gt; was originally published by Duc-Hien VU at &lt;a href=&quot;&quot;&gt;Little Actuary&lt;/a&gt; on March 11, 2016.&lt;/p&gt;
   </content>
 </entry>
 

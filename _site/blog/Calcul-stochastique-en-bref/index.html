@@ -160,20 +160,37 @@
 
 <p>Pour comprendre le calcul stochastique, nous ne pouvons quand même pas négliger tout le côté mathématique. Nous allons revoir les quelques notions indispensables pour la suite.</p>
 
-<p>Un <strong>espace de probabilité filtré</strong> \( (\Omega, (\mathcal{F}<em>n) , \mathbb{P}) \) est un espace de probabilité muni d’une filtration \( (\mathcal{F}_n)_n \) où \( \mathcal{F}_n \) représente l’ensemble des informations disponibles à la date \(t\) (par exemple, les cours de bourse). Plus le temps passe, plus on connait de l’information, d’où \( \mathcal{F}_n \in \mathcal{F}</em>{n+1}  \).<br />
-Un <strong>monde risque neutre</strong> correspond à un espace de probabilité où le prix d’un produit vu d’aujourdui peut être calculé comme l’espérance de son prix futur actualisé. C’est un univers fictif dans lequel les prix peuvent être calculés facilement.</p>
+<p>Un <strong>espace de probabilité filtré</strong> <script type="math/tex">(\Omega, (\mathcal{F}_n) , \mathbb{P})</script>  est un espace de probabilité muni d’une filtration <script type="math/tex">(\mathcal{F}_n)_n</script> où <script type="math/tex">\mathcal{F}_n</script> représente l’ensemble des informations disponibles à la date \(t\) (par exemple, les cours de bourse). Plus le temps passe, plus on connait de l’information, d’où <script type="math/tex">\mathcal{F}_n \subset \mathcal{F}_{n+1}</script>.<br />
+Une suite <script type="math/tex">(X_n)</script> est dite <strong>adaptée</strong> à la filtration <script type="math/tex">(\mathcal{F}_n)</script> si elle est <script type="math/tex">\mathcal{F}_n</script>- mesurable, c’est-à-dire que l’ensemble des informations <script type="math/tex">\mathcal{F}_n</script> nous permet de reconstruire <script type="math/tex">X_n</script>.<br />
+Une suite <script type="math/tex">(X_n)</script> est dite <script type="math/tex">\mathcal{F}_n</script>- <strong>prévisible</strong> si elle est <script type="math/tex">\mathcal{F}_{n-1}</script>- mesurable, c’est-à-dire que l’ensemble des informations disponibles à la date <script type="math/tex">n-1</script> nous permet déjà de connaître <script type="math/tex">X_n</script>.</p>
 
-<p>\[ P_0  = \mathbb{E}[P_t] \times A(0,t) \]<br />
+<p>Une <strong>martingale</strong> <script type="math/tex">(M_n)_{n \in \mathbb{N}}</script> est une famille définie dans une espace de probabilité filtrée <script type="math/tex">(\Omega, (\mathcal{F}_n) , \mathbb{P})</script> et qui satisfait :</p>
+
+<ul>
+  <li>
+    <script type="math/tex; mode=display">M_n \in L^1</script>
+  </li>
+  <li>(<script type="math/tex">M_n</script>) est <script type="math/tex">\mathcal{F}_n</script>- adaptée</li>
+  <li>
+    <script type="math/tex; mode=display">\mathbb{E}[M_n / \mathcal{F}_{n-1}] = M_{n-1}</script>
+  </li>
+</ul>
+
+<p>Si on se positionne à la date <script type="math/tex">n</script>, on connait bien évidemment <script type="math/tex">X_n</script>. Ce qui est intéressant pour une martingale est qu’à la date <script type="math/tex">n-1</script>, avec toutes les informations disponibles jusqu’au moment là, on peut dire que <script type="math/tex">M_n</script> vaut en moyenne <script type="math/tex">M_{n-1}</script>. C’est-à-dire que l’espérance pour demain est la réalisation observée aujourd’hui.</p>
+
+<p>Un <strong>monde risque neutre</strong> correspond à un espace de probabilité où le prix d’un produit vu d’aujourdui peut être calculé comme l’espérance de son prix futur actualisé.<br />
+\[ P_0  = \mathbb{E}[P_t] \times A(0,t) \]<br />
 avec \(A(0,t)\) le facteur d’actualisation de la date future \(t\) à la date présente \(0\).</p>
 
-<p>Une martingale</p>
+<p>C’est un univers fictif dans lequel les prix peuvent être calculés facilement.</p>
+
 
         
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="/blog/Duration/" class="btn" title="Duration">Previous</a>
+        <a href="/blog/Web-application-framework-with-Shiny/" class="btn" title="Web application framework with Shiny">Previous</a>
       
       
     </nav><!-- /.pagination -->

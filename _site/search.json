@@ -10,14 +10,6 @@
 
   
     ,{
-      "title"			: "Duration",
-      "link"			: "/blog/Duration/",
-      "excerpt"		: "Sensibilité, duration, duration modifiée"
-    }
-  
-
-  
-    ,{
       "title"			: "Web application framework with Shiny",
       "link"			: "/blog/Web-application-framework-with-Shiny/",
       "excerpt"		: "R application with an user-friendly web interface"
