@@ -6,7 +6,7 @@ categories: blog
 excerpt: "An introduction to P&C insurance and claims reserving"
 tags: [Jekyll, GitHub, Markdown]
 image:
-  feature: http://media.propertycasualty360.com/propertycasualty360/article/2016/03/23/projection-of-future-crop-600x338-crop-600x338.jpg
+  feature: 
   credit: 
   creditlink: 
 comments: true
