@@ -12,12 +12,20 @@ You can download my CV here ([**English**]({{ site.url }}/vitae/CV_Duc_Hien_VU_e
 
 ## Current situation
 
-Responsible of ALM, statistical & actuarial modeling at [**Covéa**](https://www.covea.eu/en/home/){:target="_blank"}, associate of the [Institut des Actuaires (I.A.)](http://www.institutdesactuaires.com/){:target="_blank"}, member and webmaster of the [**International Diffusion of French Actuarial Science (D.I.A.F.)**](http://assodiaf.org){:target="_blank"}
+* Responsible of ALM, statistical & actuarial modeling at [**Covéa**](https://www.covea.eu/en/home/){:target="_blank"} 
+* Associate actuary of the [Institut des Actuaires (I.A.)](http://www.institutdesactuaires.com/){:target="_blank"}
+* Member and webmaster of the [**International Diffusion of French Actuarial Science (D.I.A.F.)**](http://assodiaf.org){:target="_blank"}
 
 ## Professional Experience
 
-*From Jan 2018* **Responsible of ALM, statistical & actuarial modeling at Covéa**
+*From Jan 2018* **Responsible of ALM, statistical & actuarial modeling at Covéa (Investment Department)**
 
+* I'm in charge of ALM modeling and Solvency II for the 3 Life insurance entities of Covéa : MMA Vie SA, GMF Vie SA and MAAF Vie SA.
+* I analyse the impacts of Investment policies and Profit Sharing policies of the group on SII indicators and profitability metrics.
+* I conduct studies on Analysis of Change in BE (VA C2C) and Own Funds SII 
+
+
+-----
 
 *Dec 2015 - Dec 2017* **Actuarial Consultant at EY**
 
@@ -27,22 +35,22 @@ Responsible of ALM, statistical & actuarial modeling at [**Covéa**](https://www
 
 -----
 
-*May - Oct 2015* **Trainee actuary at AXA Corporate Solutions (Model, Reserving & Reinsurance team)**
+*June 2014 - Oct 2015* **Trainee actuary at different entities of AXA group 
+
+**AXA Corporate Solutions (Model, Reserving & Reinsurance team)**
 
 * My main mission was to develop an actuarial model for Major Losses Reserving at AXA CS. In this model, the Major Losses Threshold is determined according to some techniques derived from the Extreme Values Theory. Once this threshold is calibrated, the model will separately estimate  the IBNeR amounts (using an individual method that I named Individual Chain-ladder) and the IBNyR amounts (thanks to a frequency-severity approach and an aggregated method).
 * I deployed a corresponding desktop application (with R and Shiny package). [Here is a post of mine about deploying a user-friendly desktop application with R, Shiny, and a web browser.]({{ site.url }}/blog/Web-application-framework-with-Shiny/){:target="_blank"}
 * I also participated to the 3rd quarter reserving (Q3) and forecasting (F3) process.
 
-------
 
-*Nov 2014 - Apr 2015* **Trainee actuary at AXA Global P&C (Reinsurance team)**
+**AXA Global P&C (Reinsurance team)**
 
 * I was in charge of improving and speeding-up a CAT/Atypical modeling & reinsurance pricing tool (with R/C++ thanks to Rcpp package).[Here's a post of mine about how to speed-up R programs with Rcpp package in R]({{ site.url }}/blog/connecting-R-and-Cpp-with-Rcpp/){:target="_blank"}.
 * I also helped restructure the program, added new functionalities and prepared the integration of the R core into a web platform.
 
------------
 
-*Jun 2014 - Sep 2014* **Trainee actuary at AXA Solutions Collectives (Health insurance team)**
+**AXA Solutions Collectives (Health insurance team)**
 
 * The main mission was to calibrate different dental claim distributions (with SAS) and then to deploy a tool for measuring the pricing impact of a dental cap (with Excel/VBA).
 * I also conducted a study of the senior policyholders' behaviors on health insurance consumption before their retirement.
