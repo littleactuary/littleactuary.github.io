@@ -5,39 +5,44 @@ excerpt: "My online resume."
 modified:
 ---
 
-You can download my CV (in PDF format) here ([**English**]({{ site.url }}/vitae/CV_Duc_Hien_VU_en.pdf){:target="_blank"}, [**French**]({{ site.url }}/vitae/CV_Duc_Hien_VU_fr.pdf){:target="_blank"}, [**Vietnamese**]({{ site.url }}/vitae/CV_Duc_Hien_VU_vi.pdf){:target="_blank"}). 
+You can download my CV here ([**English**]({{ site.url }}/vitae/CV_Duc_Hien_VU_en.pdf){:target="_blank"}, [**French**]({{ site.url }}/vitae/CV_Duc_Hien_VU_fr.pdf){:target="_blank"}, [**Vietnamese**]({{ site.url }}/vitae/CV_Duc_Hien_VU_vi.pdf){:target="_blank"}). 
 
 * Table of Contents
 {:toc}
 
 ## Current situation
 
-Actuarial Consultant at [**EY**](http://www.ey.com){:target="_blank"}, associated Actuary of the [Institute of Actuaries (I.A.)](http://www.institutdesactuaires.com/){:target="_blank"}, member and webmaster of the [**International Diffusion of French Actuarial Science (D.I.A.F.)**](http://assodiaf.org){:target="_blank"}
+Responsible of ALM, statistical & actuarial modeling at [**Covéa**](https://www.covea.eu/en/home/){:target="_blank"}, associate of the [Institut des Actuaires (I.A.)](http://www.institutdesactuaires.com/){:target="_blank"}, member and webmaster of the [**International Diffusion of French Actuarial Science (D.I.A.F.)**](http://assodiaf.org){:target="_blank"}
 
 ## Professional Experience
 
-*From Dec 2015* **Actuarial Consultant at EY**
+*From Jan 2018* **Responsible of ALM, statistical & actuarial modeling at Covéa**
 
-I participate to the audit and consulting activities of the actuarial team. I'm specialized in Life and Non-Life insurance. I also do Pension and Analytics missions every once in a while.
+
+*Dec 2015 - Dec 2017* **Actuarial Consultant at EY**
+
+* Being part of the Life-Insurance team, I helped major insurance groups integrate Solvency II framework (ALM model review & development, quarter & annual calculation of BE, SCR and solvency ratio, VA C2C analysis, ORSA, strategic asset allocation, etc.). 
+* I'd worked tightly with third-party ALM software editors in developing, maintaining and integrating their products into our clients systems. 
+* I'd also developed internal tools, as add-ins for third-party softwares or stand-alone applications, responding to our clients' needs (process automatization & optimization, analysis & backtesting tools).
 
 -----
 
-*May - Oct 2015* **Intern at AXA Corporate Solutions (Model, Reserving & Reinsurance team)**
+*May - Oct 2015* **Trainee actuary at AXA Corporate Solutions (Model, Reserving & Reinsurance team)**
 
-* My main mission was to develop an actuarial model for Major Losses Reserving at AXA CS. In this model, the Major Losses Threshold is determined according to some techniques derived from the Extreme Values Theory. Once this threshold is calibrated, the model will separately estimate  the IBNeR amounts (using an individual method that I've named Individual Chain-ladder) and the IBNyR amounts (thanks to a frequency-severity approach and an aggregated method). The thesis is confidential until 2017 but its summary will be soon updated on the IA site. 
-* I have deployed a corresponding desktop application (with R and Shiny package). [Here is a post of mine about deploying a user-friendly desktop application with R, Shiny, and a web browser.]({{ site.url }}/blog/Web-application-framework-with-Shiny/){:target="_blank"}
+* My main mission was to develop an actuarial model for Major Losses Reserving at AXA CS. In this model, the Major Losses Threshold is determined according to some techniques derived from the Extreme Values Theory. Once this threshold is calibrated, the model will separately estimate  the IBNeR amounts (using an individual method that I named Individual Chain-ladder) and the IBNyR amounts (thanks to a frequency-severity approach and an aggregated method).
+* I deployed a corresponding desktop application (with R and Shiny package). [Here is a post of mine about deploying a user-friendly desktop application with R, Shiny, and a web browser.]({{ site.url }}/blog/Web-application-framework-with-Shiny/){:target="_blank"}
 * I also participated to the 3rd quarter reserving (Q3) and forecasting (F3) process.
 
 ------
 
-*Nov 2014 - Apr 2015* **Part-time intern at AXA Global P&C (Reinsurance team)**
+*Nov 2014 - Apr 2015* **Trainee actuary at AXA Global P&C (Reinsurance team)**
 
 * I was in charge of improving and speeding-up a CAT/Atypical modeling & reinsurance pricing tool (with R/C++ thanks to Rcpp package).[Here's a post of mine about how to speed-up R programs with Rcpp package in R]({{ site.url }}/blog/connecting-R-and-Cpp-with-Rcpp/){:target="_blank"}.
 * I also helped restructure the program, added new functionalities and prepared the integration of the R core into a web platform.
 
 -----------
 
-*Jun 2014 - Sep 2014* **Actuarial Intern at AXA Solutions Collectives (Health insurance team)**
+*Jun 2014 - Sep 2014* **Trainee actuary at AXA Solutions Collectives (Health insurance team)**
 
 * The main mission was to calibrate different dental claim distributions (with SAS) and then to deploy a tool for measuring the pricing impact of a dental cap (with Excel/VBA).
 * I also conducted a study of the senior policyholders' behaviors on health insurance consumption before their retirement.
@@ -46,29 +51,15 @@ I participate to the audit and consulting activities of the actuarial team. I'm 
 
 ## Education
 
-*2013-2015* **ENSAE ParisTech**
-
-* Final year: Actuarial Science
-* 2nd year: Applied Mathematics major
+* Associate actuary (2016), **Institut des Actuaires**
 
 --------
+* Master of Engineering (MEng), Statistician Economist (2015), **ENSAE Paris** 
+* Double-degree undergraduate in Applied Mathematics & Applied Economics (2012), **Paris-Dauphine University** 
 
-*2010-2013* **Paris-Dauphine University**
-
-* Master 1: Applied Mathematics (Statistics major)
-* Double-degree Bachelor: Applied Mathematics & Applied Economics
-* 2nd undergraduate year: Mathematics & Computer Science
-
--------
-
-*2009-2010* **Paris-Est Créteil University**
-
-* 1st year of Bachelor: Economic - Management
-
---------
 
 ## Academic projects
-Below some mini-projects that I have done with my friends at school. All of the notes were written in (bad) french. :( 
+Below some mini-projects that I have done with my friends at school.
 
 Final year at ENSAE
 
@@ -112,6 +103,6 @@ Bachelor at Paris-Dauphine University
 
 ## Hobbies
 
-* Web technologies
+* Programming (Python, R) & Web technologies (front-end & back-end)
 * Guitar (acoustic, fingerstyle)
-* Jogging (Beginner level, 10km l'Equipe 2013, 10km Nike 2015)
+* Distance running (from 10km to marathon)
