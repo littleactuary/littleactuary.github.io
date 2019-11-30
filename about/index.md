@@ -8,9 +8,9 @@ modified: 2019-11-30T19:44:38.564948-04:00
 
 ## About Me
 
-Hi, my name's Duc Hien and I'm from Vietnam. I moved to France in 2009 to pursue my higher studies and I've been living here since then. I hold a MSc degree in Statistics (Actuarial Science Major) at  [**ENSAE Paris**](https://www.ensae.fr/en/){:target="_blank"}. Associate actuary of the [**Institut des Actuaires (IA)**](https://www.institutdesactuaires.com){:target="_blank"}, I'm currently pursuing the fellowship pathway of the [**Society of Actuary (SOA)**](https://www.soa.org){:target="_blank"}. 
+Hi, my name is Duc Hien and I'm from Vietnam. I moved to France in 2009 to pursue my higher studies and I've been living here since then. I hold a Master of Engineering in Statistics & Economics (Actuarial Science Major) at  [**ENSAE Paris**](https://www.ensae.fr/en/){:target="_blank"}. Associate actuary of the [**Institut des Actuaires (IA)**](https://www.institutdesactuaires.com){:target="_blank"}, I'm currently pursuing the fellowship pathway of the [**Society of Actuaries (SOA)**](https://www.soa.org){:target="_blank"}. 
 
-I work as an ALM actuary for the french mutual insurance group [**Covéa**](https://www.covea.eu/en/home/){:target="_blank"}. 
+From 2014 to 2015, I worked, as a trainee actuary, in non-life insurance and reinsurance for different AXA's entities (AXA France, AXA Corporate Solutions, AXA Global P&C). I joined EY in late 2015 and specialized myself in Life insurance consulting and audit activities, focusing on Solvency II and Asset Liability Management. From 2018, I'm responsible of ALM, statistical/actuarial modeling for the french mutual insurance group [**Covéa**](https://www.covea.eu/en/home/){:target="_blank"}. 
 
 I love Mathematics and more specifically Financial Mathematics. I also enjoy learning programming and web development on my free time. 
 
@@ -20,7 +20,7 @@ I love Mathematics and more specifically Financial Mathematics. I also enjoy lea
 
 I use this blog to keep track of my progress on Actuarial Science and Finance learning, by taking note of what I've learned and sharing it online. It is the best way for me to better understand and to remember things. I also hope to learn more from your comments.
 
-This blog is powered by [**Jekyll**](http://jekyllrb.com){:target="_blank"}, using [**So Simple Theme**](https://mademistakes.com/work/so-simple-jekyll-theme/){:target="_blank"}, and hosted by [**GitHub**](https://github.com){:target="_blank"}. For those who are interested in blogging (like me), [here's some facts about Jekyll and the reasons for what I've chosen Jekyll]({{ site.url }}/blog/blogging-like-a-ninja)
+This blog is powered by [**Jekyll**](http://jekyllrb.com){:target="_blank"}, using [**So Simple Theme**](https://mademistakes.com/work/so-simple-jekyll-theme/){:target="_blank"}, and hosted by [**GitHub**](https://github.com){:target="_blank"}. For those who are interested in blogging (like me), [here's some facts about Jekyll and the reasons I chose Jekyll].({{ site.url }}/blog/blogging-like-a-ninja)
 
 
 Enjoy reading my blog! :)
