@@ -31,7 +31,7 @@ We need to install Rtools in order to have a C++ compilator. Please [**download 
 c:\Rtools\bin ; c:\Rtools\gcc-4.6.3\bin ; 
 {% endhighlight %}
 
-To check whether or not Rtools was successfully installed, enter the first line below into your R console. If everything is fine, you will see the second line:
+To check whether or not Rtools was successfully installed, enter the first line below into your R console. If everything is ok, you will see the second line:
 {% highlight r %}
 Sys.getenv('PATH')
 [1] "c:\\\\Rtools\\\\bin;c:\\\\Rtools\\\\gcc-4.6.3\\\\bin;...
@@ -48,7 +48,7 @@ install.packages("Rcpp")
 If it doesn't work, try to download the latest version of Rcpp [**here**](Rcpp) and install it manually.
 
 ## Using Rcpp
-C++ functions need to be written in `.cpp`file(s), apart from R script. If you are using RStudio, you can create one by selecting File > New File > C++ file. Below is the default example of C++ function `timesTwo()` given by RStudio. I will save the scirpt under the name `test.cpp`.
+C++ functions need to be written in `.cpp`file(s), apart from R script. If you are using RStudio, you can create one by selecting File > New File > C++ file. Below is the default example of C++ function `timesTwo()` given by RStudio. I will save the script under the name `test.cpp`.
 {% highlight c %}
 # include <Rcpp.h>
 using namespace Rcpp;
