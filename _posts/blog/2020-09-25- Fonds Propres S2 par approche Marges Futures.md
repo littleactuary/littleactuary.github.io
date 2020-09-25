@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Analyse des Fonds Propres S2 - Approche Marges Futures générées par les contrats"
+title: "Fonds Propres S2 - Marges Futures des contrats"
 modified:
 categories: blog
 excerpt: "Analyse des Fonds Propres S2 - Approche Marges Futures générées par les contrats"
