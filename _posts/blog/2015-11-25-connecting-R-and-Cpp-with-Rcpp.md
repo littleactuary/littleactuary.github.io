@@ -12,7 +12,7 @@ share: true
 date: 2015-11-25T15:39:55-04:00
 ---
 
-If you are an R user, you may know that R is potentially slow compared to other languages such as Matlab, Java or C/C++. It's highly recommended to avoid using loops in R. A common alternative way is to vectorize your program, i.e. to use vectors and matrices. There is a family of `apply()`functions developed in R to help you work with vectors, matrices, dataframes. These functions are better than a naive loop in R, but still struggle when the dimension of your vectors or matrices is too big. A better solution I want to talk about in this post is the Rcpp package which provides a C++ API as an extension to the R system. FYI, many R packages today rely on Rcpp. 
+If you are an R user, you may know that R is potentially slow compared to other languages such as Matlab, Java or C/C++. It's highly recommended avoiding using loops in R. A common alternative way is to vectorize your program, i.e. to use vectors and matrices. There is a family of `apply()`functions developed in R to help you work with vectors, matrices, dataframes. These functions are better than a naive loop in R, but still struggle when the dimension of your vectors or matrices is too big. A better solution I want to talk about in this post is the Rcpp package which provides a C++ API as an extension to the R system. FYI, many R packages today rely on Rcpp.
 
 If you are strong enough to code your whole program in C++, well, I have nothing more to say. No other languages can beat C++ in term of speed. But if you choose to stay with R (because you are familiar with many useful R packages and pre-built functions that can save you a lot of time compared to C++), and if you are an occasional C++ user, you may try `Rcpp`. Keep building your tool with R and you only need to code some parts in C++ and then call them in your R program through Rcpp. I will show you how well Rcpp performs. But first, let's do some preparation.
 
@@ -23,7 +23,7 @@ If you are strong enough to code your whole program in C++, well, I have nothing
 
 This step is for Windows users only! If you are using Mac, you just need to install Xcode and go to the next section.
 
-We need to install Rtools in order to have a C++ compilator. Please [**download Rtools here**](https://cran.r-project.org/bin/windows/Rtools/){:target="_blank"}. Make sure that you are downloading a Rtools version compatible with your R system. After installing Rtools, the environment variable PATH needs to be re-defined to tell R where to find the C++ compilator. 
+We need to install Rtools in order to have a C++ compilator. Please [**download Rtools here**](https://cran.r-project.org/bin/windows/Rtools/){:target="_blank"}. Make sure that you are downloading a Rtools version compatible with your R system. After installing Rtools, the environment variable PATH needs to be re-defined to tell R where to find the C++ compilator.
 
 * If your computer does not require an admin mode, it will be done automatically.
 * Otherwise (when using a computer at work for example), you have to do it manually. First go to Control Panel, pull down the admin password and then add the below line in your PATH:
@@ -118,13 +118,13 @@ NumericMatrix cumulation_CPP(NumericMatrix M){
 
 Store this function in test.cpp`. Now return to your R console (or your R script) and try this:
 {% highlight r %}
-M <- matrix(1, ncol=50000, nrow=50000) 
+M <- matrix(1, ncol=50000, nrow=50000)
 system.time(cumulation_CPP(M))
 system.time(M2 <- apply(M, 2, cumsum))
 {% endhighlight %}
 
-## Real-life application of Rcpp 
-During my part-time internship at AXA Global P&C, I had to speed-up an Actuarial pricing tool built with R. What I found out is that the core R was already very well written. There is no loop and there are `apply()`, `sapply()`, `lapply()` everywhere. After checking the running time of each bloc of code, I surprisingly identified that those `apply()` functions are the main reason of the time cost. 
+## Real-life application of Rcpp
+During my part-time internship at AXA Global P&C, I had to speed-up an Actuarial pricing tool built with R. What I found out is that the core R was already very well written. There is no loop and there are `apply()`, `sapply()`, `lapply()` everywhere. After checking the running time of each bloc of code, I surprisingly identified that those `apply()` functions are the main reason of the time cost.
 
 Thus I decided to recode those functions in C++. What I obtained by the end is a running time reducing of 95%. For example, with 10000 simulations, the running time has reduced from 74.16s to 3.88s. Not bad at all, right?
 
@@ -144,5 +144,3 @@ Above is a quick introduction to Rcpp. I didn't dig too much into Rcpp since my 
 * [rcpp.org](http://www.rcpp.org){:target="_blank"}
 * [Rcpp core on GitHub](https://github.com/RcppCore/Rcpp){:target="_blank"}
 * [Rcpp from Advanced R by Hadley Wickham](http://adv-r.had.co.nz/Rcpp.html){:target="_blank"}
-
-

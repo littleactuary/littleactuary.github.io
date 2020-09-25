@@ -12,22 +12,22 @@ share: true
 date: 2015-10-30T15:39:55-04:00
 ---
 
-At school, I have done some simple projects with R. Most of them were written in a dirty way (all in a same R script). Then I had a chance to work with R more seriously during my two last internships. I have learned R by reading R programs developed by experienced actuaries. Of course they are not programmers, but their programs are well-structured and much more readable and understandable than mine. A well-structured program (especially when dealing with a complex problem) helps you easily verify and debug your code and help others (who have to audit or modify your code) understand it quickly and effortlessly. Here are some rules that I find very useful for deploying a program with R. I believe they are also true for almost other languages.
+At school, I'd done some simple projects with R, most of which were written in a dirty way (all in a same R script). Then I had a chance to work with R more seriously during my two last internships. I have learned R by reading R programs developed by experienced actuaries. Although they are not programmers, their programs are well-structured and much more readable and understandable than mine. A well-structured program (especially when dealing with a complex problem) helps us easily verify and debug our code and helps others (who have to audit or modify our code) understand it quickly and effortlessly. Here are some rules that I find very useful for deploying a program with R. I believe they are also true for almost other languages.
 
 ### #1: Moduling your program
 
-If your program is long and complex, instead of using one single R script, you should divide your program into separate modules whenever possible and store them in separate R scripts. For example, if you want to develop a pricing tool that proposes 2 different pricing methods, your program structure may look like this:
+If your program is long and complex, instead of using one single R script, you should divide your program into separate modules whenever it is possible and store them in separate R scripts. For example, if you want to develop a pricing tool that proposes 2 different pricing methods, your program structure may look like this:
 
 ~~~
 input reading
-claims modeling 
+claims modeling
 if (method ==1)
     pricing method 1
 else
     pricing method 2
 ~~~
 
-Your R program will be called through a `main.R` script: 
+Your R program will be called through a `main.R` script:
 
 {% highlight r %}
 # functions loading       
@@ -41,7 +41,7 @@ source("E-input_reading.R")
 
 # claim modeling
 source("E-claims_modeling.R")
-# pricing 
+# pricing
 if (method == 1)
     source("E-pricing_method1.R")
 else
@@ -49,7 +49,7 @@ else
 
 {% endhighlight %}
 
-This script is the main workflow where your program tells R what to do. To run your program, just execute the `main.R` script! Firstly, R will load 4 different scripts that only contain functions (that's why their names begin with `F-`).  While `F-simple_functions.R` stores some simple functions that will be used almost everywhere in your program, `F-claims_modeling.R"` is reserved to specific functions that will be called in `E-claims_modeling.R` and so one. Once all functions are loaded, R will call executive scripts whose name begins with `E-`, in a scenario that you have pre-determined in the main script. 
+This script is the main workflow where your program tells R what to do. To run your program, just execute the `main.R` script! Firstly, R will load 4 different scripts that only contain functions (that's why their names begin with `F-`).  While `F-simple_functions.R` stores some simple functions that will be used almost everywhere in your program, `F-claims_modeling.R"` is reserved to specific functions that will be called in `E-claims_modeling.R` and so one. Once all functions are loaded, R will call executive scripts whose name begins with `E-`, in a scenario that you have pre-determined in the main script.
 
 You can also replace each executive script by creating and calling a big function with parameters in order to make your R modules really independent (however, in my experience, it is sometimes complicate to do so). While structuring the program seems useless in this simplified example, it turns out to be very helpful when working with more than hundred lines of code per module.
 
@@ -83,7 +83,7 @@ Whenever I have a doubt with the purpose of this function, I only need to write 
 
 ### #3: Naming your variables wisely
 
-A good variable name is a meaningful name, not too short, not too long. However, when naming an index variable, we usually choose a meaningless letter such as "i", "j" or "k". In this case, a friend of mine has taught me that "ii" is better than "i". Instead of:  
+A good variable name is a meaningful one, not too short, not too long. However, when naming an index variable, we usually choose a meaningless letter such as "i", "j" or "k". In this case, a friend of mine has taught me that "ii" is better than "i". Instead of:  
 
 {% highlight r %}
 beautifulAmount = function(x){
@@ -125,4 +125,3 @@ names(output.method1)
 {% endhighlight %}
 
 These simple habits of programming are surprisingly useful in practice, for both code writers and code readers.
-
