@@ -47,8 +47,7 @@ AXA Corporate Solutions (Model, Reserving & Reinsurance team)
 ([Slides](https://drive.google.com/file/d/18iNuFm9i4i7BSuL96_lL43RW80fSh8A_/view?usp=sharing){:target="_blank"})
 
 * I deployed a corresponding desktop application (with R and Shiny package).
-
-[Here is a post of mine about deploying a user-friendly desktop application with R, Shiny, and a web browser.]({{ site.url }}/blog/Web-application-framework-with-Shiny/){:target="_blank"}
+ [Here is a post of mine about deploying a user-friendly desktop application with R, Shiny, and a web browser.]({{ site.url }}/blog/Web-application-framework-with-Shiny/){:target="_blank"}
 * I also participated to the 3rd quarter reserving (Q3) and forecasting (F3) process.
 
 
@@ -57,8 +56,7 @@ AXA Global P&C (Reinsurance team)
 * I was in charge of improving and speeding-up a CAT/Atypical modeling & reinsurance pricing tool (with R/C++ thanks to Rcpp package).
 ([Rapport n°1](https://drive.google.com/file/d/13MJKQmO5j6m6NhPMEXF6Nw7oWpCqK05e/view?usp=sharing){:target="_blank"})
 ([Rapport n°2](https://drive.google.com/file/d/1jZSNLh6iDcnjIzRNBZAarJcLsZYijaQf/view?usp=sharing){:target="_blank"})
-
-[Here's a post of mine about how to speed-up R programs with Rcpp package in R]({{ site.url }}/blog/connecting-R-and-Cpp-with-Rcpp/){:target="_blank"}.
+ [Here's a post of mine about how to speed-up R programs with Rcpp package in R]({{ site.url }}/blog/connecting-R-and-Cpp-with-Rcpp/){:target="_blank"}.
 * I also helped restructure the program, added new functionalities and prepared the integration of the R core into a web platform.
 
 
