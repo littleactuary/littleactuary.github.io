@@ -5,7 +5,7 @@ modified:
 categories: blog
 excerpt: "An introduction to P&C insurance and claims reserving"
 tags: [Jekyll, GitHub, Markdown]
-image: http://casoxia.fr/six/img/source/editorial/iard.jpg
+image: 
   feature: http://casoxia.fr/six/img/source/editorial/iard.jpg
   credit: http://casoxia.fr/
   creditlink: http://casoxia.fr/
