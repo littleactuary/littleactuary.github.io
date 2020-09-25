@@ -7,6 +7,8 @@ modified:
 
 You can download my CV here ([**English**]({{ site.url }}/vitae/CV_Duc_Hien_VU_en.pdf){:target="_blank"}, [**French**]({{ site.url }}/vitae/CV_Duc_Hien_VU_fr.pdf){:target="_blank"}, [**Vietnamese**]({{ site.url }}/vitae/CV_Duc_Hien_VU_vi.pdf){:target="_blank"}). 
 
+From 2014 to 2015, I worked, as a trainee actuary, in non-life insurance and reinsurance for different AXA's entities (AXA France, AXA Corporate Solutions, AXA Global P&C). I joined EY in late 2015, doing consulting and audit activities for major European insurance groups, and specializing myself on Solvency II and Asset Liability Management (ALM) subjects. From 2018, I'm responsible of ALM, statistical/actuarial modeling for the french mutual insurance group Covéa. 
+
 * Table of Contents
 {:toc}
 
