@@ -5,16 +5,16 @@ excerpt: "My online resume."
 modified:
 ---
 
-You can download my CV here ([**English**]({{ site.url }}/vitae/CV_Duc_Hien_VU_en.pdf){:target="_blank"}, [**French**]({{ site.url }}/vitae/CV_Duc_Hien_VU_fr.pdf){:target="_blank"}, [**Vietnamese**]({{ site.url }}/vitae/CV_Duc_Hien_VU_vi.pdf){:target="_blank"}). 
+You can download my CV here ([**English**]({{ site.url }}/vitae/CV_Duc_Hien_VU_en.pdf){:target="_blank"}, [**French**]({{ site.url }}/vitae/CV_Duc_Hien_VU_fr.pdf){:target="_blank"}, [**Vietnamese**]({{ site.url }}/vitae/CV_Duc_Hien_VU_vi.pdf){:target="_blank"}).
 
-From 2014 to 2015, I worked, as a trainee actuary, in non-life insurance and reinsurance for different AXA's entities (AXA France, AXA Corporate Solutions, AXA Global P&C). I joined EY in late 2015, doing consulting and audit activities for major European insurance groups, and specializing myself on Solvency II and Asset Liability Management (ALM) subjects. From 2018, I'm responsible of ALM, statistical/actuarial modeling for the french mutual insurance group Covéa. 
+From 2014 to 2015, I worked, as a trainee actuary, in non-life insurance and reinsurance for different AXA's entities (AXA France, AXA Corporate Solutions, AXA Global P&C). I joined EY in late 2015, doing consulting and audit activities for major European insurance groups, and specializing myself on Solvency II and Asset Liability Management (ALM) subjects. From 2018, I'm responsible of ALM, statistical/actuarial modeling for the french mutual insurance group Covéa.
 
 * Table of Contents
 {:toc}
 
 ## Current situation
 
-* Responsible of ALM, statistical & actuarial modeling at [**Covéa**](https://www.covea.eu/en/home/){:target="_blank"} 
+* Responsible of ALM, statistical & actuarial modeling at [**Covéa**](https://www.covea.eu/en/home/){:target="_blank"}
 * Associate actuary of the [Institut des Actuaires (I.A.)](http://www.institutdesactuaires.com/){:target="_blank"}
 * Member and webmaster of the [**International Diffusion of French Actuarial Science (D.I.A.F.)**](http://assodiaf.org){:target="_blank"}
 
@@ -24,20 +24,20 @@ From 2014 to 2015, I worked, as a trainee actuary, in non-life insurance and rei
 
 * I'm in charge of ALM modeling and Solvency II for the 3 Life insurance entities of Covéa : MMA Vie SA, GMF Vie SA and MAAF Vie SA.
 * I analyse the impacts of Investment policies and Profit Sharing policies of the group on SII indicators and profitability metrics.
-* I conduct studies on Analysis of Change in BE (VA C2C) and Own Funds SII 
+* I conduct studies on Analysis of Change in BE (VA C2C) and Own Funds SII
 
 
 -----
 
 *Dec 2015 - Dec 2017* **Actuarial Consultant at EY**
 
-* Being part of the Life-Insurance team, I helped major insurance groups integrate Solvency II framework (ALM model review & development, quarter & annual calculation of BE, SCR and solvency ratio, VA C2C analysis, ORSA, strategic asset allocation, etc.). 
-* I'd worked tightly with third-party ALM software editors in developing, maintaining and integrating their products into our clients systems. 
+* Being part of the Life-Insurance team, I helped major insurance groups integrate Solvency II framework (ALM model review & development, quarter & annual calculation of BE, SCR and solvency ratio, VA C2C analysis, ORSA, strategic asset allocation, etc.).
+* I'd worked tightly with third-party ALM software editors in developing, maintaining and integrating their products into our clients systems.
 * I'd also developed internal tools, as add-ins for third-party softwares or stand-alone applications, responding to our clients' needs (process automatization & optimization, analysis & backtesting tools).
 
 -----
 
-*June 2014 - Oct 2015* **Trainee actuary at different entities of AXA group** 
+*June 2014 - Oct 2015* **Trainee actuary at different entities of AXA group**
 
 AXA Corporate Solutions (Model, Reserving & Reinsurance team)
 
@@ -55,6 +55,8 @@ AXA Global P&C (Reinsurance team)
 AXA Solutions Collectives (Health insurance team)
 
 * The main mission was to calibrate different dental claim distributions (with SAS) and then to deploy a tool for measuring the pricing impact of a dental cap (with Excel/VBA).
+([Rapport de stage](https://drive.google.com/file/d/1k0UyuGKGkF-ftP28GU_L4TpcBRqUjN-A/view?usp=sharing){:target="_blank"})
+([Slides](https://speakerdeck.com/littleactuary/impact-tarifaire-du-plafond-dentaire){:target="_blank"})
 * I also conducted a study of the senior policyholders' behaviors on health insurance consumption before their retirement.
 
 -----------
@@ -64,8 +66,8 @@ AXA Solutions Collectives (Health insurance team)
 * Associate actuary (2016), **Institut des Actuaires**
 
 --------
-* Master of Engineering (MEng), Statistician Economist (2015), **ENSAE Paris** 
-* Double-degree undergraduate in Applied Mathematics & Applied Economics (2012), **Paris-Dauphine University** 
+* Master of Engineering (MEng), Statistician Economist (2015), **ENSAE Paris**
+* Double-degree undergraduate in Applied Mathematics & Applied Economics (2012), **Paris-Dauphine University**
 
 
 ## Academic projects
