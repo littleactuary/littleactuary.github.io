@@ -2,7 +2,7 @@
 layout: post
 title: "Investment and Financial Market"
 modified:
-categories: articles
+categories: blog
 excerpt: "SOA preparation"
 tags: []
 image:
