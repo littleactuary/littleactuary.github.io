@@ -2,7 +2,7 @@
 layout: post
 title: "Fonds Propres S2 - Marges Futures des contrats"
 modified:
-categories: blog
+categories: articles
 excerpt: "Analyse des Fonds Propres S2 - Approche Marges Futures générées par les contrats"
 tags: [solvabilite, S2, marge future, fonds propres]
 image:
