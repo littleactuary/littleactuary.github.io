@@ -30,7 +30,7 @@ Here is the idea and the main steps:
 
 
 <center>
-<a href="{{ site.url }}/images/r-excel.jpg"><img src="{{ site.url }}/images/r-excel.jpg" alt="image"></a>
+<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/hP18zBj5/r-excel.jpg' border='0' alt='r-excel'/></a>
 </center>
 
 ## R script
