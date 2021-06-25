@@ -14,6 +14,9 @@ date: 2021-06-25T15:39:55-04:00
 
 With many programming languages coexisting in modern day IT, each with their own pros and cons, more and more often we have to combine them in our projects. I once wrote a post about calling C++ from R. Today, I'd like to share a quick way to call R program from Excel (with a few lines of VBA code), what I believe to be useful in many cases.
 
+* Table of Contents
+{:toc}
+
 ## Background
 To way of background, a few years ago, I was asked to modelling the competitive rate ("taux concurrentiel", ou "taux servi moyen" in French) for life saving insurance products, given a historic of interest rates and their moving averages. The first step was to study the correlation of these rates and to figure out which of them are really useful for explaining the competitive rate. Principal Component Analysis (PCA) technique was chosen for the task, and I didn't want to implement the PCA from scratch with Excel and VBA. So, I turned to the FactoMineR package in R for help (of course). The rest of the project needed to be done in Excel.
 
@@ -32,7 +35,7 @@ Here is the idea and the main steps:
 
 ## R script
 
-{% highlight r %}
+{% highlight %}
 rm(list=ls())
 
 ARGS = commandArgs(TRUE)    
