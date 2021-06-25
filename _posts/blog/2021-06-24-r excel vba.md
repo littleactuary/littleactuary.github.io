@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using Excel to call R script"
+title: "Calling R from Excel"
 modified:
 categories: blog
 excerpt: "Illustrating with a Principal Component Analysis"
@@ -12,20 +12,25 @@ share: true
 date: 2021-06-24T15:39:55-04:00
 ---
 
-With many programming languages coexisting in modern day IT, each with their own pros and cons, more and more often we have to combine them in our projects. I once wrote a post about calling C++ from R. Today, I'd like to share a quick way to call R program from Excel (with a few lines of VBA code), what I believe to be useful in many cases.
+With many programming languages coexisting nowadays, each with their own pros and cons, more and more often we have to combine them in one project. I once wrote a post about calling C++ from R. Today, I'd like to share a quick way to call R program from Excel (with a few lines of VBA code), what I believe to be useful in many cases.
 
 * Table of Contents
 {:toc}
 
 ## Background
-To way of background, a few years ago, I was asked to modelling the competitive rate ("taux concurrentiel", ou "taux servi moyen" in French) for life saving insurance products, given a historic of interest rates and their moving averages. The first step was to study the correlation of these rates and to figure out which of them are really useful for explaining the competitive rate. Principal Component Analysis (PCA) technique was chosen for the task, and I didn't want to implement the PCA from scratch with Excel and VBA. So, I turned to the FactoMineR package in R for help (of course). The rest of the project needed to be done in Excel.
+To way of background, a couple of years ago, I was asked to model the competitive rate ("taux concurrentiel", ou "taux servi moyen" in French) for life saving insurance products, given a historic of interest rates and their moving averages. The first step was to study the correlation of these rates and to figure out which of them are really useful for explaining the competitive rate. Principal Component Analysis (PCA) technique was chosen for the task, and I didn't want to implement the PCA from scratch with Excel and VBA. So, I turned to the FactoMineR package in R for help (of course). The rest of the project needed to be done in Excel.
 
 ## Main steps
 Here is the idea and the main steps:
+
 0) Some preliminary works need to be done in the main Excel file for input preparation.
+
 1) An input csv file is then built and saved (with VBA code) in the input folder.
+
 2) Then I use VBA to call R portable (just a lightweight version of R, you can use R instead) and run my R script which is in charge of the PCA analysis. for this step, you need to specify (in the Excel file) where to find R portable and your R script. We also supposed that the FactoMineR package has been installed.
+
 3) The output (some graphs built with R) will be saved in the output folder at the end of the R script run.
+
 4) Finally, the VBA code will copy all these graphs and paste them back into the main Excel file.
 
 
