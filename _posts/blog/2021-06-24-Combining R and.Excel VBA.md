@@ -9,7 +9,7 @@ image:
 
 comments: true
 share: true
-date: 2021-06-25T15:39:55-04:00
+date: 2021-06-24T15:39:55-04:00
 ---
 
 With many programming languages coexisting in modern day IT, each with their own pros and cons, more and more often we have to combine them in our projects. I once wrote a post about calling C++ from R. Today, I'd like to share a quick way to call R program from Excel (with a few lines of VBA code), what I believe to be useful in many cases.
