@@ -35,7 +35,11 @@ Here is the idea and the main steps:
 
 
 <center>
+<<<<<<< HEAD:_posts/blog/2021-06-24-r-excel-vba.md
 <a href="{{ site.url }}/images/r-excel.png"><img src="{{ site.url }}/images/r-excel.png" alt="image"></a>
+=======
+<a href="{{ site.url }}/images/r-excel.jpg"><img src="{{ site.url }}/images/r-excel.jpg" alt="image"></a>
+>>>>>>> parent of 4f18a7c... r excel update 2:_posts/blog/2021-06-25-Combining R and.Excel VBA.md
 </center>
 
 ## R script
