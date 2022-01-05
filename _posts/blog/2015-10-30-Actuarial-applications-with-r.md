@@ -12,11 +12,11 @@ share: true
 date: 2015-10-30T15:39:55-04:00
 ---
 
-At school, I'd done some simple projects with R, most of which were written in a dirty way (all in a same R script). Then I had a chance to work with R more seriously during my two last internships. I have learned R by reading R programs developed by experienced actuaries. Although they are not programmers, their programs are well-structured and much more readable and understandable than mine. A well-structured program (especially when dealing with a complex problem) helps us easily verify and debug our code and helps others (who have to audit or modify our code) understand it quickly and effortlessly. Here are some rules that I find very useful for deploying a program with R. I believe they are also true for almost other languages.
+At school, I have done some easy-to-do projects with R, most of which were written in a poorly way (all in a same R script). Then I had a chance to work with R more seriously during my two last internships. I have learned by reading R-programs developed by experienced actuaries. Although they are not programmers, their programs are well-structured and much more readable and understandable than mine. A well-structured program (especially when dealing with a complex problem) helps us easily check and debug our code and helps others (who have to audit or modify our code) understand it quickly and effortlessly. Here are some rules that I find very useful for implementing a program with R. I believe they are also true for almost other programming languages.
 
 ### #1: Moduling your program
 
-If your program is long and complex, instead of using one single R script, you should divide your program into separate modules whenever it is possible and store them in separate R scripts. For example, if you want to develop a pricing tool that proposes 2 different pricing methods, your program structure may look like this:
+If your program is long and complex, instead of using one single R script, you should divide your program into separate modules whenever it is possible and store them in separate R scripts. For example, if you want to develop a pricing tool that offers 2 different pricing methods, your program structure may look like this:
 
 ~~~
 input reading
@@ -49,9 +49,9 @@ else
 
 {% endhighlight %}
 
-This script is the main workflow where your program tells R what to do. To run your program, just execute the `main.R` script! Firstly, R will load 4 different scripts that only contain functions (that's why their names begin with `F-`).  While `F-simple_functions.R` stores some simple functions that will be used almost everywhere in your program, `F-claims_modeling.R"` is reserved to specific functions that will be called in `E-claims_modeling.R` and so one. Once all functions are loaded, R will call executive scripts whose name begins with `E-`, in a scenario that you have pre-determined in the main script.
+This script is the main workflow where your program tells R what to do. To run your program, just execute the `main.R` script! Firstly, R will load 4 different scripts that only contain functions (that's why their names begin with `F-`).  While `F-simple_functions.R` stores some simple functions that will be used almost everywhere in your program, `F-claims_modeling.R"` is for specific functions that will be called in `E-claims_modeling.R`. Once all functions are loaded, R will call executive scripts which names begin with `E-`, in a scenario that you have predefined in the main script.
 
-You can also replace each executive script by creating and calling a big function with parameters in order to make your R modules really independent (however, in my experience, it is sometimes complicate to do so). While structuring the program seems useless in this simplified example, it turns out to be very helpful when working with more than hundred lines of code per module.
+You can also replace each executive script by creating and calling a big function with parameters in order to make your R modules really independent from each other (however, it is sometimes complicated to do so, based on my personal experience). While structuring the program seems useless in this basic example, it turns out to be very helpful from the moment there are more than hundred lines of code per module.
 
 
 ### #2: Commenting code
