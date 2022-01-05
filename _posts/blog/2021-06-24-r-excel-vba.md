@@ -166,6 +166,6 @@ End Sub
 
 {% endhighlight %}
 
-You can take a look at the project skeleton [here](https://drive.google.com/drive/folders/1Ts0shFb2GtTiEd-DYb3CpqEwGKY-6N_P?usp=sharing){:target="_blank"}. (It supposes that the input csv file is already available in the input folder).
+You can take a look at the project skeleton [here](https://drive.google.com/drive/folders/1Ts0shFb2GtTiEd-DYb3CpqEwGKY-6N_P?usp=sharing){:target="_blank"}. (The input csv file is assumed to be already available in the input folder).
 
 Voilà!!!
